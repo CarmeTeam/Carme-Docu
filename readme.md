@@ -1,4 +1,5 @@
 # *Carme* Documentation
+Documentation for the [*Carme*](www.open-carme.org) project
 ![logo](DevelDoc/figures/carme-logo.png)
 
 ## NOTE: this documentation is still under construction! 
