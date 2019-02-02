@@ -1,5 +1,4 @@
 
-![logo](Images/carme-round.png)
 # *Carme* User Documentation 
 
 ## Overview
