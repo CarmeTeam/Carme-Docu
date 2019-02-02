@@ -1,6 +1,5 @@
 
-<img src="Images/carme-round.png" width="200"><br>
-<h1> <i>Carme</i> User Documentation <H1>
+# *Carme* User Documentation 
 
 ## Overview
 

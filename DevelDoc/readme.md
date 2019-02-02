@@ -1,4 +1,4 @@
-![logo](figures/carme-logo.png)
+
 # Carme Development Documentation
 All development documentation is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
