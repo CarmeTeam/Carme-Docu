@@ -3,11 +3,11 @@
 All development documentation is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ## Other Documents
-* [LICENSES.md](LICENCES.md) contains a list off all libraries and tools used by *Carme*
-* [LICENSE.md](LICENCE.md) *Carme* licence
+* [LICENSES.md](LICENSES.md) contains a list off all libraries and tools used by *Carme*
+* [LICENSE.md](LICENSE.md) *Carme* licence
 
 ## NOTE: Things to know about the *Carme* License
-The [Carme License](LICENCE.md) 
+The [Carme License](LICENSE.md) 
 
 ## Languages
 *Carme* is developed in the following languages:
