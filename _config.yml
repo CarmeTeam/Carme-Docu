@@ -1,6 +1,6 @@
 title: Carme Documentation
 logo: UserDoc/Images/carme-round.png
-description: Documentation for the [*Carme*](www.open-carme.org) project
+description: Documentation for the Carme project
 show_downloads: true
-google_analytics:
+google_analytics: true
 theme: jekyll-theme-minimal
