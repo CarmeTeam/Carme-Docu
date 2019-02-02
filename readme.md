@@ -1,5 +1,5 @@
 # *Carme* Documentation
-
+Documentation for the [*Carme*](www.open-carme.org) project
 ## NOTE: this documentation is still under construction! 
 
 The *Carme* documentation has three main parts:
