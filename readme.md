@@ -5,10 +5,10 @@
 
 The *Carme* documentation has three main parts:
 
-* [User Documentation](UserDoc/Carme_User_Documentation.ipynb)
+* [User Documentation](UserDoc/readme.md)
     * How to use *Carme*  
     * Example Code
 * [Admin Documentation](AdminDoc/README.md)
     * How to install and administrate *Carme*
-* [Development Documentation](DevelDoc/CarmeDevelopmentDocu.md)
+* [Development Documentation](DevelDoc/readme.md)
     * *Carme* internals and development guide 
