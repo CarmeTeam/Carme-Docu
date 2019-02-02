@@ -4,7 +4,7 @@
 
 * Have a look at the [Horovod Documentation](https://github.com/uber/horovod/tree/master/docs) and [examples](https://github.com/uber/horovod/tree/master/examples).
 * A working test is available at /home/CarmeScripts/tests/Horovod/
-* Horovod uses MPI to distribute the workload - see [MPI Howto](/home/DOKUMENTATION/UserDoc/HowTo_MPI.md)
+* Horovod uses MPI to distribute the workload - see [MPI Howto](/home/DOKUMENTATION/UserDoc/Multi_Node_Jobs/HowTo_MPI.md)
  * Start job with >=2 nodes
  * start jupyter terminal
  * use the ```carme_mpirun``` alias to start your programm
