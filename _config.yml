@@ -4,3 +4,6 @@ description: Documentation for the Carme project
 show_downloads: true
 google_analytics: true
 theme: jekyll-theme-minimal
+
+plugins:
+  - jekyll-sitemap
