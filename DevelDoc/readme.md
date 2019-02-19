@@ -136,6 +136,7 @@ See [Backend Documentation](BackendDocu.md) for details.
 
 ### Typical Setup
 Login and Headnode hardwaresetup.
+
 ![carme_topology](figures/Carme-Topology_Carme-Topology-V2.png)
 
 ## Central Config File
