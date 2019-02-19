@@ -3,9 +3,20 @@
 
 ## Overview
 ### What is *Carme* ?
+[***Carme***](www.open-carme.org) an open source frame work to mange resources for multiple users running interactive jobs (e.g. Jupyter notebooks) on a Cluster of (GPU) compute nodes.
 
-### NOTE
-This document is a generic *Carme* ducumentation. All images show the reference system at ITWM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
+### Key features for users
+* interactive GUI job on (GPU) clusters
+* multi-user resource management 
+* automatic data I/O
+* usage of pre-build software images for machnie learning and data science
+* creation and management of own images
+* running large multi-node multi-GPU jobs in an desktop-like environment (full abstraction of the underlying HPC stack)
+
+### NOTES
+* This document is a generic *Carme* ducumentation. All images show the reference system at ITWM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
+
+* *Carme* is under constant development, so is this documentation. Currently, this documentation refers to ***Carme r0.2***
 
 ### Basic Usage
 After logging into a *Carme* system, users will see the following basic home screen 
@@ -40,13 +51,13 @@ Additionally, the home screen shows a ***Carme-Tools*** section with links to:
 * Image management (restricted to some user groups)
 
 ### FAQs
-see [our currently updated list of FAQs](FAQ.md)
+see [List of FAQs](FAQ.md)
 
-## How To ...
-* [Use the *Jupyter* terminal](HowTo_Terminal.md)
-* [Use the *Carme* environment variables](HowTo_Variables_and_Bashrc.md)
-* [Use the *Carme* Python API](Carme_Python_API.md)
-* [Add new Python Paths](HowTo_Paths.md)
+### Entry Points
+see [Entry Point Doc](EntryPoints.md)
 
-### Multi-Node Jobs
+## Multi-Node Jobs
 see [Multi Node Doc](Multi_Node_Jobs/readme.md)
+
+## Creating and managing images
+- comming soon -
