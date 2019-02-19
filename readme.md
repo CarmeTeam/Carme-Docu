@@ -1,6 +1,7 @@
 # *Carme* Documentation
 Documentation for the [*Carme*](www.open-carme.org) project
 ## NOTE: this documentation is still under construction! 
+* *Carme* is under constant development, so is this documentation. Currently, this documentation refers to ***Carme r0.2***
 
 The *Carme* documentation has three main parts:
 

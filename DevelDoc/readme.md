@@ -7,7 +7,7 @@ All development documentation is written in [Markdown](https://github.com/adam-p
 * [LICENSE.md](LICENSE.md) *Carme* licence
 
 ## NOTE: Things to know about the *Carme* License
-The [Carme License](LICENSE.md) 
+Pealase review the [Carme License](LICENSE.md) carefully. *Carme* is an open source project, but the license comes with some restrictions on re-distribution. 
 
 ## Languages
 *Carme* is developed in the following languages:
@@ -36,12 +36,10 @@ No style defined yet -> ToDo
 No style defined yet -> ToDo
 
 ## Bug reports
-How to report a bug...
+Please report bugs via *github* issues. 
 
 ## Merge requests
-How to issue a merge request...
-
-* Core developers must agree on request
+Issue a merge request via *github*. 
 
 ## API Documentation
 
@@ -77,7 +75,7 @@ All files in Carme should contain on of the following headers:
 # FILENAME - SHORT DESCRIPTION                                                                                                                                                                     
 #                                                                                                                                                                                                            
 # see Carme development guide for documentation: 
-# * Carme/Carme-Doc/DevelDoc/CarmeDevelopmentDocu.md
+# * Carme/Carme-Doc/DevelDoc/readme.md
 # * PATHS TO FILE SPECIFIC DOCU                                                                                                                                                                        
 #
 # Copyright 2019 by Fraunhofer ITWM  
@@ -95,7 +93,7 @@ All files in Carme should contain on of the following headers:
 # FILENAME - SHORT DESCRIPTION                                                                                                                                                                     
 #                                                                                                                                                                                                            
 # see Carme development guide for documentation: 
-# * Carme/Carme-Doc/DevelDoc/CarmeDevelopmentDocu.md
+# * Carme/Carme-Doc/DevelDoc/readme.md
 # * PATHS TO FILE SPECIFIC DOCU                                                                                                                                                                        
 #
 # Copyright 2019 by Fraunhofer ITWM  
@@ -106,8 +104,8 @@ All files in Carme should contain on of the following headers:
 ```
 
 ## *Carme* Structure
-* add figures
-* explain frotend / backend
+Basic setup and communication paths between *Carme* services:
+![Carme_setup](figures/Carme-Security-Concept_Carme-Security-Concept.png)
 
 ### Frontend
 *Carme-Frontend* is a [Django](https://www.djangoproject.com/) based web-service. Core services include:
@@ -130,15 +128,19 @@ See [Fronend Documentation](FrontendDocu.md) for details.
 
 See [Backend Documentation](BackendDocu.md) for details.
 
+### Service-Daemon
+* ToDo
 
 ### Proxy
+* ToDo
 
 ### Typical Setup
-Login and Headnode config...
+Login and Headnode hardwaresetup.
 
+![carme_topology](figures/Carme-Topology_Carme-Topology-V2.png)
 
 ## Central Config File
-*Carme* has a single config file: ``CarmeConfig``. It is expected to be located at the carme root directory. See Admin documention for details.
+*Carme* has a single config file: ``CarmeConfig``. It is expected to be located at the carme root directory. See [Admin documention](../AdminDoc/readme.md) for details.
 
 ### Reading *CarmeConfig* from Python
 ```
@@ -152,3 +154,14 @@ all variables will be available directly. **NOTE:** The Django based *Carme* Fro
 ```
 source ../../CarmeConfig #use relative path to carme root dir
 ```
+## Plugins and Extensions
+There are multiple hooks to extend *Carme* with plugins and modules.
+![carme_hooks](figures/carme_modules.png)
+
+### Hoks
+* Frontend
+    * Django apps 
+* Inside Container
+    * Entry Points
+    * Python modules
+    * Bash scripts
