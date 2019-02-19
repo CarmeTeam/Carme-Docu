@@ -2,7 +2,6 @@
 # *Carme* User FAQ
 * [Use the *Jupyter* terminal](HowTo_Terminal.md)
 * [Use the *Carme* environment variables](HowTo_Variables_and_Bashrc.md)
-* [Use the *Carme* Python API](Carme_Python_API.md)
 * [Add new Python Paths](HowTo_Paths.md)
 * [What are the job timeouts?](#job-timeouts)
 * [How to upload data?](#data-upload)
