@@ -16,8 +16,6 @@
 ### NOTES
 * This document is a generic *Carme* ducumentation. All images show the reference system at ITWM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
 
-* *Carme* is under constant development, so is this documentation. Currently, this documentation refers to ***Carme r0.2***
-
 ### Basic Usage
 After logging into a *Carme* system, users will see the following basic home screen 
 ![home_screen](Images/home_screen.png)
