@@ -60,8 +60,20 @@ see [Entry Point Doc](EntryPoints.md)
 see [Multi Node Doc](Multi_Node_Jobs/readme.md)
 
 ## *Carme* APIs
-* [Python API](PythonAPI.md)
-* [Bash Scripts](BashAPI.md)
+### Python API
+*Carme* provides a python library, which allows users to directly interact with the *Carme* system. To use it, simply
+
+```
+import carme
+
+...
+
+```
+
+See the [auto generated API documentation](PythonAPI.md) for details. 
+
+### Bash Scripts
+* see [Bash Scripts](BashAPI.md)
 
 ## Creating and managing images
 - comming soon -
