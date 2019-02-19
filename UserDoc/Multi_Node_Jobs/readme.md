@@ -6,6 +6,6 @@ Currently we support the [Horovod](HowTo_Horovod.md) framework over [MPI](HowTo_
 Userers can also 
 * use [DASK](HowTo_DASK.md) to write distributed python applications
 * write plain [MPI](HowTo_MPI.md) applications
-* and [SSH](HowTo_SH.md) between nodes of a job
+* and [SSH](HowTo_SSH.md) between nodes of a job
 * GPI is comming soon
 * GPI-Space is comming soon
