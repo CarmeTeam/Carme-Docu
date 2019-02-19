@@ -1,5 +1,5 @@
 
-# Running MPI programms within multinode jobs 
+# Running MPI programs within multi-node jobs 
 
 MPI programs can be run interactively within a running *Carme* job.
 

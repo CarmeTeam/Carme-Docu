@@ -10,9 +10,9 @@ carme.addCarmePythonPath('/home/USER/my_project')
 ```
 ### NOTES:
 
-* this adds your path TEMPORARILY to the anaconda search path (setting is gone in new jobs
+* this adds your path TEMPORARILY to the anaconda search path (setting is gone in new jobs)
 * this is a global opp - only need to do this once per job and will work for all new python calls
-* in order to work within a notebook, this resets the running kernel (via jupyter menue or ``carme.restartKernel()``-> should be the first call in a notebook
+* in order to work within a notebook, this resets the running kernel (via *Jupyter* menu or ``carme.restartKernel()``-> should be the first call in a notebook
 
 ## Globally at job start
 Just add a
@@ -21,4 +21,4 @@ carme_add_python_path /home/USER/my_project
 ```
 to your ``/home/USER/.bash_aliases``.
 
-* now, this setting is permanent.
+Now, this setting is permanent.

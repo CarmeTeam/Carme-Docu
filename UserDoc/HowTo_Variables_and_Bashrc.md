@@ -3,10 +3,10 @@
 
 
 ## .bashrc
-**WARNIG** the *.bashrc* in user homes is overwitten with a centralized *Carme* default at avery job start.
+**WARNIG** the ***.bashrc*** in user homes is overwritten with a centralized *Carme* default at every job start.
 
-* Use *.bash_aliases* in your home to add own additions to *.bashrc*
-* *Carme* ENVs are defined in *.bash_carme*
+* Use ***.bash_aliases*** in your home to add own additions to *.bashrc*
+* System generated *Carme* ENVs are defined in *.bash_carme*
 
 ## *Carme* Environment variables
 *Carme* defines several ENVs for each job:
@@ -20,7 +20,7 @@
 |CARME_NUM_NODES| # nodes |
 |CARME_TENSORBOARD_HOME| input path used tensorboard |
 |CARME_MASTER| name master node |
-|CARME_ACCOUNT_CLASS| user caaount details |
+|CARME_ACCOUNT_CLASS| user account details |
 |CARME_QUEUE| slurm partition used|
 |CARME_JOB_NAME| job name |
 |CARME_JOBID| jon ID |
@@ -28,5 +28,3 @@
 |CARME_NODES| node names |
 |CARME_TMP| tmp folder (used by MPI)|
 
-### Python API to *Carme* ENVs
-- To Do -
