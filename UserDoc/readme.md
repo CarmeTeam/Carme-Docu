@@ -59,5 +59,9 @@ see [Entry Point Doc](EntryPoints.md)
 ## Multi-Node Jobs
 see [Multi Node Doc](Multi_Node_Jobs/readme.md)
 
+## *Carme* APIs
+* [Python API](PythonAPI.md)
+* [Bash Scripts](BashAPI.md)
+
 ## Creating and managing images
 - comming soon -
