@@ -71,7 +71,5 @@ The *Carme* Frontend Server is build on the [Django](https://www.djangoproject.c
 ```
 
 ## Key Components
+The main functionality of the *Carme* frontend is implemented in the ***carme-base*** app,
 
-### views.py
-
-### medel.py
