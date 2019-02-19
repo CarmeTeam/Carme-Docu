@@ -48,10 +48,12 @@ sendNotification(text)
 ```
 send a Mattermost message
 
-#Attributes
-    text: message text
+__Arguments__
 
-#Comment
+- __text__: message text
+
+__Comments__
+
     can be used to post job status and other information
 
 ## addCarmePythonPath
@@ -60,11 +62,13 @@ addCarmePythonPath(path, message=True)
 ```
 add a local path to ancaonda search path
 
-#Attributes
-    path: path to module
-    message: bool
+__Arguments__
 
-#Comment
+- __path__: path to module
+- __message__: bool
+
+__Comments__
+
     allows import of own modules anywhere in Carme
 
 ## resetKernel
