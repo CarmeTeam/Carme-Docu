@@ -19,12 +19,8 @@ Hence, jobs time about after **60 - 120 min** inactivity.
 User data uploads into *Carme* are restricted. But there are several ways to upload your data:
 
 * Use the *Jupyter* web interface (max file size: 15MB)
-<br>
-<br>
 ![upload](Images/carme_upload.png)
-<br>
-<br>
+* a new upload app will come soon
 * Use *scp* from a terminal to copy external data (this option is restricted to privileged users)
-
 * For larger data sets we advise to ask your local *Carme* administrator
 
