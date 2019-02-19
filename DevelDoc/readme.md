@@ -104,8 +104,8 @@ All files in Carme should contain on of the following headers:
 ```
 
 ## *Carme* Structure
-* add figures
-* explain frotend / backend
+Basic setup and communication paths between *Carme* services:
+![Carme_setup](figures/Carme-Security-Concept_Carme-Security-Concept.png)
 
 ### Frontend
 *Carme-Frontend* is a [Django](https://www.djangoproject.com/) based web-service. Core services include:
@@ -135,7 +135,8 @@ See [Backend Documentation](BackendDocu.md) for details.
 * ToDo
 
 ### Typical Setup
-Login and Headnode config...
+Login and Headnode hardwaresetup.
+![carme_topology](figures/Carme-Topology_Carme-Topology-V2.png)
 
 ## Central Config File
 *Carme* has a single config file: ``CarmeConfig``. It is expected to be located at the carme root directory. See [Admin documention](../AdminDoc/readme.md) for details.
@@ -154,7 +155,7 @@ source ../../CarmeConfig #use relative path to carme root dir
 ```
 ## Plugins and Extensions
 There are multiple hooks to extend *Carme* with plugins and modules.
-
+![carme_hooks](figures/carme_modules.png)
 
 ### Hoks
 * Frontend
