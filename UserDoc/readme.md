@@ -5,7 +5,7 @@
 ### What is *Carme* ?
 
 ### NOTE
-This document is a generic *Carme* ducumentation. All images show the reference system at IWTM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
+This document is a generic *Carme* ducumentation. All images show the reference system at ITWM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
 
 ### Basic Usage
 After logging into a *Carme* system, users will see the following basic home screen 
@@ -25,10 +25,19 @@ After logging into a *Carme* system, users will see the following basic home scr
     * NOTE: depending on the availibilit of ressources and user profile quotas, jobs might not start right away 
 11. **Entry Points**: list services running in the job image, click to start
 12. **Job Infos**: system Information on a running job
-   * GPU / CPU / Memory assigned to job
-   * GPU usage graph
-   * GPU mem usage graph
+    * GPU / CPU / Memory assigned to job
+    * GPU usage graph
+    * GPU mem usage graph
 13. **Stop Job**: manual termination of the job
+
+![tools](Images/carme-tools.png)
+Additionally, the home screen shows a ***Carme-Tools*** section with links to:
+* This documentation
+* The *Carme* group communication tool
+* The local Wiki
+* User Password management
+* User job history
+* Image management (restricted to some user groups)
 
 ### FAQs
 see [our currently updated list of FAQs](FAQ.md)
