@@ -10,5 +10,4 @@ Using the *carme_ssh* command, users can directly *ssh* from the master node int
 ## Example
 *carme_ssh node_name* 
 
-### Nodes in a running job
-``echo $CARME_NODES``
+
