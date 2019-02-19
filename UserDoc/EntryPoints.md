@@ -1,6 +1,6 @@
 # *Carme* Entry Points
-In *Carme*, so called *Entry Points* define webservices which are running inside a user container. 
-By design, an *Entry Point* could be any service that comminicates via ``https`` to the outside. 
+In *Carme*, so called *Entry Points* define web-services which are running inside a user container. 
+By design, an *Entry Point* could be any service that communicates via ``https`` to the outside. 
 * Advanced users and administrators can add new services inside containers and register them within *Carme*
 * Hence, different images might provide different Entry Points
 

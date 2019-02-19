@@ -57,7 +57,7 @@ You can delete such a temporarily visible folder with carme_tensorboard_unvisual
 ### carme_tensorboard_unvisualize()
 ```
 With carme_tensorboard_unvisualize you can remove results so that they are no longer
-visible within tensorboard in your runinng job.
+visible within tensorboard in your running job.
 
 USAGE:
 e.g. carme_tensorboard_unvisualize tensorboard/tensorboard_JOBID/my-results

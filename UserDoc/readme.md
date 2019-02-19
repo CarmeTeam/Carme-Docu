@@ -24,7 +24,7 @@ After logging into a *Carme* system, users will see the following basic home scr
 1. **Status bar**: shows user details and session time-out
 2. **Log out**
 3. **System News**: maintenance and feature announcements 
-4. **Cluster utilization**: graph showing the current and past availibility of ressources 
+4. **Cluster utilization**: graph showing the current and past availability of resources 
 5. **Messages**: *Carme* status messages (e.g. starting/stopping jobs)
 6. **Start new job**: select (selection is restricted by user profile)
     * num of nodes 
@@ -33,7 +33,7 @@ After logging into a *Carme* system, users will see the following basic home scr
 8. **Job name** (optional)
 9. **Start job** button
 10. **Running jobs**: list of queued and running jobs
-    * NOTE: depending on the availibilit of ressources and user profile quotas, jobs might not start right away 
+    * NOTE: depending on the availability of resources and user profile quotas, jobs might not start right away 
 11. **Entry Points**: list services running in the job image, click to start
 12. **Job Infos**: system Information on a running job
     * GPU / CPU / Memory assigned to job
@@ -76,4 +76,4 @@ See the [auto generated API documentation](PythonAPI.md) for details.
 * see [Bash Scripts](BashAPI.md)
 
 ## Creating and managing images
-- comming soon -
+- coming soon -

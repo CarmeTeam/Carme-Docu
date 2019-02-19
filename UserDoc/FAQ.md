@@ -1,5 +1,5 @@
 
-# Carme User FAQ
+# *Carme* User FAQ
 * [Use the *Jupyter* terminal](HowTo_Terminal.md)
 * [Use the *Carme* environment variables](HowTo_Variables_and_Bashrc.md)
 * [Use the *Carme* Python API](Carme_Python_API.md)
@@ -9,8 +9,8 @@
 
 ## Job timeouts 
 
-* the default setting is, that jupyter will stop inactive kernels after **60 minutes**
-* carme will stop the job if there are no active within **60 minutes**
+* the default setting is, that *Jupyter* will stop inactive kernels after **60 minutes**
+* *Carme* will stop the job if there are no active within **60 minutes**
 
 Hence, jobs time about after **60 - 120 min** inactivity.
 
