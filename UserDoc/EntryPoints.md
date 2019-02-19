@@ -9,7 +9,7 @@ By default, the *Carme* base-image provides the following *Entry Points*
 
 * [Shell](#shell)
 * [Jupyter Lab](#jupyter-lab) 
-* [TensorBoard](#tensorboard)
+* [TensorBoard](#tensor-board)
 * [Theia IDE](#theia)
 * [DASK Monitor](#dask) (multi-node jobs only)
 
@@ -31,7 +31,7 @@ The *Carme* web-shell allows console access to the master node of a running job.
 ## Tensor Board
 * TODO
 
-## Thiea
+## Theia
 ![tb](Images/entry-theia.png)
 [Theia](https://www.theia-ide.org/) is an emerging web-IDE with many great development features, including GIT support.
 
