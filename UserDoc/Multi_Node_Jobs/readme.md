@@ -9,3 +9,8 @@ Userers can also
 * and [SSH](HowTo_SSH.md) between nodes of a job
 * GPI is comming soon
 * GPI-Space is comming soon
+
+### How to get the nodes of a running job
+``echo $CARME_NODES``
+
+see also *Carme* [ENVs](../HowTo_Variables_and_Bashrc.md)
