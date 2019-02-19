@@ -18,9 +18,17 @@ After logging into a *Carme* system, users will see the following basic home scr
 6. **Start new job**: select (selection is restricted by user profile)
     * num of nodes 
     * num of GPUs per node
-    * job image
-    * job name (optional)
-
+7. **Job image** selection
+8. **Job name** (optional)
+9. **Start job** button
+10. **Running jobs**: list of queued and running jobs
+    * NOTE: depending on the availibilit of ressources and user profile quotas, jobs might not start right away 
+11. **Entry Points**: list services running in the job image, click to start
+12. **Job Infos**: system Information on a running job
+   * GPU / CPU / Memory assigned to job
+   * GPU usage graph
+   * GPU mem usage graph
+13. **Stop Job**: manual termination of the job
 
 ### FAQs
 see [our currently updated list of FAQs](FAQ.md)
