@@ -3,9 +3,7 @@
 Within this documentation we will provide information about how this various scripts we have work and you you can use them.
 
 Each folder
- * [InsideContainer](carme-scripts-insidecontainer-docu/README.md)
  * [beegfs](carme-scripts-beegfs-docu/README.md)
- * [frontend](carme-scripts-frontend-docu/README.md)
  * [ldap](carme-scripts-ldap-docu/README.md)
  * [maintenance](carme-scripts-maintenance-docu/README.md)
  * [mattermost](carme-scripts-mattermost-docu/README.md)
