@@ -9,8 +9,8 @@ Each folder
  * [mattermost](carme-scripts-mattermost-docu/README.md)
  * [node-exec](carme-scripts-node-exec-docu/README.md)
  * [slurm](carme-scripts-slurm-docu/README.md)
- * [systemd](carme-scripts-systemd-docu/README.md)
- * [tests](carme-scripts-tests-docu/README.md)
+ * systemd -> ToDo
+ * tests -> ToDo
 
 contains a global README and additionally a README for each script.
 
