@@ -1,6 +1,10 @@
 # Carme-Scripts Documentation
 
-Within this documentation we will provide information about how this various scripts we have work and you you can use them.
+The admin shell scripts are located in 
+```
+PATH_TO_CARME/Carme-Scripts/
+```
+and are organized by topics in several foldes:
 
 Each folder
  * [beegfs](carme-scripts-beegfs-docu/README.md)
