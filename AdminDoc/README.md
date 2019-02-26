@@ -2,7 +2,7 @@
 
 This is the documentation for all everything that is needed to run and maintain carme.
 
-* Installation Gude
+* Installation Guide
 * Frontend Admin Tools
    * [*Carme* Admin Console](admin-console.md)
    * [*Carme* Admin Tools](admin-tools.md)
