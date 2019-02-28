@@ -1,15 +1,16 @@
+# Install NOTES
+* WARNING: The *Carme* install process is still in an ***alpha*** stage. We are working hard on a integrated install process for heterogenious HPC setups. As of now, *Carme* installation has only been tested on a few systems which where all ***DEBIAN*** based.
+
+* NOTE: please feel free to open issues if the current documentation is not complete ...
+
 # Install Components needed by Carme
 In order to run and use Carme you have to install and configure some components. In each of the folder you find either scripts that do most of the basic installations for you and READMEs that provide instructions and/or additional information.
 
 Before you continue make sure that the entire **Carme** repository is located in /opt of your headnode and that it is mounted on all nodes within your cluster. Additionally, put _/opt/Carme/Carme-Frontend_ on the loginnode, where you want to run the carme-webfrontend on.
 
 ## First Step
-Before you run any of the scripts, make sure that you edited **CarmeConfig** according to your needs. This is essential as each script here (and later in productive mode) depents on **CarmeConfig**.
-In order to create **CarmeConfig** you can use either the script _carme-create-carmeconfig.sh_ with
-```console
-# bash carme-create-carmeconfig.sh
-```
-or edit the file manually. For the manually procedure have to do the following steps. First you should copy the CarmeConfig_blanco to a new CarmeConfig
+Before you run any of the scripts, make sure that you edited **CarmeConfig** (see [CarmeConfig Docs](../CarmeConfig.md) according to your needs. This is essential as each script here (and later in productive mode) depents on **CarmeConfig**.
+In order to create **CarmeConfig** you can copy the CarmeConfig_blanco to a new CarmeConfig
 ```console
 # cp /opt/Carme/CarmeConfig_blanco /opt/Carme/CarmeConfig
 ```
