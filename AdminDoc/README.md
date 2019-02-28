@@ -3,8 +3,8 @@
 This is the documentation for all everything that is needed to run and maintain carme.
 
 ## Installation Guide
-See xxx
-
+See [Carme Install Docs](Carme-Install/README.md
+)
 ## Configuration
 *Carme* has a central configuration file, located at
 ```
