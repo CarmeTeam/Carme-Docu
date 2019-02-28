@@ -21,7 +21,7 @@ Then you edit CarmeConfig using e.g. vim
 Note that inside the file are example (and or default) values for each variable that is defined in CarmeConfig.
 After everything is configured you should make the file only accessible to root
 ```console
-chmod 600 /opt/Carme/CarmeConfig
+# chmod 600 /opt/Carme/CarmeConfig
 ```
 
 ## Second Step
