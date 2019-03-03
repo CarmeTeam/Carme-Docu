@@ -138,7 +138,7 @@ For testing, start the backend-server on the head-node like this:
 ```
 depending on the debug level set in CarmeConfig, the backend server will produce additional log output on all connections.
 
-Running the backend permanently, one should add it to the system init:
+Running the backend permanently, one should add it to the system init: e.g. ``/etc/systemd/system/carme-backend.service``
 ```
 [Unit]                                                                                                                                                                                               
 Description=CarmeBackeind                                                                                                                                                                                          
@@ -158,6 +158,45 @@ WantedBy=multi-user.target
 ```
 
 ### Frontend
+
+#### migrating the data base
+After every update of *Carme*, we need to migrate the SQL datases: in ``/opt/Carme/Carme-Frontend/webfrontend`` do:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+This should run through without error messages, populating the MySQL DB.
+
+### migrating static files
+```
+python manage.py collectstatic
+```
+
+### setting up Apache2
+Add an new file to ``/etc/apache2/sites-available/``
+```
+<VirtualHost *:PORT>                                                                                                                                                                                               
+ ServerName EXTERNAL_URL                                                                                                                                                                         
+ DocumentRoot /opt/Carme/Carme-Frontend/webfrontend/                                                                                                                                                               
+ WSGIScriptAlias / /opt/Carme/Carme-Frontend/webfrontend/webfrontend/wsgi.py                                                                                                                                       
+                                                                                                                                                                                                                   
+ # adjust the following line to match your Python path                                                                                                                                                             
+ WSGIDaemonProcess EXTERNAL_URL processes=2 threads=15 display-name=%{GROUP}                                                                                                                     
+ WSGIProcessGroup EXTERNAL_URL                                                                                                                                                                   
+                                                                                                                                                                                                                   
+ <directory /opt/Carme/Carme-Frontend/webfrontend/>                                                                                                                                                                
+   AllowOverride all                                                                                                                                                                                               
+   Require all granted                                                                                                                                                                                             
+   Options FollowSymlinks                                                                                                                                                                                          
+ </directory>                                                                                                                                                                                                      
+                                                                                                                                                                                                                   
+ Alias /static/ /opt/Carme/Carme-Frontend/static/                                                                                                                                                                  
+                                                                                                                                                                                                                   
+ <Directory /opt/Carme/Carme-Frontend/static/>                                                                                                                                                                     
+  Require all granted                                                                                                                                                                                              
+ </Directory>                                                                                                                                                                                                      
+</VirtualHost>                        
+```
 
 ### Last Steps
 Carme should be working now. The next steps to start working on the cluster are:
