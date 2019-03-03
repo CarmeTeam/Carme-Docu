@@ -15,6 +15,7 @@ In order to install *Carme*, you should have the following basic setup:
 * Parallel File System (connecting workers and head-node) -> we recommend our [BeeGFS](https://www.beegfs.io/content/)
 * An **MySQL** DB-Server some in your system (reachable from login and head)
 * **Apache2** Webserver running on login
+* **Python3** environment on login and headnode (we recomend to use [anaconda](https://www.anaconda.com/distribution/)
 
 ### Using existing HPC Setups
 If you are already running an HPC system with a parallel FS and ***Slurm***, you can simply add *Carme* on top of this setup. We recomend to create new *Slurm* partitions for *Carme*.
@@ -120,10 +121,41 @@ openssl req -new -x509 -days 3650 -key backend.key -out backend.crt
 **NOTE**: backend key and cert should be place in ``/opt/Carme/Carme-Backend/SSL/ `` and **only be readable by root**
  
 #### create frontend key and cert
-``createUserCert.sh frontend ``
+```./createUserCert.sh frontend ```
 **NOTE**: frontend key and cert should be place in ``/opt/Carme/Carme-Frontend/webfrontend/SSL/ `` and **only be readable by the webserver user (e.g. _www-data_)**
 
+#### create user certs
+run 
+```
+./createAndDeployUserCarts.sh USERNAME
+```
+for all useres in *Carme* 
+
 ### Backend
+For testing, start the backend-server on the head-node like this:
+```
+/usr/bin/python3 /opt/development/backend/Python/carme_backend.py
+```
+depending on the debug level set in CarmeConfig, the backend server will produce additional log output on all connections.
+
+Running the backend permanently, one should add it to the system init:
+```
+[Unit]                                                                                                                                                                                               
+Description=CarmeBackeind                                                                                                                                                                                          
+Wants=network-online.target                                                                                                                                                                                        
+After=network-online.target                                                                                                                                                                                        
+                                                                                                                                                                                                                   
+[Service]                                                                                                                                                                                                          
+Type=simple                                                                                                                                                                                                        
+ExecStart=/usr/bin/python3 /opt/Carme/Carme-Backend/Python/carme_backend.py                                                                                                                                        
+                                                                                                                                                                                                          
+Restart=on-failure                                                                                                                                                                                                 
+RestartSec=1                                                                                                                                                                                                       
+StartLimitAction=non                                                                                                                                                                                               
+                                                                                                                                                                                                                   
+[Install]                                                                                                                                                                                                          
+WantedBy=multi-user.target  
+```
 
 ### Frontend
 
