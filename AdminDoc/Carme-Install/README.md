@@ -3,12 +3,33 @@
 
 * NOTE: please feel free to open issues if the current documentation is not complete ...
 
-# Install Components needed by Carme
+### System requirements
+In order to install *Carme*, you should have the following basic setup:
+#### Hardware
+* **Login Node** - simple CPU machine that is connected to where ever your users are comming from. This will run the web-frontend.
+* **Head Node** - simple CPU machine, connected to the internals of your HPC system (FS, Batch System)
+* Several **Compute Nodes** - powerfull (multi)-GPU machines
+* Fast interconnects between head and compute nodes
+
+#### Software
+* Parallel File System (connecting workers and head-node) -> we recommend our [BeeGFS](https://www.beegfs.io/content/)
+* An **MySQL** DB-Server some in your system (reachable from login and head)
+
+### Using existing HPC Setups
+If you are already running an HPC system with a parallel FS and ***Slurm***, you can simply add *Carme* on top of this setup. We recomend to create new *Slurm* partitions for *Carme*.
+
+### Things *Carme* can't do (yet)
+* **heterogeneous compute nodes**: currently, *Carme* assumes that all nodes have an identical hardware setup. This will be fixed in upcoming releases.
+* *Carme* currently only supports the ***Slurm*** batch system.
+* Running *Carme* in **non Debian** Linux is possible, but not tested very well. Most install scripts will fail...
+
+
+## Install Components needed by Carme
 In order to run and use Carme you have to install and configure some components. In each of the folder you find either scripts that do most of the basic installations for you and READMEs that provide instructions and/or additional information.
 
 Before you continue make sure that the entire **Carme** repository is located in /opt of your headnode and that it is mounted on all nodes within your cluster. Additionally, put _/opt/Carme/Carme-Frontend_ on the loginnode, where you want to run the carme-webfrontend on.
 
-## First Step
+### First Step
 Before you run any of the scripts, make sure that you edited **CarmeConfig** (see [CarmeConfig Docs](../CarmeConfig.md) according to your needs. This is essential as each script here (and later in productive mode) depents on **CarmeConfig**.
 In order to create **CarmeConfig** you can copy the CarmeConfig_blanco to a new CarmeConfig
 ```console
@@ -24,7 +45,7 @@ After everything is configured you should make the file only accessible to root
 # chmod 600 /opt/Carme/CarmeConfig
 ```
 
-## Second Step
+### Second Step
 The next steps depend on your needs. If you start from scratch you find here scripts an additional information to install
 
 * [LDAP](Carme-Install-LDAP) (user authentication)
@@ -35,10 +56,10 @@ The next steps depend on your needs. If you start from scratch you find here scr
 
 For LDAP, SLURM and Singularity we provide scripts that do the basic installation and configuration for you, so that get a good starting point. For Zabbix and Mattermost we recommend to follow their installation and configuration instructions (links can be found in the respective folders).
 
-## Third Step
+### Third Step
 There are a few scripts that should be added to your **crontab**. For more information have a look at the respective documentaion.
 
-### headnode
+#### headnode
 * getZabbixGraphs.sh
 ```bash
 * * * * * root /bin/bash /opt/Carme/Carme-Scripts/frontend/getZabbixGraphs.sh
@@ -52,7 +73,7 @@ There are a few scripts that should be added to your **crontab**. For more infor
 30 23 * * 6 root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-backup-home-and-mattermost.sh
 ```
 
-### compute nodes
+#### compute nodes
 * carme-find-ghost-jobs-notify.sh (see documentation)
 ```bash
 */5 * * * * root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-find-ghost-jobs-notify.sh
@@ -63,14 +84,14 @@ There are a few scripts that should be added to your **crontab**. For more infor
 ```
 
 
-### What you should have
+#### What you should have
 In order to proceed we assume that the following software is already installed:
 
 * an empty mysql database
 * a parallel or distributed file system (e.g. [BeeGFS](https://www.beegfs.io)). Alternatively, a /home and /opt that is mounted on all nodes.
 
 
-### Start with the installation
+#### Start with the installation
 Now, you can continue to install the various components of Carme. The recommended order is:
 
 * LDAP
@@ -82,7 +103,7 @@ Now, you can continue to install the various components of Carme. The recommende
 Installation instructions are given in each folder.
 
 
-## Last Step Here
+### Last Step Here
 Carme should be working now. The next steps to start working on the cluster are:
 
 * Add admin and users to LDAP (scripts for that can be found in _/opt/Carme/Carme-Scripts/ldap_) and to SLURM (scripts for that can be found in _/opt/Carme/Carme-Scripts/slurm_).
