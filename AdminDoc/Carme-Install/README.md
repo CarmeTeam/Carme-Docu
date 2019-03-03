@@ -1,7 +1,7 @@
 # Install NOTES
-* WARNING: The *Carme* install process is still in an ***alpha*** stage. We are working hard on a integrated install process for heterogenious HPC setups. As of now, *Carme* installation has only been tested on a few systems which where all ***DEBIAN*** based.
+* **WARNING**: The *Carme* install process is still in an ***alpha*** stage. We are working hard on a integrated install process for heterogenious HPC setups. As of now, *Carme* installation has only been tested on a few systems which where all ***DEBIAN*** based.
 
-* NOTE: please feel free to open issues if the current documentation is not complete ...
+* **NOTE**: please feel free to open issues if the current documentation is not complete ...
 
 ### System requirements
 In order to install *Carme*, you should have the following basic setup:
@@ -14,6 +14,7 @@ In order to install *Carme*, you should have the following basic setup:
 #### Software
 * Parallel File System (connecting workers and head-node) -> we recommend our [BeeGFS](https://www.beegfs.io/content/)
 * An **MySQL** DB-Server some in your system (reachable from login and head)
+* **Apache2** Webserver running on login
 
 ### Using existing HPC Setups
 If you are already running an HPC system with a parallel FS and ***Slurm***, you can simply add *Carme* on top of this setup. We recomend to create new *Slurm* partitions for *Carme*.
@@ -27,7 +28,11 @@ If you are already running an HPC system with a parallel FS and ***Slurm***, you
 ## Install Components needed by Carme
 In order to run and use Carme you have to install and configure some components. In each of the folder you find either scripts that do most of the basic installations for you and READMEs that provide instructions and/or additional information.
 
-Before you continue make sure that the entire **Carme** repository is located in /opt of your headnode and that it is mounted on all nodes within your cluster. Additionally, put _/opt/Carme/Carme-Frontend_ on the loginnode, where you want to run the carme-webfrontend on.
+Before you continue make sure that the entire **Carme** repository is located in **/opt** of your headnode and that it is mounted on all nodes within your cluster. 
+
+`` git clone https://github.com/CarmeTeam/Carme.git ``
+
+Additionally, put **_/opt/Carme/Carme-Frontend_** on the loginnode, where you want to run the carme-webfrontend on.
 
 ### First Step
 Before you run any of the scripts, make sure that you edited **CarmeConfig** (see [CarmeConfig Docs](../CarmeConfig.md) according to your needs. This is essential as each script here (and later in productive mode) depents on **CarmeConfig**.
@@ -102,8 +107,27 @@ Now, you can continue to install the various components of Carme. The recommende
 
 Installation instructions are given in each folder.
 
+## Configure and Start *Came*
 
-### Last Step Here
+### Generate SSL Certs
+*Carme* is using SSL certs to autheticate and encrypt communication between the jobs, the frontend and the backend. Scripts to generate these certs an keys are located in ``/opt/Carme/Carme-Backend/SSL/ ``
+
+#### create backend key and cert
+```
+openssl genrsa  -out backend.key 4096
+openssl req -new -x509 -days 3650 -key backend.key -out backend.crt
+```
+**NOTE**: backend key and cert should be place in ``/opt/Carme/Carme-Backend/SSL/ `` and **only be readable by root**
+ 
+#### create frontend key and cert
+``createUserCert.sh frontend ``
+**NOTE**: frontend key and cert should be place in ``/opt/Carme/Carme-Frontend/webfrontend/SSL/ `` and **only be readable by the webserver user (e.g. _www-data_)**
+
+### Backend
+
+### Frontend
+
+### Last Steps
 Carme should be working now. The next steps to start working on the cluster are:
 
 * Add admin and users to LDAP (scripts for that can be found in _/opt/Carme/Carme-Scripts/ldap_) and to SLURM (scripts for that can be found in _/opt/Carme/Carme-Scripts/slurm_).
