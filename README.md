@@ -6,13 +6,13 @@ This is the documentation for the [*Carme*](www.open-carme.org) project an open 
 
 ## Documentation Parts
 
-* [**User** Documentation](../UserDoc/readme.md)
+* [**User** Documentation](UserDoc/readme.md)
     * How to use *Carme*
     * Example Code
-* [**Admin** Documentation](../AdminDoc/README.md)
+* [**Admin** Documentation](AdminDoc/README.md)
     * Installation Instructions
     * How to administrate *Carme*
-* [**Development** Documentation](../DevelDoc/readme.md)
+* [**Development** Documentation](DevelDoc/readme.md)
     * *Carme* internals
     * Development Guide 
 
