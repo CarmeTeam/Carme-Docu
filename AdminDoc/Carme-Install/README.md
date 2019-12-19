@@ -153,14 +153,31 @@ Next we have to create a key and cert for the frontend. Note that you have to ad
 ```console
 # cd /opt/Carme/Carme-Backend/SSL/
 # openssl genrsa -out frontend.key 4096
-# openssl req -new -key frontend.key -out frontend.csr -days 3652 -subj "/C=CARME_SSL_C/ST=CARME_SSL_ST/L=CARME_SSL_L/O=CARME_SSL_O/OU=CARME_SSL_OU/CN=CLUSTER_USER/emailAddress=frontend@CARME_SSL_EMAIL_BASE" -passin pass:""
+# openssl req -new -key frontend.key -out frontend.csr -subj "/C=CARME_SSL_C/ST=CARME_SSL_ST/L=CARME_SSL_L/O=CARME_SSL_O/OU=CARME_SSL_OU/CN=CLUSTER_USER/emailAddress=frontend@CARME_SSL_EMAIL_BASE" -passin pass:""
 # openssl x509 -req -days 3652 -in frontend.csr -CA backend.crt -CAkey backend.key -set_serial 01 -out frontend.crt
 # rm frontend.csr
 # chown www-data:www-data frontend.key
 # chown www-data:www-data frontend.crt
 # mkdir -p /opt/Carme/Carme-Frontend/Carme-Django/webfrontend/SSL
 # mv frontend.key /opt/Carme/Carme-Frontend/Carme-Django/webfrontend/SSL/frontend.key
-# mv frontend.crt /opt/Carme/Carme-Frontend/Carme-Django/webfrontend/SSL/frontend.key
+# mv frontend.crt /opt/Carme/Carme-Frontend/Carme-Django/webfrontend/SSL/frontend.crt
+```
+
+##### create slurmctld key and cert
+Next we have to create a key and cert for the callbacks of the slurmctld. Note that you have to adjust the following commands according to the values you have defined in the CarmeConfig!
+
+```console
+# cd /opt/Carme/Carme-Backend/SSL/
+# openssl genrsa -out slurmctld.key 4096
+# openssl req -new -key slurmctld.key -out slurmctld.csr -subj "/C=CARME_SSL_C/ST=CARME_SSL_ST/L=CARME_SSL_L/O=CARME_SSL_O/OU=CARME_SSL_OU/CN=CLUSTER_USER/emailAddress=slurmctld@CARME_SSL_EMAIL_BASE" -passin pass:""
+# openssl x509 -req -days 3652 -in slurmctld.csr -CA backend.crt -CAkey backend.key -set_serial 01 -out slurmctld.crt
+# rm slurmctld.csr
+# chown slurm:slurm slurmctld.key
+# chown slurm:slurm slurmctld.crt
+# chmod 600 slurmctld.key
+# chmod 600 slurmctld.crt
+# mv slurmctld.key /opt/Carme/Carme-Scripts/backend/slurmctld.key
+# mv slurmctld.crt /opt/Carme/Carme-Scripts/backend/slurmctld.crt
 ```
 
 ##### create user certs
