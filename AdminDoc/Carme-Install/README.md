@@ -91,25 +91,25 @@ In addition you should at this point install the relevant parts for
 There are a few scripts that should be added to your **crontab**. For more information have a look at the respective documentaion.
 
 ##### headnode
-* getZabbixGraphs.sh
+* getZabbixGraphs.sh  
 ```bash
 * * * * * root /bin/bash /opt/Carme/Carme-Scripts/frontend/getZabbixGraphs.sh
 ```
-* carme-empty-trash.sh (note that deleting a file/folder in JupyterLab put the file in .local/Thrash but does not delete the files!)
+* carme-empty-trash.sh (note that deleting a file/folder in JupyterLab put the file in .local/Thrash but does not delete the files!)  
 ```bash
 30 19 * * 6 root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-empty-trash.sh
 ```
-* carme-backup-home-and-mattermost.sh (optional; see documentation)
+* carme-backup-home-and-mattermost.sh (optional; see documentation)  
 ```bash
 30 23 * * 6 root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-backup-home-and-mattermost.sh
 ```
 
 ##### compute nodes
-* carme-find-ghost-jobs-notify.sh (see documentation)
+* carme-find-ghost-jobs-notify.sh (see documentation)  
 ```bash
 */5 * * * * root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-find-ghost-jobs-notify.sh
 ```
-* carme-check-home.sh (needs mattermost, see documentation)
+* carme-check-home.sh (needs mattermost, see documentation)  
 ```bash
 0 * * * * root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-check-home.sh
 ```
