@@ -128,8 +128,6 @@ In order to proceed we assume that the following things are available
 * newpid
 * an empty mysql database
 * the Singularity images for frontend and proxy are created
-* a parallel or distributed file system (e.g. [BeeGFS](https://www.beegfs.io)).  
-  Alternatively, a /home or /scratch and /opt that is reachable from all nodes.
 
 optional (if not needed skip in the following steps that include one of these)
 * Zabbix (if not installed one would have to modify parts that provide user information like GPU usage)
