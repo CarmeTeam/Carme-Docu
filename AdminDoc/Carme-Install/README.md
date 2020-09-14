@@ -25,8 +25,7 @@ If you are already running an HPC system with a parallel FS and ***Slurm***, you
 
 
 ### Things *Carme* can't do (yet)
-* **heterogeneous compute nodes**: currently, *Carme* assumes that all nodes have an identical hardware setup. This will be fixed in upcoming releases (autumn 2019).
-* *Carme* currently only supports the ***Slurm*** batch system.
+* *Carme* currently only supports the ***SLURM*** scheduler.
 * Running *Carme* in **non Debian** Linux is possible, but not tested very well. Most install scripts provided here will not start. For more details on installing Carme on **non Debian** Linux Systems please contact us.
 
 
