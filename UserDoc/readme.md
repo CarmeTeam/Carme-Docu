@@ -46,7 +46,7 @@ Additionally, the home screen shows a ***Carme-Tools*** section with links to:
 * The local Wiki
 * User Password management
 * User job history
-* Image management (restricted to some user groups)
+
 
 ### FAQs
 see [List of FAQs](FAQ.md)
