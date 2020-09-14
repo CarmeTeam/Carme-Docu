@@ -11,10 +11,8 @@ Each folder
  * [ldap](carme-scripts-ldap-docu/README.md)
  * [maintenance](carme-scripts-maintenance-docu/README.md)
  * [mattermost](carme-scripts-mattermost-docu/README.md)
- * [node-exec](carme-scripts-node-exec-docu/README.md)
  * [slurm](carme-scripts-slurm-docu/README.md)
- * systemd -> ToDo
- * tests -> ToDo
+ * systemd
 
 contains a global README and additionally a README for each script.
 
