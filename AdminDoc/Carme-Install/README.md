@@ -84,6 +84,10 @@ In addition you should at this point install the relevant parts for
 * [Proxy](Carme-Install-Proxy)
 * [Carme-Backend](Carme-Install-Backend)
 
+After this installation steps you have to prepare everything for the logging
+
+* [Logging](Carme-Install-Logging)
+
 
 ### Third Step (basic initialization)
 
