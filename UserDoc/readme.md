@@ -9,12 +9,12 @@
 * interactive GUI job on (GPU) clusters
 * multi-user resource management 
 * automatic data I/O
-* usage of pre-build software images for machnie learning and data science
+* usage of pre-build software images for machine learning and data science
 * creation and management of own images
 * running large multi-node multi-GPU jobs in an desktop-like environment (full abstraction of the underlying HPC stack)
 
 ### NOTES
-* This document is a generic *Carme* ducumentation. All images show the reference system at ITWM - individual *Carme* installations might vary in apperance and functionality. Please also refer to the local documentation.  
+* This document is a generic *Carme* documentation. All images show the reference system at ITWM - individual *Carme* installations might vary in appearance and functionality. Please also refer to the local documentation.  
 
 ### Basic Usage
 After logging into a *Carme* system, users will see the following basic home screen 
@@ -25,18 +25,18 @@ After logging into a *Carme* system, users will see the following basic home scr
 4. **Cluster utilization**: graph showing the current and past availability of resources 
 5. **Messages**: *Carme* status messages (e.g. starting/stopping jobs)
 6. **Start new job**: select (selection is restricted by user profile)
-    * num of nodes 
-    * num of GPUs per node
+    * number of nodes 
+    * number of GPUs per node
 7. **Job image** selection
 8. **Job name** (optional)
 9. **Start job** button
 10. **Running jobs**: list of queued and running jobs
     * NOTE: depending on the availability of resources and user profile quotas, jobs might not start right away 
 11. **Entry Points**: list services running in the job image, click to start
-12. **Job Infos**: system Information on a running job
+12. **Job Info**: system Information on a running job
     * GPU / CPU / Memory assigned to job
     * GPU usage graph
-    * GPU mem usage graph
+    * GPU memory usage graph
 13. **Stop Job**: manual termination of the job
 
 ![tools](Images/carme-tools.png)
