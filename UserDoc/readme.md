@@ -18,7 +18,9 @@
 
 ### Basic Usage
 After logging into a *Carme* system, users will see the following basic home screen 
+
 ![home_screen](Images/home_screen.png)
+
 1. **Status bar**: shows user details and session time-out
 2. **Log out**
 3. **System News**: maintenance and feature announcements 
@@ -40,6 +42,7 @@ After logging into a *Carme* system, users will see the following basic home scr
 13. **Stop Job**: manual termination of the job
 
 ![tools](Images/carme-tools.png)
+
 Additionally, the home screen shows a ***Carme-Tools*** section with links to:
 * This documentation
 * The *Carme* group communication tool
