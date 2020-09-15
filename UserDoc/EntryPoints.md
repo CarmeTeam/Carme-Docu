@@ -8,32 +8,37 @@ By design, an *Entry Point* could be any service that communicates via ``https``
 By default, the *Carme* base-image provides the following *Entry Points*
 
 * [Shell](#shell)
-* [Jupyter Lab](#jupyter-lab) 
+* [JupyterLab](#jupyter-lab) 
 * [TensorBoard](#tensor-board)
 * [Theia IDE](#theia)
-* [DASK Monitor](#dask) (multi-node jobs only)
 
 ## Shell
-![shell](Images/entry-shell.png)
-The *Carme* web-shell allows console access to the master node of a running job.
-* look and feel of a direct ssh connection into the job container
-* also see the [Howto on working with the terminal](HowTo_Terminal.md)
+Both `Theia IDE` and `JupyterLab` provide access to shells. These shells are both so-called web-shells that are based on [xterm.js](https://github.com/xtermjs/xterm.js/) the same tool that is used in e.g. VS Code.  
+These shells can be used as you would use and regular terminal in any Linux distribution and you can work as if you have logged in the respective compute node via `ssh`. If you want to figure out more about what you can to with the terminal you should have a look at the [Howto on working with the terminal](HowTo_Terminal.md) section.
 
-## Jupyter Lab
+
+## Theia IDE
+![tb](Images/entry-theia.png)
+
+[Theia IDE](https://www.theia-ide.org/) is web-IDE that _"embraces many of the design decisions and even directly supports VS Code extensions"_. Besides this you get
+* a file browser
+* integrated terminal
+* text editor with syntax highlighting and code completion
+* web-terminal
+* support for many VS Code extensions
+
+Even though `Theia` is a really powerful IDE it is intended for users that prefer working with the terminal and run their respective scripts directly and not via Jupyter Notebooks.
+
+
+## JupyterLab
 ![jupyter](Images/entry-jupyter.png)
-[Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/) is a fully featured web-IDE with support for:
-* interactive *Jupyter Notebboks*
-* a web-terminal
-* editor
-* data browser
+
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) is another web-IDE with support for
+* supports interactive *Jupyter Notebooks*
+* integrated terminal
+* text editor with syntax highlighting and code completion
+* file browser
 * data visualization
 
 ## Tensor Board
-* TODO
-
-## Theia
-![tb](Images/entry-theia.png)
-[Theia](https://www.theia-ide.org/) is an emerging web-IDE with many great development features, including GIT support.
-
-## DASK
-* comming soon
+Carme provides regarding infrastructure everything that is needed to use TensorBoard inside your job.
