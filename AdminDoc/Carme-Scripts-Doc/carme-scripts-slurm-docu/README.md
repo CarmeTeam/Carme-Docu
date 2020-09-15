@@ -4,4 +4,4 @@
 * [README-carme-slurm-delete-user](README-carme-slurm-delete-user.md)
 * [README-carme-slurm-modify-user](README-carme-slurm-modify-user.md)
 * [README-carme-slurm-node-weight-shuffle](README-carme-slurm-node-weight-shuffle.md)
-* [README-carme-slurm-clean](README-carme-slurm-clean.md)
+* [README-carme-slurm-prolog-and-epilog-scripts](README-carme-slurm-prolog-and-epilog-scripts.md)

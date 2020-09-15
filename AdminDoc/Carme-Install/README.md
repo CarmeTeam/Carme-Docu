@@ -25,8 +25,7 @@ If you are already running an HPC system with a parallel FS and ***Slurm***, you
 
 
 ### Things *Carme* can't do (yet)
-* **heterogeneous compute nodes**: currently, *Carme* assumes that all nodes have an identical hardware setup. This will be fixed in upcoming releases (autumn 2019).
-* *Carme* currently only supports the ***Slurm*** batch system.
+* *Carme* currently only supports the ***SLURM*** scheduler.
 * Running *Carme* in **non Debian** Linux is possible, but not tested very well. Most install scripts provided here will not start. For more details on installing Carme on **non Debian** Linux Systems please contact us.
 
 
@@ -85,6 +84,10 @@ In addition you should at this point install the relevant parts for
 * [Proxy](Carme-Install-Proxy)
 * [Carme-Backend](Carme-Install-Backend)
 
+After this installation steps you have to prepare everything for the logging
+
+* [Logging](Carme-Install-Logging)
+
 
 ### Third Step (basic initialization)
 
@@ -92,25 +95,25 @@ In addition you should at this point install the relevant parts for
 There are a few scripts that should be added to your **crontab**. For more information have a look at the respective documentaion.
 
 ##### headnode
-* getZabbixGraphs.sh
+* getZabbixGraphs.sh  
 ```bash
 * * * * * root /bin/bash /opt/Carme/Carme-Scripts/frontend/getZabbixGraphs.sh
 ```
-* carme-empty-trash.sh (note that deleting a file/folder in JupyterLab put the file in .local/Thrash but does not delete the files!)
+* carme-empty-trash.sh (note that deleting a file/folder in JupyterLab put the file in .local/Thrash but does not delete the files!)  
 ```bash
 30 19 * * 6 root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-empty-trash.sh
 ```
-* carme-backup-home-and-mattermost.sh (optional; see documentation)
+* carme-backup-home-and-mattermost.sh (optional; see documentation)  
 ```bash
 30 23 * * 6 root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-backup-home-and-mattermost.sh
 ```
 
 ##### compute nodes
-* carme-find-ghost-jobs-notify.sh (see documentation)
+* carme-find-ghost-jobs-notify.sh (see documentation)  
 ```bash
 */5 * * * * root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-find-ghost-jobs-notify.sh
 ```
-* carme-check-home.sh (needs mattermost, see documentation)
+* carme-check-home.sh (needs mattermost, see documentation)  
 ```bash
 0 * * * * root /bin/bash /opt/Carme/Carme-Scripts/maintenance/carme-check-home.sh
 ```
@@ -125,8 +128,6 @@ In order to proceed we assume that the following things are available
 * newpid
 * an empty mysql database
 * the Singularity images for frontend and proxy are created
-* a parallel or distributed file system (e.g. [BeeGFS](https://www.beegfs.io)).  
-  Alternatively, a /home or /scratch and /opt that is reachable from all nodes.
 
 optional (if not needed skip in the following steps that include one of these)
 * Zabbix (if not installed one would have to modify parts that provide user information like GPU usage)

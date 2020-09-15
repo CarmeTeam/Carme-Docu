@@ -22,7 +22,8 @@ This is the documentation for the [*Carme*](www.open-carme.org) project an open 
 
 [http://itwm.fraunhofer.de/ml](http://itwm.fraunhofer.de/ml)
 
-![](Images/logo.png)
+
+<img src="Images/logo.png" width="200">
 
 * Contact: info@open-carme.org
 
@@ -32,5 +33,6 @@ We are open for contributions!
 ## Sponsors
 **The development of *Carme* is finaced by research grants from**
 
-![](Images/BMBF.jpeg )
-![](Images/RLP.jpg )
+<img src="Images/BMBF.png" width="200" height="100">  
+
+<img src="Images/RLP.png" width="200" height="100">
