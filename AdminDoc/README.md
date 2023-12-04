@@ -1,27 +1,16 @@
-# Carme Admin Documentation
+# Carme admin documentation
 
-This is the documentation for all everything that is needed to run and maintain carme.
+If you have a question or suggestion that is not resolved in this documentation, please contact a Carme team member.
 
-## Installation Guide
-See [Carme Install Docs](Carme-Install/README.md)
+## Topics
 
-## Configuration
-*Carme* has a central configuration file, located at
-```
-PATH_TO_CARME/CarmeConfig
-```
-see [CarmeConfig Docs](CarmeConfig.md)
+**Note:** In the following pages, we describe examples using a system with a frontend login node `persephone`, a backend main node `hades`, and a backend test node `hadez`. You need to change these names according to your own setup. On the shared login node, we use `-styx` name/suffix for the services connected to the main node, and `-acheron` suffix for the services connected to the test node.
 
-## Administration
-*Carme* provides two main access points for admins: a) web-gui based ***Admin Portal*** running in the frontend and b) a collection of ***shell scripts***.
-
-### Frontend Admin Tools
-* [*Carme* Admin Tools](admin-tools.md)
-* [*Carme* Admin Portal](admin-portal.md)
-
-
-### [Carme-Scripts](Carme-Scripts-Doc/README.md)
-
-## Admin HowTos
-List of step-by-step solutions for different tasks 
-* ...
+**Carme** 
+  * [How to use the command: carme-manager](./carme/carme-manager/carme-manager.md)
+  * [How to rebuild the Frontend](./carme/frontend/frontend.md)
+  * [How to rebuild the Backend](./carme/backend/backend.md)
+  * [How to test a singularity image with --sandbox](./carme/sandbox/sandbox.md)
+  * [How to create a user account (LDAP,SLURM, and SSL)](./carme/create-user/create-user.md)
+  * [How to check the Carme log files](./carme/log-files/log-files.md)
+  * [How to reset the 2FA as admin](./carme/2FA-reset-admin/2FA-reset-admin.md)

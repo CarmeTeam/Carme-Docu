@@ -1,7 +1,7 @@
 # *Carme* Documentation
 ![carme_stage](Images/Carme-Stage--dark--symmetric.jpg)
 
-This is the documentation for the [*Carme*](www.open-carme.org) project an open source frame work to mange resources for **multiple users** running **interactive jobs (e.g. Theia-IDE or Jupyter notebooks)** on a **Cluster** of (GPU) compute nodes.
+This is the documentation for the [*Carme*](www.open-carme.org) project an open source frame work to manage resources for **multiple users** running **interactive jobs (e.g. Theia-IDE or Jupyter notebooks)** on a **Cluster** of (GPU) compute nodes.
 
 
 ## Documentation Parts
@@ -12,26 +12,17 @@ This is the documentation for the [*Carme*](www.open-carme.org) project an open 
 * [**Admin** Documentation](AdminDoc/README.md)
     * Installation Instructions
     * How to administrate *Carme*
-* [**Development** Documentation](DevelDoc/readme.md)
-    * *Carme* internals
-    * Development Guide 
-
 
 ## Who is behind *Carme*?
-* *Carme* is currently developed at the machine learning group of the Competence Center for High Performance Computing at Fraunhofer ITWM
 
-[http://itwm.fraunhofer.de/ml](http://itwm.fraunhofer.de/ml)
-
+_Carme_ is developed by the [Quantum Computing group](https://www.itwm.fraunhofer.de/en/departments/hpc/quantum-computing.html) of the [Competence Center for High Performance Computing](https://www.itwm.fraunhofer.de/en/departments/hpc.html) at [Fraunhofer ITWM](https://www.itwm.fraunhofer.de).
 
 <img src="Images/logo.png" width="200">
 
-* Contact: info@open-carme.org
-
-We are open for contributions! 
-
+Contact: christian.ortiz@itwm.fraunhofer.de
 
 ## Sponsors
-**The development of *Carme* is finaced by research grants from**
+**The development of *Carme* is financed by research grants from**
 
 <img src="Images/BMBF.png" width="200" height="100">  
 
