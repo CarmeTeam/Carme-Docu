@@ -92,14 +92,3 @@ The steps given here are focused on running Jupyter notebooks in Code-Server.
   * [ How to check the GPU driver version](./Basic/cuda-driver/cuda-driver.md)
   * [ How to monitor the GPU utilization](./Basic/nvtop/nvtop.md)
   * [ How to check the log file of your job](./Basic/log-file/log-file.md)
-
-### Usage: Advanced Options (under development)
-* [How to set up a conda environment considering a YAML file (.yml)](./Advanced/conda-env-yml/conda-env-yml.md)
-* How to set up a conda environment considering a wheel file (.whl)
-* How to start Tensorboard
-* Parallel training of NN using Horovod
-* Parallel training of NN using Tarantella
-* MPI programming on STYX
-* GPI programming on STYX
-
-
