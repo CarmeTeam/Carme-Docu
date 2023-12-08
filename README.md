@@ -10,7 +10,6 @@ This is the documentation for the [*Carme*](www.open-carme.org) project an open 
     * How to use *Carme*
     * Example Code
 * [**Admin** Documentation](AdminDoc/README.md)
-    * Installation Instructions
     * How to administrate *Carme*
 
 ## Who is behind *Carme*?
