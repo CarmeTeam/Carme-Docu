@@ -1,7 +1,10 @@
-# Carme user documentation
+# User documentation
 
-If you have a question or suggestion that is not resolved in this documentation, please contact a Carme team member.
+If you have a suggestion or a question that is not resolved in this documentation, please contact our support team: 
 
+[styx-support@itwm.fraunhofer.de](styx-support@itwm.fraunhofer.de).
+
+**Note:** The documentation provided here is independent of the cluster. If you are currently a Carme user, refer to your [local user documentation](./Docu/docu-access/docu-access.md).
 ## Topics
 
 First-time users should follow the steps given in **Access: First Time** and **Usage: First Time**. 
@@ -11,6 +14,9 @@ First-time users should follow the steps given in **Access: First Time** and **U
 * Step 1: [ Log in to Carme and set up the 2FA](./System/login/login.md)
 
 ### Access: Basic options
+
+**Documentation** 
+* [How to access the local user documentation](./Docu/docu-access/docu-access.md)
 
 **Two-Factor-Authentication** 
 * [How to set up the 2FA using Google Auth](./2FA/2FA-google-auth/2FA-google-auth.md)
