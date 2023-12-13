@@ -27,7 +27,7 @@ First-time users should follow the steps given in **Access: First Time** and **U
 
 **Project Management**
 * Introduction 
-  * [What is a project](./Projects/projects.md)
+  * [What is a project](./Projects/project-definition/project-definition.md)
 * First Steps 
   * [How to get a project ID](./Projects/project-id/project-id.md)
   * [How to create a project](./Projects/project-create/project-create.md)
