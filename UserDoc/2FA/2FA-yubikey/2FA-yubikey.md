@@ -32,7 +32,7 @@
 	
     Fig. 5: Verify code.
     
-6.  Congratulations you have set up a Yubikey authentication. Now you can go to your dashboard or get [backup tokens](../2FA-backup/2FA-backup.md).
+6.  Congratulations you have set up a Yubikey authentication. Now you can go to your home page or get [backup tokens](../2FA-backup/2FA-backup.md).
 
     <img src="images/2fa-yubikey-6.png" alt="2fa-yubikey-6.png" width="250">
 	

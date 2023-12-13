@@ -18,11 +18,14 @@
 	
 	Fig. 3: Confirm Disable 2FA.
     
-4.  You are redirected to enable 2FA again. Click on `Continue` and choose your 2FA method: 
-    - [Yubikey (hardware authentication device)](../2FA-yubikey/2FA-yubikey.md)
-    - [Google Auth (mobile app)](../2FA-google-auth/2FA-google-auth.md)
-    - [KeePassXC (desktop app)](../2FA-keepass-xc/2FA-keepass-xc.md)
+4.  You are redirected to enable 2FA again. Click on `Continue`, see Fig. 4.
     
     <img src="images/2fa-reset-4.png" alt="2fa-reset-4.png" width="250">
 	
 	  Fig. 4: Enable 2FA.
+
+5. Choose your 2FA authentication method:
+
+    - [Yubikey (hardware authentication device)](../2FA-yubikey/2FA-yubikey.md)
+    - [Google Auth (mobile app)](../2FA-google-auth/2FA-google-auth.md)
+    - [KeePassXC (desktop app)](../2FA-keepass-xc/2FA-keepass-xc.md)

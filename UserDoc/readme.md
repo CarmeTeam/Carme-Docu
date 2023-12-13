@@ -22,7 +22,7 @@ First-time users should follow the steps given in **Access: First Time** and **U
 * [How to set up the 2FA using Google Auth](./2FA/2FA-google-auth/2FA-google-auth.md)
 * [How to set up the 2FA using KeePassXC](./2FA/2FA-keepass-xc/2FA-keepass-xc.md)
 * [How to set up the 2FA using Yubikey](./2FA/2FA-yubikey/2FA-yubikey.md)
-* [How to create backup tokens](./2FA/2FA-backup/2FA-backup.md)
+* [How to get backup tokens](./2FA/2FA-backup/2FA-backup.md)
 * [How to reset the 2FA](./2FA/2FA-reset-user/2FA-reset-user.md)
 
 **Project Management**
