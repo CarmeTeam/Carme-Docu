@@ -11,7 +11,8 @@ First-time users should follow the steps given in **Access: First Time** and **U
 
 ### Access: First Time
 
-* [ Log in to Carme and set up the 2FA](./System/login/login.md)
+* Step 1: [ Log in to Carme and set up the 2FA](./System/login/login.md)
+* Step 2: [ Create or join a project](./System/project/project.md)
 
 ### Access: Basic options
 
@@ -29,8 +30,8 @@ First-time users should follow the steps given in **Access: First Time** and **U
 * Introduction 
   * [What is a project](./Projects/project-definition/project-definition.md)
 * First Steps 
-  * [How to get a project ID](./Projects/project-id/project-id.md)
   * [How to create a project](./Projects/project-create/project-create.md)
+  * [How to get a project ID](./Projects/project-id/project-id.md) 
   * [How to update a project](./Projects/project-update/project-update.md)
   * [How to delete a project](./Projects/project-delete/project-delete.md)
 * Admin options
