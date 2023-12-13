@@ -8,13 +8,13 @@
 
 2.  On the next page, click on `Disable two-factor authentication`.
 
-    ![2fa-reset-2.png](images/2fa-reset-2.png)
+    <img src="images/2fa-reset-2.png" width="800">
     
 	Fig. 2. Disable 2FA.
 
 3.  To confirm, check `Yes, I am sure` and click on `Disable`
 
-    ![2fa-reset-3.png](images/2fa-reset-3.png)
+    <img src="images/2fa-reset-3.png" width="600">
 	
 	Fig. 3: Confirm Disable 2FA.
     
