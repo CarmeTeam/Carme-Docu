@@ -1,7 +1,7 @@
 # Create or join a project
 
-Resource allocation is limited in the default project, `My project Consequently, each user is encouraged to either create or join a project.
-The default project `My Project` and its template
+Resource allocation is small in the default project. Consequently, each user is encouraged to either create or join another project.
+
 
 **Note:** If projects are disabled in your Carme-cluster, you can skip this step and jump to **Usage: First Time**
 
@@ -18,7 +18,7 @@ The default project `My Project` and its template
 
    **Remarks**:
 
-- To submit a request, a member of the project should send you via a private channel the `project-slug` of the project.
+- To submit a request, a member of the project should send you via a private channel the `project-slug`.
 - To accept an invitation to join a project, first, in order to be invited, you need to send via a private channel your username to the `project-admin`
 
-3. Once you are an active member of a project, you can start a job.
+3. Once you are an active member of a project, you can [start a job](../../Basic/job-start/job-start.md).
