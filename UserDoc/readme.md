@@ -11,7 +11,7 @@ First-time users should follow the steps given in **Access: First Time** and **U
 
 ### Access: First Time
 
-* Step 1: [ Log in to Carme and set up the 2FA](./System/login/login.md)
+* [ Log in to Carme and set up the 2FA](./System/login/login.md)
 
 ### Access: Basic options
 
