@@ -14,7 +14,7 @@ Resource allocation is small in the default project. Consequently, each user is 
 
 2. To join a project, there are two ways to do it:
      - [Send a request to join a project](../../Projects/project-request/project-request.md)
-     - [Accept an invitation to join a project](../../Projects/project-accept/project-accept-user)
+     - [Accept an invitation to join a project](../../Projects/project-accept/project-accept-user.md)
 
    **Remarks**:
 
