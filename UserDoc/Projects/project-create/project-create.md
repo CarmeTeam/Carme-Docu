@@ -5,7 +5,7 @@
 **Remarks:**
 - When you create a project you become the `project-owner`. It gives you full right over the project.  
 - Resource allocation is very limited in `My project` (default project). Consequently, each user is encouraged to either create or join a project.
-- If your Carme-cluster does not allow all users to create projects, then you can join an existing one. Refer to [How to join a project](.Projects/project-request/project-request.md).
+- If your Carme-cluster does not allow all users to create projects, then you can join an existing one. Refer to [How to join a project](../project-request/project-request.md).
 
 1.  In your navigation bar, go to  `Projects`. Then, click on `Ńew Project`, see Fig. 1.
     
@@ -32,18 +32,21 @@
       
       - Users have access to a scratch folder that is accessible by all users in the system
       - Users have access to a project folder that is accessible only by members of the project
+      - User have access to `/home/username`. It is accessible only by the user
     - **Internal** (default): Restricted group of people. Limited damage in the event of loss, misuse, or unauthorized handling 
       - Users don't have access to a scratch folder 
-      - Users have access only to the project folder 
-      - Reading/writing permissions can be requested in the Information field
+      - Users have access to a project folder that is accessible only by members of the project
+      - User have access to `/home/username`. It is accessible only by the user
+      - Reading or writing permissions can be requested in the Information field
     - **Confidential**: Narrowly limited group of people. Potentially significant damage effect in the event of loss, misuse, or unauthorized handling. 
       - Users don't have access to a scratch folder
-      - Users have access only to the project folder 
-      - Reading/Writing permissions can be requested in the Information field
+      - Users have access to a project folder that is accessible only by members of the project
+      - Users don't have access to `/home/username`
+      - Reading or writing permissions can be requested in the Information field
 
 - **Information**: Specify all what you need (if not specified, default values are considered):
    - The resources that you need, e.g., GPU type, multi-node and/or multi GPU computation, special requirements in your image, and so on 
-   - The permissions that you need. You can request writing permissions in all files of the project (e.g., user A is able to modify the file created by user B) or just request reading permissions (e.g., user A can only make a copy of the file created by user B) 
+   - The permissions that you need. You can request writing permissions in all files of the project folder (e.g., user A is able to modify the file created by user B) or just request reading permissions (e.g., user A can only make a copy of the file created by user B) 
 
 
 3.  If your project is successfully created, your page should be similar to Fig. 3. As you can see, your project status is `Waiting for approval`.

@@ -7,14 +7,14 @@ This is the documentation of the [Carme](www.open-carme.org) project:
 
 ## Sections
 
-#### [**User** Documentation](UserDoc/readme.md)
+#### [**User** Documentation](UserDoc/README.md)
 - How to use Carme
 
 #### [**Admin** Documentation](AdminDoc/README.md)
 - How to administrate Carme
 
 
-#### [**Installation** Documentation](AdminDoc/README.md) 
+#### **Installation** Documentation 
 - How to install Carme ( release date: April 2024 )
 
 ## Who is behind Carme?
