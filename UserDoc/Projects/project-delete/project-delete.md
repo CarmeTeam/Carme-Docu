@@ -2,6 +2,7 @@
 
 **Note:** Only the `project owner` is allowed to delete his/her project. Once the project is deleted, **all members of the project will lose access to it**.
 
+
 1.  You can do it either in your project-list or your project-detail page. 
     
     - **project-list**: Go to `Projects`, then click on `Action` -\> `Delete`.

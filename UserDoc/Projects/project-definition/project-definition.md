@@ -22,21 +22,21 @@ Users can create projects and request specific templates (or resources) for thei
 **Note:** If you don't have projects in your Carme cluster, then it was disabled.
 
 ## Characteristics
-* Projects, in order to be active, have to approved by the carme-administrator
+* Projects, in order to be active, have to approved by the carme-administrator.
 * Projects have an expiration date set by the carme-administrator.
-* Projects can have multiple templates
-* Projects have fixed compute resources (e.g., max number of jobs, max number of nodes per job, max number of accelerators per node, etc.)
-* Projects can have multiple users 
-* A user can be a member of multiple projects
+* Projects can have multiple templates.
+* Projects have fixed compute resources (e.g., max number of jobs, max number of nodes per job, max number of accelerators per node, etc).
+* Projects can have multiple users. 
+* A user can be a member of multiple projects.
 * Projects have three levels of membership: owner, admins, and users.
-    * The owner creates the project and is the only one who can delete it 
-    * The admin can add and remove users
-    * The user is a regular member 
+    * The owner creates the project and is the only one who can delete it.
+    * The admin can add and remove users.
+    * The user is a regular member. 
 
 ## Recommendations
 
 * Projects should be bound to specific tasks or research groups in your organization. There should not be a generic project for all tasks.
-* The owner of the project should be the team lead of a specific group in your organization
-* Interns and externs should not be admins of a project
+* The owner of the project should be the team lead of a specific group in your organization.
+* Interns and externs should not be admins of a project.
 
 

@@ -1,6 +1,6 @@
 # How to reject a request to join a project
 
-**Note**: When a user submits a request to join a project, you, as `project-admin`, can either `accept` or `reject` this request. Rejecting the request means that the project is removed from the project-list of the user.
+**Note**: When a user submits a request to join a project, you, as `project-admin`, can either `accept` or `reject` this request. Rejecting the request means that the project is removed from the user's project-list.
 
 1.  Go to `Projects`, then click on the project name of interest to access its project detail page, e.g., `Machine Learning` in Fig. 1.
     

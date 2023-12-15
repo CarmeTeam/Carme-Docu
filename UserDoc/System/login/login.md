@@ -2,7 +2,7 @@
 
 All interactions with the cluster run through the **Carme** webfrontend.
 
-1. Access Carme URL, e.g., https://cluster.institution.com
+1. Access Carme URL, e.g., https://cluster.institution.com.
 2. In the login page, type your username and password, see Fig. 1.
    
    <img src="images/login-1.png" width="250">

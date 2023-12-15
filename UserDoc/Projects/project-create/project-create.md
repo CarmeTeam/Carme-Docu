@@ -30,23 +30,23 @@
 - **Classification**: By default we have 3 types:
     - **Public**: Intended for publication. No harm in the case of accidental loss, misuse, or unauthorized handling. 
       
-      - Users have access to a scratch folder that is accessible by all users in the system
-      - Users have access to a project folder that is accessible only by members of the project
-      - User have access to `/home/username`. It is accessible only by the user
+      - Users have access to a scratch folder that is accessible by all users in the system.
+      - Users have access to a project folder that is accessible only by members of the project.
+      - User have access to `/home/username`. It is accessible only by the user.
     - **Internal** (default): Restricted group of people. Limited damage in the event of loss, misuse, or unauthorized handling 
-      - Users don't have access to a scratch folder 
-      - Users have access to a project folder that is accessible only by members of the project
-      - User have access to `/home/username`. It is accessible only by the user
-      - Reading or writing permissions can be requested in the Information field
+      - Users don't have access to a scratch folder. 
+      - Users have access to a project folder that is accessible only by members of the project.
+      - User have access to `/home/username`. It is accessible only by the user.
+      - Reading or writing permissions can be requested in the Information field.
     - **Confidential**: Narrowly limited group of people. Potentially significant damage effect in the event of loss, misuse, or unauthorized handling. 
-      - Users don't have access to a scratch folder
-      - Users have access to a project folder that is accessible only by members of the project
-      - Users don't have access to `/home/username`
-      - Reading or writing permissions can be requested in the Information field
+      - Users don't have access to a scratch folder.
+      - Users have access to a project folder that is accessible only by members of the project.
+      - Users don't have access to `/home/username.`
+      - Reading or writing permissions can be requested in the Information field.
 
 - **Information**: Specify all what you need (if not specified, default values are considered):
-   - The resources that you need, e.g., GPU type, multi-node and/or multi GPU computation, special requirements in your image, and so on 
-   - The permissions that you need. You can request writing permissions in all files of the project folder (e.g., user A is able to modify the file created by user B) or just request reading permissions (e.g., user A can only make a copy of the file created by user B) 
+   - The resources that you need, e.g., GPU type, multi-node and/or multi GPU computation, special requirements in your image, and so on. 
+   - The permissions that you need. You can request writing permissions in all files of the project folder (e.g., user A is able to modify the file created by user B) or just request reading permissions (e.g., user A can only make a copy of the file created by user B). 
 
 
 3.  If your project is successfully created, your page should be similar to Fig. 3. As you can see, your project status is `Waiting for approval`.
@@ -76,7 +76,7 @@ Fig. 5.
 - `Max Accelerators/Node`: In this case, for each job, you can run a max of 3 accelerators per compute node.
 - `Max Nodes/Job`: You have access to a max of 99 nodes per job. 
 - `Max Jobs` : You can have a maximum of 4 jobs running simultaneously.
-- `Walltime` : Your running job expires after 3 days. You can request an extension if needed. For that, contact the carme-administrator
+- `Walltime` : Your running job expires after 3 days. You can request an extension if needed. For that, contact the carme-administrator.
 - `Features` :  Additional information.
 
 6. Now you are ready to [start a job](../../Basic/job-start/job-start.md) using the resources of the project. If this is your first time, please follow the steps given in **Usage: First Time**.

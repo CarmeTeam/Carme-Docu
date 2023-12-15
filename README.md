@@ -3,7 +3,7 @@
 
 This is the documentation of the [Carme](www.open-carme.org) project: 
 
-  *"An open source software stack to manage resources for **multiple-users** running **interactive jobs** on **HPC Clusters**"* 
+  *"An open source software stack to manage resources for **multiple-users** running **interactive jobs** on **HPC Clusters**."* 
 
 ## Sections
 
@@ -19,16 +19,16 @@ This is the documentation of the [Carme](www.open-carme.org) project:
 
 ## Who is behind Carme?
 
-**Carme** is developed by the [Data Analysis and Machine Learning Group](https://www.itwm.fraunhofer.de/en/departments/hpc/data-analysis-and-machine-learning.html) of the [Competence Center for High Performance Computing](https://www.itwm.fraunhofer.de/en/departments/hpc.html) at [Fraunhofer ITWM](https://www.itwm.fraunhofer.de).
+**Carme** is developed by the [Competence Center for High Performance Computing](https://www.itwm.fraunhofer.de/en/departments/hpc.html) at [Fraunhofer ITWM](https://www.itwm.fraunhofer.de).
 
 <img src="Images/logo.png" width="200">
 
 ## Contact
 
-<img src="Images/email-icon.png" width="20"> [christian.ortiz@itwm.fraunhofer.de](mailto:christian.ortiz@itwm.fraunhofer.de) 
+<img src="Images/email-icon.png" width="20"> [christian.ortiz@itwm.fraunhofer.de](mailto:christian.ortiz@itwm.fraunhofer.de)
 
 ## Sponsors
-**The development of Carme is financed by research grants from**
+**The development of Carme is financed by research grants from:**
 
 <img src="Images/BMBF.png" width="200" height="100">  
 

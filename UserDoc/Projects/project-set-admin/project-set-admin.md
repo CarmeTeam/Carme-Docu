@@ -1,4 +1,4 @@
-# How to set an active member as project-admin
+# How to set a user as project-admin
 
 **Note:** This option appears in the project-detail page and is only visible to `project-admins`. To access the project-detail page, go to `Projects`, then click on the project name of interest. Only `active members` can become `project-admins`. 
 

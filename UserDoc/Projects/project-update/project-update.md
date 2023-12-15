@@ -1,6 +1,6 @@
 # How to update a project
 
-**Note:** You can only modify the description of a project. Only `project-owners` and `project-admins` can update the project. Refer to ["How to set a user as project-admin"](./../project-set-admin/project-set-admin.md) for further details.
+**Note:** You can only modify the description of a project. Only `project-owners` and `project-admins` can update the project. Refer to [How to set a user as project-admin](./../project-set-admin/project-set-admin.md) for further details.
 
 1. There are two possible ways to access your project-update page.
 
@@ -28,4 +28,4 @@
 	
     Fig. 4.
     
-4.  If you want to modify another field, contact the `carme-admin`. However, if your project is still `Waiting for approval`, it will be much easier to [delete your project](../project-delete/project-delete.md) and create it again.
+4.  If you want to modify another field, contact the carme-administrator. However, if your project is still `Waiting for approval`, it will be much easier to [delete your project](../project-delete/project-delete.md) and create it again.
