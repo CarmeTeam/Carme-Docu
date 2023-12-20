@@ -1,6 +1,6 @@
 # Create or join a project
 
-Resource allocation is small in the default project. Consequently, each user is encouraged to either create or join another project.
+Users are encouraged to either create or join a project to have specific resources allocated to them.
 
 
 **Note:** If projects are disabled in your Carme-cluster, you can skip this step and jump to **Usage: First Time**.

@@ -21,9 +21,9 @@
 	
 	Fig. 3.
 
-4. You have to wait for the `project-admin`  to accept your request to join. Once you are accepted, your status becomes: `Waiting for approval`. This is because the carme-administrator also needs to approve it. 
+4. You have to wait for the `project-admin`  to accept your request to join. Once you are accepted, your status becomes: `Waiting for approval`. This is because the carme administrator also needs to approve it. 
 
-5. Once the carme-administrator approves your request, you receive an email saying that you are now an `active member` of the project. You can now create jobs using the resources allocated to the project template.
+5. Once the carme administrator approves your request, you receive an email saying that you are now an `active member` of the project. You can now create jobs using the resources allocated to the project template.
 
 
     

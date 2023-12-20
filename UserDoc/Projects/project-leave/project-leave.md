@@ -8,20 +8,22 @@
 
     -  Go to `Projects`. Then click on `Action` -\> `Leave`, see Fig. 1. 
 
-    <img src="images/project-leave-list.png" alt="project-leave-list.png" width="851" height="178">
+       <img src="images/project-leave-list.png" alt="project-leave-list.png" width="800">
 
-    Fig. 1. 
+       Fig. 1. 
 
     ### project-detail
 
     - Go to `Projects`, then to acces the project-detail page, click on the project name of interest, e.g., `Machine Learning` in Fig. 1. On this new page, on the header click on `Leave`, see Fig. 2.
 
-    <img src="images/project-leave-detail.png" alt="project-leave-detail.png" width="850" height="282">
+      <img src="images/project-leave-detail.png" alt="project-leave-detail.png" width="800">
 
-    Fig. 2. 
+      Fig. 2. 
 
-2.  Once you click on `Leave`, a modal form appears. You must confirm that you want to leave the project. Check `Yes, I'm sure` and click on `Leave`, see Fig. 3. The project is automatically removed from your project list.
+2.  Once you click on `Leave`, a modal form appears. You must confirm that you want to leave the project. 
 
-    <img src="images/project-leave-modal.png" alt="project-leave-modal.png" width="351" height="185">
+    - Check `Yes, I'm sure` and click on `Leave`, see Fig. 3. The project is automatically removed from your project list.
 
-    Fig. 3.
+      <img src="images/project-leave-modal.png" alt="project-leave-modal.png" width="350">
+
+      Fig. 3.

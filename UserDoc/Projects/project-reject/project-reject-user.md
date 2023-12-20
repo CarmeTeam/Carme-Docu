@@ -14,14 +14,16 @@
 
     -  Go to `Projects`, then to access the project-detail page click on the project name of interest, e.g., `Machine Learning` in Fig. 1. On this new page, you will be listed on `Membership` -> `In process`. You can reject the invitation by clicking on `Action` -\> `Reject`, see Fig. 2.
     
-    <img src="images/project-invitation-reject-in-detail.png" alt="project-invitation-reject-in-detail.png" width="350">
+       <img src="images/project-invitation-reject-in-detail.png" alt="project-invitation-reject-in-detail.png" width="350">
     
-    Fig. 2.
+       Fig. 2.
     
-2.  Once rejected, a modal form appears. You must confirm that you want to reject the invitation. Check `Yes, I'm sure` and click on `Reject`, see Fig. 3.
+2.  Once rejected, a modal form appears. You must confirm that you want to reject the invitation. 
+
+    - Check `Yes, I'm sure` and click on `Reject`, see Fig. 3.
     
-    <img src="images/project-reject-modal.png" alt="project-reject-modal.png" width="350">
+      <img src="images/project-reject-modal.png" alt="project-reject-modal.png" width="350">
     
-    Fig. 3.
+      Fig. 3.
     
 

@@ -1,8 +1,8 @@
 # User documentation
 
-If you have a suggestion or a question that is not resolved in this documentation, please contact our support team: 
+If you have a suggestion or a question that is not resolved in this documentation, please contact the Carme Team: 
 
-[styx-support@itwm.fraunhofer.de](styx-support@itwm.fraunhofer.de).
+[carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de)
 
 **Note:** The documentation provided here is independent of the cluster. If you are currently a Carme user, refer to your [local user documentation](./Docu/docu-access/docu-access.md).
 ## Topics
