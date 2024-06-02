@@ -15,7 +15,7 @@ This is the documentation of the [Carme](www.open-carme.org) project:
 
 
 #### **Installation** Documentation 
-- How to install Carme ( release date: April 2024 )
+- How to install Carme ( release date: June 2024 )
 
 ## Who is behind Carme?
 
