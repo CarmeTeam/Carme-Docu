@@ -95,7 +95,7 @@ The installation script is made of 10 sub-scripts. To run them all, just follow 
 - `cd /opt/Carme`
 - `bash start.sh` 
 
-  **Note:** If the install fails, refer to [What to do if the install fails](#7-what-to-do-if-the-install-fails).
+  **Note:** If the install fails, refer to [What to do if the install fails](#9-what-to-do-if-the-install-fails).
 
 
 ## 5. How to uninstall Carme-demo v0.99
@@ -108,7 +108,7 @@ The uninstall script is made of 8 sub-scripts. To run them all, just follow (rec
 - `cd /opt/Carme`
 - `bash end.sh`
 
-  **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#8-what-to-do-if-the-uninstall-fails).
+  **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#10-what-to-do-if-the-uninstall-fails).
 
 
 
