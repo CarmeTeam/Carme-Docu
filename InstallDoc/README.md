@@ -8,19 +8,22 @@ If you have a suggestion or a question that is not resolved in this documentatio
 
 This documentation is divided in the following sections:
 
-#### Basic options
+#### Introduction 
 1. [What is Carme-demo v0.99](#1-what-is-carme-demo-v099)
-2. [System Requirements](#2-system-requirements)
+2. [System requirements](#2-system-requirements)
 3. [Features and next release](#3-features--next-release)
+#### Basic options
+
 4. [How to install Carme-demo v0.99](#4-how-to-install-carme-demo-v099)
 5. [How to uninstall Carme-demo v0.99](#5-how-to-uninstall-carme-demo-v099)
+6. [How to use Carme-demo v0.99](#6-how-to-uninstall-carme-demo-v099)
 
 #### Advanced options
-6. [How to modify the config file](#6-how-to-modify-the-config-file) 
-7. [What to do if I want to use an already existing MySQL/MariaDB](#7-what-to-do-if-i-want-to-use-an-already-existing-mysqlmariadb)
-8. [What to do if I want to use an already existing SLURM](#8-what-to-do-if-i-want-to-use-an-already-existing-slurm) 
-9. [What to do if the install fails](#9-what-to-do-if-the-install-fails) 
-10. [What to do if the uninstall fails](#10-what-to-do-if-the-uninstall-fails) 
+7. [How to configure the config file](#7-how-to-configure-the-config-file) 
+8. [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb)
+9. [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm) 
+10. [What to do if the install fails](#9-what-to-do-if-the-install-fails) 
+11. [What to do if the uninstall fails](#10-what-to-do-if-the-uninstall-fails) 
 
 ##  1. What is Carme-demo v0.99
 Carme-demo v0.99 is a simplified version of Carme v0.99. It excludes advanced features that are relevant in production mode. 
@@ -48,9 +51,9 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Clusters
   - Must include 1 head-node and >1 compute-nodes.
-  - Direct SSH access from the head-node to the head-node must be set, i.e., no password or pasphrase is allowed, use SSH keys. 
-  - Direct SSH access from the head-node to the compute-nodes must be set, i.e., no password or pasphrase is allowed, use SSH keys. 
-  - Direct SSH access between the compute-nodes must be set, i.e., no passwords or passphrases are allowed, use SSH keys.
+  - Direct SSH access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
+  - Direct SSH access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
+  - Direct SSH access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS to set this.
 
 ## 3. Features & Next Release
@@ -59,14 +62,13 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Can be installed in single devices and clusters.
 - Is a single-user software stack (LDAP is not required).
-- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel.
+- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to [How to use Carme-demo v0.99](#6-how-to-use-carme-demo-v099).
 - Is set to work with CPUs (GPU implementation is not included).
 - Works without a login-node (in clusters, only 1 head-node is required)
 
 **Carme-demo v1.0 (next release)**
 
 - Is set to work with GPUs (CPUs and GPUs are implemented)
-- Is a multi-user software stack (LDAP is installed)
 
 
 ## 4. How to install Carme-demo v0.99
@@ -86,60 +88,81 @@ Carme-demo is easy to install. Once your cluster is set with the [system require
 - `cd /opt/Carme`
 - `bash config.sh` 
 
-   **Note:** You don't need to modify the config file unless you are using an already existing MySQL/MariaDB or SLURM. To modify the config file, refer to [How to modify the config file](#6-how-to-modify-the-config-file).
+   **Note:** You don't need to modify the config file unless you are using an already existing MySQL/MariaDB or SLURM. If you do, refer to:
+     - [How to configure the config file](#7-how-to-configure-the-config-file).
+     - [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb).
+     - [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm).
 
 
 #### Step 3: Run the installation script 
 
-The installation script is made of 10 sub-scripts. To run them all, just follow (recommended): 
 - `cd /opt/Carme`
 - `bash start.sh` 
 
-  **Note:** If the install fails, refer to [What to do if the install fails](#9-what-to-do-if-the-install-fails).
+  **Note:** If the install fails, refer to [What to do if the install fails](#10-what-to-do-if-the-install-fails).
 
 
 ## 5. How to uninstall Carme-demo v0.99
 
 Carme-demo is easy to remove. 
-- If you chose to use an already existing MySQL/MariaDB, then we won't remove it, we will only remove the frontend database tables.
-- If you chose to use an already existing SLURM, then we won't remove it, we will only remove Carme scritps. 
 
-The uninstall script is made of 8 sub-scripts. To run them all, just follow (recommended): 
 - `cd /opt/Carme`
 - `bash end.sh`
 
-  **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#10-what-to-do-if-the-uninstall-fails).
+  **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails).
+    - Carme-demo does **NOT** unistall an already existing MySQL/MariaDB. It only removes the frontend database tables.
+    - Carme-demo does **NOT** unistall an already existing SLURM. It only removes Carme-demo scripts.
+ 
+
+## 6. How to use Carme-demo v0.99
+
+- In your single-device or in the head-node, open a web browser and type `localhost:10443`.
+- To remotely access the web app, use SSH tunnel. 
+   - In your local machine type: `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
+   - In your local machine, open a web browser and type: `localhost:9999`. 
+   
 
 
+## 7. How to configure the config file
 
-## 6. How to modify the config file
+You can customize the config file, `CarmeConfig.start`, if needed.
 
 USER/ADMIN
+- `CARME_UID="1000"`. Linux user uid, i.e., `id -u ubuntu`.
+- `CARME_USER="ubuntu"` Linux user.
+- `CARME_HOME="/home/ubuntu"` Linux user home folder.
+- `CARME_GROUP="ubuntu"`. Linux user group, i.e., `id -gn ubuntu`.
+- `CARME_USERS="single"`. Single-user software stack. Do not modify this variable.
+- `CARME_SYSTEM="multi"`. The system is a cluster. For single devices consider `CARME_SYSTEM="single"`.
+- `CARME_TIMEZONE="Europe/Berlin"`. Choose your timezone, i.e., `timedatectl list-timezones`.
 
-- single user/admin info.
 
 PASSWORDS 
 
-- Modify the passwords if needed.
+To secure your system, modify the passwords.
+
+- `CARME_PASSWORD_USER="usrpwd"`. Single-user software stack does not require this variable.
+- `CARME_PASSWORD_MYSQL="mysqlpwd"`. MySQL root password.
+- `CARME_PASSWORD_SLURM="slurmpwd"`. SLURM password to control the database `slurm_acct_db`.
+- `CARME_PASSWORD_DJANGO="djangopwd"`. Carme-frontend password to control the database `webfrontend`.
 
 DATABASE 
-- `CARME_DB="yes"` installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.
-- `CARME_DB_SERVER="mysql"` uses MySQL. amd64 architectures use MySQL and arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.
+- `CARME_DB="yes"` installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to remove the already existing database management tool.
+- `CARME_DB_SERVER="mysql"` uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.
 - `CARME_DB_DEFAULT_ENGINE=django.db.backends.mysql`. Do not modify this variable. It is used by Carme-frontend.
-- `CARME_DB_DEFAULT_NAME="webfrontend"`. Carme-frontend database name. If you are using an already existing MySQL/MariaDB, please check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. 
-- `CARME_DB_DEFAULT_NODE="head-node"`. Head-node `hostname -s`. In single-devices it is `localhost`.
-- `CARME_DB_DEFAULT_HOST="head-node"`. Head-node `hostname -s`. In single-devices it is `localhost`.
+- `CARME_DB_DEFAULT_NAME="webfrontend"`. Carme-frontend database name. If you are using an already existing MySQL/MariaDB, then check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. 
+- `CARME_DB_DEFAULT_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.
+- `CARME_DB_DEFAULT_HOST="head-node"`. Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.
 - `CARME_DB_DEFAULT_USER="django"`. User name to handle `webfrontend` database.
 - `CARME_DB_DEFAULT_PORT=3306`. MySQL/MariaDB port where `webfrontend` exits. If you use a different port, then change it accordingly. 
 - `CARME_DB_SLURM_ENGINE=django.db.backends.mysql`. Do not modify this variable. It is used by Carme-frontend.
-- `CARME_DB_SLURM_NAME="slurm_acct_db"`. SLURM accounting database name. If you are using an already existing SLURM, then Carme will use your already existing `slurm_acct_db` database. Carme does **NOT** overwrite/modify an existing `slurm_acct_db` database, this is managed by SLURM only.
-- `CARME_DB_SLURM_NODE="head-node"`. Head-node `hostname -s`. In single-devices it is `localhost`.
-- `CARME_DB_SLURM_HOST="head-node"`. Head-node hostname `hostname -s`. In single-devices it is `localhost`.
+- `CARME_DB_SLURM_NAME="slurm_acct_db"`. SLURM accounting database name. If you are using an already existing SLURM, then Carme will use your already existing `slurm_acct_db` database. Carme does **NOT** overwrite/modify your already existing database, this is managed by SLURM only.
+- `CARME_DB_SLURM_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.
+- `CARME_DB_SLURM_HOST="head-node"`. Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.
 - `CARME_DB_SLURM_USER="slurm"`. SLURM user name to handle `slurm_acct_db` database. If you are using an already existing SLURM, then this user is set in your SLURM configuration.
 - `CARME_DB_SLURM_PORT=3306`. MySQL/MariaDB port where `slurm_acct_db` exists. If you use a different port, then change it accordingly. 
 
 SLURM
-
 - `CARME_SLURM="yes"` installs SLURM. `CARME_SLURM="no"` uses an already existing SLURM. If you choose to install SLURM, but you already have SLURM installed, then Carme will ask you if you want to reinstall the workload management tool.
 - `CARME_SLURM_CLUSTER_NAME="mycluster"` is your SLURM cluster name. Choose the name that you want. If you are using an already existing SLURM, then your cluster name is given with `sacctmgr show cluster`.
 - `CARME_SLURM_PARTITION_NAME="carme"` is your SLURM partition name. Choose the name that you want. If you are using an already existing SLURM, you may have more than one partition.
@@ -149,17 +172,53 @@ SLURM
 
 VENDORS
 
-- Vendors have been tested with the default versions; therefore, if you change the vendor versions, we do not guarantee that it will work. These vendors are installed in `/opt/Carme/Carme-Vendors`. If you have similar vendors already installed in your system, they won't interfere with Carme-Vendors. Carme-Vendors **must be installed** in your system.
+Mambaforge, Singularity, and Go are installed in `/opt/Carme/Carme-Vendors`, Traefik proxy is installed in the container image `opt/Carme/Carme-ContainerImage/Carme-Proxy-Container/proxy.sif`. If you have similar vendors in your system, they won't interfere with Carme-Vendors. Carme-Vendors **must be installed** in your system.
 
-## 7. What to do if I want to use an already existing MySQL/MariaDB
+- `MAMBAFORGE_VERSION=23.11.0-0`. Go to https://github.com/conda-forge/miniforge/releases to choose a different mambaforge version.
+- `SINGULARITY_VERSION=3.11.4`. Go to https://github.com/sylabs/singularity/releases to choose a different singularity version.
+- `PROXY_VERSION=2.11.2`. Go to https://github.com/traefik/traefik/releases to choose a different traefik version.
+- `GO_VERSION=1.20.6`. Go to https://go.dev/dl/ to choose a different go version.
 
-in development 
+FRONTEND
+- `CARME_FRONTEND_KEY="3nb5&c!y0f&myadrbkp+v67m9ps8(+(!eksyq!5&5z&mlwx_=="`. Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key must not contain the character `"`.
+- `CARME_FRONTEND_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single devices it is `localhost`.
+- `CARME_FRONTEND_URL="localhost"`. Default URL. Do not modify this variable.
+- `CARME_FRONTEND_IP="10.0.0.27"`. Head-node IP, i.e., `hostname -I`. In single devices it is `127.0.0.1`
+- `CARME_FRONTEND_ID="Carme"`. Carme-frontend ID. Do not modify this variable.
+- `CARME_FRONTEND_PORT=8888`. Carme-frontend port. If you are already using port ` 8888`, choose a different one.
 
-## 8. What to do if I want to use an already existing SLURM
+BACKEND
+- `CARME_BACKEND_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single devices it is `localhost`. 
+- `CARME_BACKEND_PORT=56798` Carme-backend port. If you are already using port ` 56798`, choose a different one.
+
+NODES
+- `CARME_NODE_LIST="computenode1 computenode2"`. List of compute-nodes names, i.e., `hostname -s`. In single devices it is `localhost`.
+- `CARME_NODE_FS="yes"`. Do not modify this variable.
+- `CARME_NODE_SSHD="yes"`. Do not modify this variable. 
+- `CARME_NODE_SSD_PATH="/scratch"`. Do not modify this variable.
+- `CARME_NODE_TMP_PATH="/tmp"`. Do not modify this variable.
+
+## 8. How to configure an already existing MySQL/MariaDB
+
+If you already have MySQL/MariaDB installed in your system, then in your config file you should have `CARME_DB=no`, meaning that you don't need to install the database management tool. 
+
+1. Modify `CarmeConfig.start` variables. Refer to DATABASE variables in [How to configure the config file](#7-how-to-configure-the-config-file).
+2. Add the following to `/etc/mysql/my.cnf`:
+   ```
+   [mysqld]
+   innodb_buffer_pool_size=4096M
+   innodb_log_file_size=64M
+   innodb_lock_wait_timeout=900
+   max_allowed_packet=16M
+   port=3306 # use your port
+   ```
+    **Note:** The install script will stop if you need to manually add these parameters. If it doesn't stop, then this was added automatically by the installation script. 
+
+## 9. How to configure an already existing SLURM
 
 in development
 
-## 9. What to do if the install fails
+## 10. What to do if the install fails
 
 The install is made of 10 sub-scripts that are run in order. You must not alter this order:
 
@@ -175,16 +234,14 @@ The install is made of 10 sub-scripts that are run in order. You must not alter 
 10. install_proxy.sh
 
 - These 10 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your installation fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [install_certs.sh]: ...`.
-
-- Each sub-script can be run multiple times. This is ideal for debugging. For example, if your error message points to `install_certs.sh`, then once you fix the issue you can continue with the installation at this point, i.e.:
+- When your installation fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [install_certs.sh]: ...`. To continue with the installation, run the sub-script and follow the order, e.g.,
   - `cd /opt/Carme/Carme-Install`
   - `bash install_certs.sh`
 
 - If you don't know how to solve the error, please contact us at carme@itwm.fraunhofer.de.
 
 
-## 10. What to do if the uninstall fails
+## 11. What to do if the uninstall fails
 
 The uninstall is made of 8 sub-scripts that are run in order. You must not alter this order:
 
@@ -198,9 +255,7 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
 8. remove_database.sh
 
 - These 8 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your uninstall fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [remove_certs.sh]: ...`.
-
-- Each sub-script can be run multiple times. This is ideal for debugging. For example, if your error message points to `remove_certs.sh`, then once you fix the issue you can continue with the uninstall at this point, i.e.:
+- When your uninstall fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [remove_certs.sh]: ...`. To continue with the uninstall, run the sub-script and follow the order, e.g.,
   - `cd /opt/Carme/Carme-Install`
   - `bash remove_certs.sh`
 
