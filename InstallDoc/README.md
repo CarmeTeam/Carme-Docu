@@ -16,7 +16,7 @@ This documentation is divided in the following sections:
 
 4. [How to install Carme-demo v0.99](#4-how-to-install-carme-demo-v099)
 5. [How to uninstall Carme-demo v0.99](#5-how-to-uninstall-carme-demo-v099)
-6. [How to use Carme-demo v0.99](#6-how-to-uninstall-carme-demo-v099)
+6. [How to use Carme-demo v0.99](#6-how-to-use-carme-demo-v099)
 
 #### Advanced options
 7. [How to configure the config file](#7-how-to-configure-the-config-file) 
@@ -44,17 +44,19 @@ In detail:
 
 For an optimal installation, your system must fulfill the following requirements:
 
-- Distros: Ubuntu 20.04, 22.04, and Raspberry Pi OS. 
+- Tested in:
+  - Ubuntu 20.04-focal, 22.04-jammy, 24.04-noble and Raspberry Pi OS.
+  - Debian 10-buster, 11-bullseye, 12-bookworm.
 
 - Single devices
   - Laptops, Desktops, RPis, VMs using Linux or WSL (Windows Subsystem for Linux) 
 
 - Clusters
   - Must include 1 head-node and >1 compute-nodes.
-  - Direct SSH access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
-  - Direct SSH access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
-  - Direct SSH access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
-  - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS to set this.
+  - SSH root access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
+  - SSH root access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
+  - SSH root access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
+  - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
 
 ## 3. Features & Next Release
 
