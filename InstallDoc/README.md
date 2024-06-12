@@ -337,7 +337,7 @@ The install is made of 10 sub-scripts that are run in order. You must not alter 
 10. install_proxy.sh
 
 - These 10 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your installation fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `start.sh` or you can continue with the installation running the sub-script and following the order, e.g., if the install script stopped at `install_certs.sh`, then:
+- When your installation fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `start.sh` or you can continue with the installation running the sub-script and following the order, e.g., if the install stopped at `install_certs.sh`, then:
   - `cd /opt/Carme/Carme-Install`
   - `bash install_certs.sh`
 
@@ -360,7 +360,7 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
 8. remove_database.sh
 
 - These 8 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your uninstall fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `end.sh` or you can continue with the uninstall running the sub-script and following the order, e.g., if the uninstall script stopped at `remove_certs.sh`, then:
+- When your uninstall fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `end.sh` or you can continue with the uninstall running the sub-script and following the order, e.g., if the uninstall stopped at `remove_certs.sh`, then:
   - `cd /opt/Carme/Carme-Install`
   - `bash remove_certs.sh`
 
