@@ -21,7 +21,7 @@ This documentation is divided in the following sections:
 
 #### Advanced options
 
-- [How to configure the config file](#how-to-configure-the-config-file) 
+- [How to customize the config file](#how-to-customize-the-config-file) 
 - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb)
 - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm) 
 - [What to do if the install fails](#what-to-do-if-the-install-fails) 
@@ -56,7 +56,7 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Clusters
   - Must include 1 head-node and >1 compute-nodes.
-  - SSH access from the head-node to itself must be set for the root user, i.e., (`ssh localhost`). Neither password nor passphrase is allowed, use SSH keys. 
+  - SSH access from the head-node to itself must be set for the root user, i.e., `ssh localhost`. Neither password nor passphrase is allowed, use SSH keys. 
   - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. 
   - SSH access between the compute-nodes must be set for the root user. Neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
@@ -94,10 +94,11 @@ The repo must be in the `/opt/Carme` directory.
 - `bash config.sh` 
 
    **Note:** You don't need to modify the config file unless you are using an already existing MySQL/MariaDB or SLURM. If you do, refer to:
-     - [How to configure the config file](#how-to-configure-the-config-file).
      - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb).
      - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm).
 
+   **Note:** To customize the config file, refer to:
+    - [How to customize the config file](#how-to-customize-the-config-file).
 
 #### Step 3: Run the installation script 
 
@@ -111,8 +112,12 @@ The repo must be in the `/opt/Carme` directory.
 
 - In single-devices or in the head-node, open a web browser and type `localhost:10443`.
 - To remotely access Carme, use SSH tunnel. 
-   - In your local machine type: `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
-   - In your local machine, open a web browser and type: `localhost:9999`. 
+   - In your remote machine type: 
+   
+     `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
+   - In your remot machine, open a web browser and type: 
+   
+     `localhost:9999`. 
    
 
 ## How to remove Carme-demo
@@ -127,9 +132,11 @@ Carme-demo is easy to remove.
     - Carme-demo does **NOT** uninstall an already existing SLURM. It only removes Carme scripts.
 
 
-## How to configure the config file
+## How to customize the config file
 
-You can customize the config file, `CarmeConfig.start`.
+You can customize the config file, `/opt/Carme/CarmeConfig.start`, if needed. 
+
+Below we show all the variables:
 
 **USER/ADMIN**
 
@@ -209,6 +216,7 @@ You can customize the config file, `CarmeConfig.start`.
 |`CARME_FRONTEND_PORT=8888`|Carme-frontend port. If you are already using port ` 8888`, choose a different one.|
 
 **BACKEND**
+
 |Variable|Definition|
 |--|--|
 |`CARME_BACKEND_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single devices `CARME_BACKEND_NODE="localhost"`.|
@@ -226,10 +234,22 @@ You can customize the config file, `CarmeConfig.start`.
 
 ## How to configure an already existing MySQL/MariaDB
 
-If you already have MySQL/MariaDB installed in your system, then in your config file you should have `CARME_DB=no`, meaning that you don't need to install the database management tool. 
+If you already have MySQL/MariaDB installed in your system, then:
 
-1. Modify `CarmeConfig.start` variables. Refer to DATABASE variables in [How to configure the config file](#how-to-configure-the-config-file).
+1. Modify/Check the following `CarmeConfig.start` variables:
+
+   - `CARME_PASSWORD_MYSQL="mysqlpwd"`
+   - `CARME_DB="no"`
+   - `CARME_DB_SERVER="mysql"`
+   - `CARME_DB_DEFAULT_NAME="webfrontend"`
+   - `CARME_DB_DEFAULT_NODE="head-node"`
+   - `CARME_DB_DEFAULT_HOST="head-node"`
+   - `CARME_DB_DEFAULT_PORT=3306`
+
+   **Note:** To know how to modify these variables, refer to [How to customize the config file](#how-to-customize-the-config-file). 
+
 2. Add the following to `/etc/mysql/my.cnf`:
+
    ```
    [mysqld]
    innodb_buffer_pool_size=4096M
@@ -238,7 +258,7 @@ If you already have MySQL/MariaDB installed in your system, then in your config 
    max_allowed_packet=16M
    port=3306 # use your port
    ```
-    **Note:** The install script will stop if you need to manually add these parameters. If it doesn't stop, then this was added automatically by the installation script. 
+3. Run the installation script, i.e., `bash start.sh`.
 
 ## How to configure an already existing SLURM
 
