@@ -43,7 +43,7 @@ In detail:
 |IDEs/Tools | JupyterLab and Code-Server  | JupyterLab, Code-Server, GPI, and more |
 | Cluster | supports 1 head-node and >1 compute-nodes | supports a login-node, a head-node, backup-nodes, and compute-nodes
 
-## System Requirements
+## System requirements
 
 For an optimal installation, your system must fulfill the following requirements:
 
@@ -61,9 +61,9 @@ For an optimal installation, your system must fulfill the following requirements
   - SSH access between the compute-nodes must be set for the root user. Neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
   
-## Features & Next Release
+## Features & next release
 
-**Carme-demo CURRENT VERSION: v0.99**
+**Carme-demo v0.99 (current version)**
 
 - Is installed in single devices and clusters.
 - Is a single-user software stack (LDAP is not required).
@@ -71,7 +71,7 @@ For an optimal installation, your system must fulfill the following requirements
 - Is set to work with CPUs (GPU implementation is not included).
 - Works without a login-node (in clusters, only 1 head-node is required).
 
-**Carme-demo NEXT RELEASE: v1.0**
+**Carme-demo v1.0 (next release)**
 
 - Is set to work with GPUs (CPUs and GPUs are implemented).
 
@@ -123,8 +123,8 @@ Carme-demo is easy to remove.
 - `bash end.sh`
 
   **Note:** If the uninstall fails, refer to: [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails).
-    - Carme-demo does **NOT** unistall an already existing MySQL/MariaDB. It only removes the frontend database.
-    - Carme-demo does **NOT** unistall an already existing SLURM. It only removes Carme scripts.
+    - Carme-demo does **NOT** uninstall an already existing MySQL/MariaDB. It only removes the frontend database.
+    - Carme-demo does **NOT** uninstall an already existing SLURM. It only removes Carme scripts.
 
 
 ## How to configure the config file
