@@ -47,18 +47,18 @@ In detail:
 
 For an optimal installation, your system must fulfill the following requirements:
 
-- Tested in:
-  - Ubuntu 20.04-focal, 22.04-jammy, 24.04-noble and Raspberry Pi OS.
+- Linux Base Distribution
+  - Ubuntu 20.04-focal, 22.04-jammy, and 24.04-noble.
   - Debian 10-buster, 11-bullseye, 12-bookworm.
 
-- Single devices
-  - Laptops, Desktops, RPis, VMs using Linux or WSL (Windows Subsystem for Linux) 
+- Single Devices
+  - Laptops, Desktops, RPis, VMs using Linux or WSL (Windows Subsystem for Linux). 
 
 - Clusters
   - Must include 1 head-node and >1 compute-nodes.
-  - Root user SSH access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
-  - Root user SSH access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
-  - Root user SSH access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
+  - SSH access from the head-node to itself must be set for the root user, i.e., (`ssh localhost`). Neither password nor passphrase is allowed, use SSH keys. 
+  - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. 
+  - SSH access between the compute-nodes must be set for the root user. Neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
   
 ## Features & Next Release
