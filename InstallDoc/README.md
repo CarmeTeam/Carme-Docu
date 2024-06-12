@@ -364,6 +364,6 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
   - `cd /opt/Carme/Carme-Install`
   - `bash remove_certs.sh`
 
-  **Note:** Carme-demo install scripts can be run multiple times.
+  **Note:** Carme-demo uninstall scripts can be run multiple times.
 
 - If you don't know how to solve the error, please contact us at [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de).
