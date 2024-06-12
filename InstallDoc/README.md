@@ -156,7 +156,7 @@ You can customize the config file, `CarmeConfig.start`.
 
 **DATABASE**
 
- |Variable|Definition|
+|Variable|Definition|
 |--|--|
 |`CARME_DB="yes"`|Installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.|
 |`CARME_DB_SERVER="mysql"`|Uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.|
@@ -171,43 +171,58 @@ You can customize the config file, `CarmeConfig.start`.
 |`CARME_DB_SLURM_USER="slurm"`|SLURM user name to handle `slurm_acct_db` database. If you are using an already existing SLURM, then this user is set in your SLURM configuration.|
 |`CARME_DB_SLURM_PORT=3306`|MySQL/MariaDB port where `slurm_acct_db` exists. If you use a different port, then change it accordingly. |
 
-SLURM
-- `CARME_SLURM="yes"` installs SLURM. `CARME_SLURM="no"` uses an already existing SLURM. If you choose to install SLURM, but you already have SLURM installed, then Carme will ask you if you want to reinstall the workload management tool.
-- `CARME_SLURM_CLUSTER_NAME="mycluster"` is your SLURM cluster name. Choose the name that you want. If you are using an already existing SLURM, then your cluster name is given with `sacctmgr show cluster`.
-- `CARME_SLURM_PARTITION_NAME="carme"` is your SLURM partition name. Choose the name that you want. If you are using an already existing SLURM, you may have more than one partition.
-- `CARME_SLURM_ACCELERATOR_TYPE="cpu"` enforces Carme-demo to work with CPUs only. (GPUs will be included in the next Carme-demo release).
-- `CARME_SLURM_SLURMCTLD_PORT=6817` is the SLURM controller port. If you use an already existing SLURM, this port may be different. Refer to `SlurmctldPort` in your `slurm.conf` to know you actual port.
-- `CARME_SLURM_SLURMD_PORT=6818` is the SLURM daemon port. If you use an already existing SLURM, this port may be different. Refer to `SlurmdPort` in your `slurm.conf` to know you actual port.
+**SLURM**
 
-  **Note:** Advanced SLURM features can be implemented manually. 
+**Note:** Advanced SLURM features can be implemented manually. 
 
-VENDORS
+|Variable|Definition|
+|--|--|
+|`CARME_SLURM="yes"`|Installs SLURM. `CARME_SLURM="no"` uses an already existing SLURM. If you choose to install SLURM, but you already have SLURM installed, then Carme will ask you if you want to reinstall the workload management tool.|
+|`CARME_SLURM_CLUSTER_NAME="mycluster"`| Is your SLURM cluster name. Choose the name that you want. If you are using an already existing SLURM, then your cluster name is given with `sacctmgr show cluster`.|
+|`CARME_SLURM_PARTITION_NAME="carme"`| Is your SLURM partition name. Choose the name that you want. If you are using an already existing SLURM, you may have more than one partition.|
+|`CARME_SLURM_ACCELERATOR_TYPE="cpu"`|Enforces Carme-demo to work with CPUs only. (GPUs will be included in the next Carme-demo release).|
+|`CARME_SLURM_SLURMCTLD_PORT=6817`|Is the SLURM controller port. If you use an already existing SLURM, this port may be different. Refer to `SlurmctldPort` in your `slurm.conf` to know you actual port.|  
+|`CARME_SLURM_SLURMD_PORT=6818`|Is the SLURM daemon port. If you use an already existing SLURM, this port may be different. Refer to `SlurmdPort` in your `slurm.conf` to know you actual port.|
 
-Mambaforge, Singularity, and Go are installed in `/opt/Carme/Carme-Vendors`, Traefik proxy is installed in the container image `opt/Carme/Carme-ContainerImage/Carme-Proxy-Container/proxy.sif`. If you have similar vendors in your system, they won't interfere with Carme-Vendors. Carme-Vendors **must be installed** in your system.
 
-- `MAMBAFORGE_VERSION=23.11.0-0`. Go to https://github.com/conda-forge/miniforge/releases to choose a different mambaforge version.
-- `SINGULARITY_VERSION=3.11.4`. Go to https://github.com/sylabs/singularity/releases to choose a different singularity version.
-- `PROXY_VERSION=2.11.2`. Go to https://github.com/traefik/traefik/releases to choose a different traefik version.
-- `GO_VERSION=1.20.6`. Go to https://go.dev/dl/ to choose a different go version.
 
-FRONTEND
-- `CARME_FRONTEND_KEY="3nb5&c!y0f&myadrbkp+v67m9ps8(+(!eksyq!5&5z&mlwx_=="`. Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.
-- `CARME_FRONTEND_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single devices it is `localhost`.
-- `CARME_FRONTEND_URL="localhost"`. Default URL. Do not modify this variable.
-- `CARME_FRONTEND_IP="10.0.0.27"`. Head-node IP, i.e., `hostname -I`. In single devices it is `127.0.0.1`
-- `CARME_FRONTEND_ID="Carme"`. Carme-frontend ID. Do not modify this variable.
-- `CARME_FRONTEND_PORT=8888`. Carme-frontend port. If you are already using port ` 8888`, choose a different one.
+**VENDORS**
 
-BACKEND
-- `CARME_BACKEND_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single devices it is `localhost`. 
-- `CARME_BACKEND_PORT=56798` Carme-backend port. If you are already using port ` 56798`, choose a different one.
+**Note:** Mambaforge, Singularity, and Go are installed in `/opt/Carme/Carme-Vendors`, Traefik proxy is installed in the container image `opt/Carme/Carme-ContainerImage/Carme-Proxy-Container/proxy.sif`. If you have similar vendors in your system, they won't interfere with Carme-Vendors. Carme-Vendors **must be installed** in your system.
 
-NODES
-- `CARME_NODE_LIST="computenode1 computenode2"`. List of compute-nodes names, i.e., `hostname -s`. In single devices it is `localhost`.
-- `CARME_NODE_FS="yes"`. Do not modify this variable.
-- `CARME_NODE_SSHD="yes"`. Do not modify this variable. 
-- `CARME_NODE_SSD_PATH="/scratch"`. Do not modify this variable.
-- `CARME_NODE_TMP_PATH="/tmp"`. Do not modify this variable.
+|Variable|Definition|
+|--|--|
+|`MAMBAFORGE_VERSION=23.11.0-0`|Go to https://github.com/conda-forge/miniforge/releases to choose a different mambaforge version.|
+|`SINGULARITY_VERSION=3.11.4`|Go to https://github.com/sylabs/singularity/releases to choose a different singularity version.|
+|`PROXY_VERSION=2.11.2`|Go to https://github.com/traefik/traefik/releases to choose a different traefik version.|
+|`GO_VERSION=1.20.6`|Go to https://go.dev/dl/ to choose a different go version.|
+
+**FRONTEND**
+
+|Variable|Definition|
+|--|--|
+|`CARME_FRONTEND_KEY="<default-key>"`|Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.|
+|`CARME_FRONTEND_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single devices `CARME_FRONTEND_NODE="localhost"`.|
+|`CARME_FRONTEND_URL="localhost"`|Default URL. Do not modify this variable.|
+|`CARME_FRONTEND_IP="10.0.0.27"`|Head-node IP, i.e., `hostname -I`. In single devices `CARME_FRONTEND_IP="127.0.0.1"`.|
+|`CARME_FRONTEND_ID="Carme"`|Carme-frontend ID. Do not modify this variable.|
+|`CARME_FRONTEND_PORT=8888`|Carme-frontend port. If you are already using port ` 8888`, choose a different one.|
+
+**BACKEND**
+|Variable|Definition|
+|--|--|
+|`CARME_BACKEND_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single devices `CARME_BACKEND_NODE="localhost"`.|
+|`CARME_BACKEND_PORT=56798`|Carme-backend port. If you are already using port ` 56798`, choose a different one.| 
+
+**NODES**
+
+|Variable|Definition|
+|--|--|
+|`CARME_NODE_LIST="cnode1 cnode2"`|List of compute-nodes names, i.e., `hostname -s`. In single devices `CARME_NODE_LIST="localhost"`.|
+|`CARME_NODE_FS="yes"`|Do not modify this variable.|
+|`CARME_NODE_SSHD="yes"`|Do not modify this variable. |
+|`CARME_NODE_SSD_PATH="/scratch"`|Creates a scratch directory. Do not modify this variable.|
+|`CARME_NODE_TMP_PATH="/tmp"`| Uses the tmp directory. Do not modify this variable.|
 
 ## How to configure an already existing MySQL/MariaDB
 
