@@ -199,16 +199,16 @@ Below we show all the variables:
 
 |Variable|Definition|
 |--|--|
-|`MAMBAFORGE_VERSION=23.11.0-0`|Go to https://github.com/conda-forge/miniforge/releases to choose a different mambaforge version.|
-|`SINGULARITY_VERSION=3.11.4`|Go to https://github.com/sylabs/singularity/releases to choose a different singularity version.|
-|`PROXY_VERSION=2.11.2`|Go to https://github.com/traefik/traefik/releases to choose a different traefik version.|
-|`GO_VERSION=1.20.6`|Go to https://go.dev/dl/ to choose a different go version.|
+|`MAMBAFORGE_VERSION=23.11.0-0`|Go to [https://github.com/conda-forge/miniforge/releases](https://github.com/conda-forge/miniforge/releases) to choose a different mambaforge version.|
+|`SINGULARITY_VERSION=3.11.4`|Go to [https://github.com/sylabs/singularity/releases](https://github.com/sylabs/singularity/releases) to choose a different singularity version.|
+|`PROXY_VERSION=2.11.2`|Go to [https://github.com/traefik/traefik/releases](https://github.com/traefik/traefik/releases) to choose a different traefik version.|
+|`GO_VERSION=1.20.6`|Go to [https://go.dev/dl/](https://go.dev/dl/) to choose a different go version.|
 
 **FRONTEND**
 
 |Variable|Definition|
 |--|--|
-|`CARME_FRONTEND_KEY="..."`|Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.|
+|`CARME_FRONTEND_KEY="..."`|Carme-frontend security key. To create a new one, go to [https://djecrety.ir](https://djecrety.ir). Note that your key **must not contain** the character `"`.|
 |`CARME_FRONTEND_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single devices `CARME_FRONTEND_NODE="localhost"`.|
 |`CARME_FRONTEND_URL="localhost"`|Default URL. Do not modify this variable.|
 |`CARME_FRONTEND_IP="10.0.0.27"`|Head-node IP, i.e., `hostname -I`. In single devices `CARME_FRONTEND_IP="127.0.0.1"`.|
@@ -281,9 +281,9 @@ If you already have SLURM installed in your system, then:
 
    **Note:** To know how to modify these variables, refer to [How to customize the config file](#how-to-customize-the-config-file).
 
-2. Add Carme prolog and epilogs files to your already existing SLURM directories
+2. If you use prolog and epilog files in your `slurm.conf`, then you must add Carme-prologs and epilogs to your already existing directories:
 
-   Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are stored in `/opt/Carme/Carme-Scripts/slurm/job-scripts/*`. For each variable we have:
+   Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are stored in `/opt/Carme/Carme-Scripts/slurm/job-scripts/*`:
 
    ```
    PrologSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh
@@ -295,7 +295,7 @@ If you already have SLURM installed in your system, then:
    Epilog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-epilog-scripts/carme-node-epilog.sh
    ```
 
-   If you use similar files, then:
+   To add them, proceed as follows:
 
    **Case 1: Your SLURM version does not support multiple prolog/epilog files**: You must manually modify your scripts to add Carme-scripts.
 
@@ -315,6 +315,7 @@ If you already have SLURM installed in your system, then:
       ```
       PrologSlurmctld=/<your-path>/*
       ```
+
    3. Copy `slurm.conf` to all your compute nodes.
    4. `systemctl restart slurmctld` and `scontrol reconfig` in the head-node.
    5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
@@ -336,11 +337,13 @@ The install is made of 10 sub-scripts that are run in order. You must not alter 
 10. install_proxy.sh
 
 - These 10 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your installation fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [install_certs.sh]: ...`. To continue with the installation, run the sub-script and follow the order, e.g.,
+- When your installation fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `start.sh` or you can continue with the installation running the sub-script and following the order, e.g., if the install script stopped at `install_certs.sh`, then:
   - `cd /opt/Carme/Carme-Install`
   - `bash install_certs.sh`
 
-- If you don't know how to solve the error, please contact us at carme@itwm.fraunhofer.de.
+  **Note:** Carme-demo install scripts can be run multiple times.
+
+- If you don't know how to solve the error, please contact us at [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de).
 
 
 ## What to do if the uninstall fails
@@ -357,8 +360,10 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
 8. remove_database.sh
 
 - These 8 sub-scripts are stored in `/opt/Carme/Carme-Install`.
-- When your uninstall fails, the script exits with an error message pointing to the sub-script, e.g., `ERROR [remove_certs.sh]: ...`. To continue with the uninstall, run the sub-script and follow the order, e.g.,
+- When your uninstall fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `end.sh` or you can continue with the uninstall running the sub-script and following the order, e.g., if the uninstall script stopped at `remove_certs.sh`, then:
   - `cd /opt/Carme/Carme-Install`
   - `bash remove_certs.sh`
 
-- If you don't know how to solve the error, please contact us at carme@itwm.fraunhofer.de.
+  **Note:** Carme-demo install scripts can be run multiple times.
+
+- If you don't know how to solve the error, please contact us at [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de).
