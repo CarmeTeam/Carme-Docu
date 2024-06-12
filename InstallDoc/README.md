@@ -168,13 +168,13 @@ Below we show all the variables:
 |`CARME_DB="yes"`|Installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.|
 |`CARME_DB_SERVER="mysql"`|Uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.|
 |`CARME_DB_DEFAULT_NAME="webfrontend"`| Carme-frontend database name. If you are using an already existing MySQL/MariaDB, then check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. |
-|`CARME_DB_DEFAULT_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_NODE="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
-|`CARME_DB_DEFAULT_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_HOST="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
+|`CARME_DB_DEFAULT_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_NODE="localhost"`. If you are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
+|`CARME_DB_DEFAULT_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_HOST="localhost"`. If you are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
 |`CARME_DB_DEFAULT_USER="django"`|User name to handle `webfrontend` database.|
 |`CARME_DB_DEFAULT_PORT=3306`|MySQL/MariaDB port where `webfrontend` exits. If you use a different port, then change it accordingly.|
 |`CARME_DB_SLURM_NAME="slurm_acct_db"`|SLURM accounting database name. If you are using an already existing SLURM, then Carme will use your already existing `slurm_acct_db` database. Carme does **NOT** overwrite/modify your already existing database, this is managed by SLURM only.|
-|`CARME_DB_SLURM_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_NODE="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
-|`CARME_DB_SLURM_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_HOST="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
+|`CARME_DB_SLURM_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_NODE="localhost"`. If you are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
+|`CARME_DB_SLURM_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_HOST="localhost"`. If you are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
 |`CARME_DB_SLURM_USER="slurm"`|SLURM user name to handle `slurm_acct_db` database. If you are using an already existing SLURM, then this user is set in your SLURM configuration.|
 |`CARME_DB_SLURM_PORT=3306`|MySQL/MariaDB port where `slurm_acct_db` exists. If you use a different port, then change it accordingly. |
 
@@ -208,7 +208,7 @@ Below we show all the variables:
 
 |Variable|Definition|
 |--|--|
-|`CARME_FRONTEND_KEY="<default-key>"`|Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.|
+|`CARME_FRONTEND_KEY="..."`|Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.|
 |`CARME_FRONTEND_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single devices `CARME_FRONTEND_NODE="localhost"`.|
 |`CARME_FRONTEND_URL="localhost"`|Default URL. Do not modify this variable.|
 |`CARME_FRONTEND_IP="10.0.0.27"`|Head-node IP, i.e., `hostname -I`. In single devices `CARME_FRONTEND_IP="127.0.0.1"`.|
@@ -262,38 +262,63 @@ If you already have MySQL/MariaDB installed in your system, then:
 
 ## How to configure an already existing SLURM
 
-Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are:
-```
-PrologSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh
+If you already have SLURM installed in your system, then:
 
-Prolog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-prolog-scripts/carme-node-prolog.sh
+1. Modify/Check the following `CarmeConfig.start` variables:
 
-EpilogSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-epilog-scripts/epilog.sh
+   - `CARME_PASSWORD_SLURM="slurmpwd"`
+   - `CARME_DB_SLURM_NAME="slurm_acct_db"`
+   - `CARME_DB_SLURM_NODE="head-node"`
+   - `CARME_DB_SLURM_HOST="head-node"` 
+   - `CARME_DB_SLURM_USER="slurm"`
+   - `CARME_DB_SLURM_PORT=3306`
+   - `CARME_SLURM="no"`
+   - `CARME_SLURM_CLUSTER_NAME="mycluster"`
+   - `CARME_SLURM_PARTITION_NAME="carme"`
+   - `CARME_SLURM_ACCELERATOR_TYPE="cpu"`
+   - `CARME_SLURM_SLURMCTLD_PORT=6817`
+   - `CARME_SLURM_SLURMD_PORT=6818`
 
-Epilog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-epilog-scripts/carme-node-epilog.sh
-```
-If you use similar files, then:
+   **Note:** To know how to modify these variables, refer to [How to customize the config file](#how-to-customize-the-config-file).
 
-**Case 1: Your SLURM does not support multiple prolog/epilog files**: You must manually modify your scripts to add Carme-scripts.
+2. Add Carme prolog and epilogs files to your already existing SLURM directories
 
-**Case 2: Your SLURM supports multiple prolog/epilog files**: Add Carme-scripts to your already existing directories. Note that if multiple prolog and/or epilog scripts are specified, they will run in reverse alphabetical order (z-a -> Z-A -> 9-0). As an example, let's consider the following:
+   Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are stored in `/opt/Carme/Carme-Scripts/slurm/job-scripts/*`. For each variable we have:
 
-In your `slurm.conf`, you have `PrologSlurmctld=/<your-path>/prolog.sh`. 
-
-Then: 
-
-
-1. In the head-node, copy the corresponding Carme script to your current directory. If needed, change the name, e.g., 
-
-   `cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh`  
-2. In the head-node, modify `slurm.conf` to accept multiple slurmctld prologs, i.e, your variable should read:
    ```
-   PrologSlurmctld=/<your-path>/*
+   PrologSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh
+
+   Prolog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-prolog-scripts/carme-node-prolog.sh
+
+   EpilogSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-epilog-scripts/epilog.sh
+
+   Epilog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-epilog-scripts/carme-node-epilog.sh
    ```
-3. Copy `slurm.conf` to all your compute nodes.
-4. `systemctl restart slurmctld` and `scontrol reconfig` in the head-node.
-5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
-5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
+
+   If you use similar files, then:
+
+   **Case 1: Your SLURM version does not support multiple prolog/epilog files**: You must manually modify your scripts to add Carme-scripts.
+
+   **Case 2: Your SLURM version supports multiple prolog/epilog files**: Add Carme-scripts to your already existing directories. Note that if multiple prolog and/or epilog scripts are specified, they will run in reverse alphabetical order (z-a -> Z-A -> 9-0). As an example, let's consider the following:
+
+   In your `slurm.conf`, you have `PrologSlurmctld=/<your-path>/prolog.sh`. 
+
+   Then: 
+
+
+   1. In the head-node, copy the corresponding Carme script to your current directory. If needed, change the name, e.g., 
+
+      `cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh`  
+   
+   2. In the head-node, modify `slurm.conf` to accept multiple slurmctld prologs, i.e, your variable should read:
+   
+      ```
+      PrologSlurmctld=/<your-path>/*
+      ```
+   3. Copy `slurm.conf` to all your compute nodes.
+   4. `systemctl restart slurmctld` and `scontrol reconfig` in the head-node.
+   5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
+   5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
 
 ## What to do if the install fails
 
