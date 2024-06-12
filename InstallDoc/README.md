@@ -4,33 +4,33 @@ If you have a suggestion or a question that is not resolved in this documentatio
 
 [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de)
 
-**Note:** The documentation provided here allows you to install **Carme-demo v0.99**. We do not recommend this installation in production-mode.
+**Note:** The documentation provided here allows you to install **Carme-demo**. We do not recommend this installation in production-mode.
 
 This documentation is divided in the following sections:
 
 #### Introduction 
-1. [What is Carme-demo v0.99](#1-what-is-carme-demo-v099)
+1. [What is Carme-demo](#1-what-is-carme-demo)
 2. [System requirements](#2-system-requirements)
 3. [Features and next release](#3-features--next-release)
 #### Basic options
 
-4. [How to install Carme-demo v0.99](#4-how-to-install-carme-demo-v099)
-5. [How to uninstall Carme-demo v0.99](#5-how-to-uninstall-carme-demo-v099)
-6. [How to use Carme-demo v0.99](#6-how-to-use-carme-demo-v099)
+4. [How to install Carme-demo](#4-how-to-install-carme-demo)
+5. [How to use Carme-demo](#5-how-to-use-carme-demo)
+6. [How to remove Carme-demo](#6-how-to-remove-carme-demo)
 
 #### Advanced options
 7. [How to configure the config file](#7-how-to-configure-the-config-file) 
 8. [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb)
 9. [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm) 
-10. [What to do if the install fails](#9-what-to-do-if-the-install-fails) 
-11. [What to do if the uninstall fails](#10-what-to-do-if-the-uninstall-fails) 
-
-##  1. What is Carme-demo v0.99
-Carme-demo v0.99 is a simplified version of Carme v0.99. It excludes advanced features that are relevant in production mode. 
+10. [What to do if the install fails](#10-what-to-do-if-the-install-fails) 
+11. [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails) 
+12. [How to install Carme-demo in Windows - Subsystem for Linux](#11-what-to-do-if-the-uninstall-fails) 
+##  1. What is Carme-demo
+Carme-demo is a simplified version of Carme. It excludes advanced features that are relevant in production mode. 
 
 In detail:
 
-|Features| Carme-demo v0.99| Carme v0.99 |
+|Features| Carme-demo | Carme |
 |--|--|--|
 |LDAP| Not set | Required |
 |Authentication| Not set | Login + 2FA|
@@ -53,35 +53,35 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Clusters
   - Must include 1 head-node and >1 compute-nodes.
-  - SSH root access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
-  - SSH root access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
-  - SSH root access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
+  - Root user SSH access from the head-node to the head-node must be set (`ssh 127.0.0.1`), i.e.,  neither password nor passphrase is allowed, use SSH keys. 
+  - Root user SSH access from the head-node to the compute-nodes must be set, i.e., neither password nor passphrase is allowed, use SSH keys. 
+  - Root user SSH access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
-
+  
 ## 3. Features & Next Release
 
-**Carme-demo v0.99**:
+**Carme-demo CURRENT VERSION: v0.99**
 
-- Can be installed in single devices and clusters.
+- Is installed in single devices and clusters.
 - Is a single-user software stack (LDAP is not required).
-- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to [How to use Carme-demo v0.99](#6-how-to-use-carme-demo-v099).
+- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to [How to use Carme-demo](#5-how-to-use-carme-demo).
 - Is set to work with CPUs (GPU implementation is not included).
-- Works without a login-node (in clusters, only 1 head-node is required)
+- Works without a login-node (in clusters, only 1 head-node is required).
 
-**Carme-demo v1.0 (next release)**
+**Carme-demo NEXT RELEASE: v1.0**
 
-- Is set to work with GPUs (CPUs and GPUs are implemented)
+- Is set to work with GPUs (CPUs and GPUs are implemented).
 
 
-## 4. How to install Carme-demo v0.99
+## 4. How to install Carme-demo
 
 Carme-demo is easy to install. Once your cluster is set with the [system requirements](#2-system-requirements), you are ready to go.
 
 #### Step 1: Clone the repo
 
-**Note:** The repo must be in the `/opt/Carme` directory.
+The repo must be in the `/opt/Carme` directory.
 - `cd /opt` (root user is required).
-- `git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git Carme` 
+- `git clone -b demo-0.99 --single-branch https://github.com/CarmeTeam/Carme.git Carme` 
 
   **Note:** You are cloning the demo branch.
 
@@ -104,7 +104,15 @@ Carme-demo is easy to install. Once your cluster is set with the [system require
   **Note:** If the install fails, refer to [What to do if the install fails](#10-what-to-do-if-the-install-fails).
 
 
-## 5. How to uninstall Carme-demo v0.99
+## 5. How to use Carme-demo
+
+- In single-devices or in the head-node, open a web browser and type `localhost:10443`.
+- To remotely access Carme, use SSH tunnel. 
+   - In your local machine type: `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
+   - In your local machine, open a web browser and type: `localhost:9999`. 
+   
+
+## 6. How to remove Carme-demo
 
 Carme-demo is easy to remove. 
 
@@ -112,17 +120,8 @@ Carme-demo is easy to remove.
 - `bash end.sh`
 
   **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails).
-    - Carme-demo does **NOT** unistall an already existing MySQL/MariaDB. It only removes the frontend database tables.
-    - Carme-demo does **NOT** unistall an already existing SLURM. It only removes Carme-demo scripts.
- 
-
-## 6. How to use Carme-demo v0.99
-
-- In your single-device or in the head-node, open a web browser and type `localhost:10443`.
-- To remotely access the web app, use SSH tunnel. 
-   - In your local machine type: `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
-   - In your local machine, open a web browser and type: `localhost:9999`. 
-   
+    - Carme-demo does **NOT** unistall an already existing MySQL/MariaDB. It only removes the frontend database.
+    - Carme-demo does **NOT** unistall an already existing SLURM. It only removes Carme scripts.
 
 
 ## 7. How to configure the config file
@@ -149,7 +148,7 @@ To secure your system, modify the passwords.
 - `CARME_PASSWORD_DJANGO="djangopwd"`. Carme-frontend password to control the database `webfrontend`.
 
 DATABASE 
-- `CARME_DB="yes"` installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to remove the already existing database management tool.
+- `CARME_DB="yes"` installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.
 - `CARME_DB_SERVER="mysql"` uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.
 - `CARME_DB_DEFAULT_ENGINE=django.db.backends.mysql`. Do not modify this variable. It is used by Carme-frontend.
 - `CARME_DB_DEFAULT_NAME="webfrontend"`. Carme-frontend database name. If you are using an already existing MySQL/MariaDB, then check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. 
@@ -168,9 +167,11 @@ SLURM
 - `CARME_SLURM="yes"` installs SLURM. `CARME_SLURM="no"` uses an already existing SLURM. If you choose to install SLURM, but you already have SLURM installed, then Carme will ask you if you want to reinstall the workload management tool.
 - `CARME_SLURM_CLUSTER_NAME="mycluster"` is your SLURM cluster name. Choose the name that you want. If you are using an already existing SLURM, then your cluster name is given with `sacctmgr show cluster`.
 - `CARME_SLURM_PARTITION_NAME="carme"` is your SLURM partition name. Choose the name that you want. If you are using an already existing SLURM, you may have more than one partition.
-- `CARME_SLURM_ACCELERATOR_TYPE="cpu"` enforces Carme-demo to work with CPUs only. (GPUs will be inlcuded in the next Carme-demo release).
+- `CARME_SLURM_ACCELERATOR_TYPE="cpu"` enforces Carme-demo to work with CPUs only. (GPUs will be included in the next Carme-demo release).
 - `CARME_SLURM_SLURMCTLD_PORT=6817` is the SLURM controller port. If you use an already existing SLURM, this port may be different. Refer to `SlurmctldPort` in your `slurm.conf` to know you actual port.
 - `CARME_SLURM_SLURMD_PORT=6818` is the SLURM daemon port. If you use an already existing SLURM, this port may be different. Refer to `SlurmdPort` in your `slurm.conf` to know you actual port.
+
+  **Note:** Advanced SLURM features can be implemented manually. 
 
 VENDORS
 
@@ -182,7 +183,7 @@ Mambaforge, Singularity, and Go are installed in `/opt/Carme/Carme-Vendors`, Tra
 - `GO_VERSION=1.20.6`. Go to https://go.dev/dl/ to choose a different go version.
 
 FRONTEND
-- `CARME_FRONTEND_KEY="3nb5&c!y0f&myadrbkp+v67m9ps8(+(!eksyq!5&5z&mlwx_=="`. Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key must not contain the character `"`.
+- `CARME_FRONTEND_KEY="3nb5&c!y0f&myadrbkp+v67m9ps8(+(!eksyq!5&5z&mlwx_=="`. Carme-frontend security key. To create a new one, go to https://djecrety.ir. Note that your key **must not contain** the character `"`.
 - `CARME_FRONTEND_NODE="head-node"`. Head-node name, i.e., `hostname -s`. In single devices it is `localhost`.
 - `CARME_FRONTEND_URL="localhost"`. Default URL. Do not modify this variable.
 - `CARME_FRONTEND_IP="10.0.0.27"`. Head-node IP, i.e., `hostname -I`. In single devices it is `127.0.0.1`
@@ -218,7 +219,38 @@ If you already have MySQL/MariaDB installed in your system, then in your config 
 
 ## 9. How to configure an already existing SLURM
 
-in development
+Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are:
+```
+PrologSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh
+
+Prolog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-prolog-scripts/carme-node-prolog.sh
+
+EpilogSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-epilog-scripts/epilog.sh
+
+Epilog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-epilog-scripts/carme-node-epilog.sh
+```
+If you use similar files, then:
+
+**Case 1: Your SLURM does not support multiple prolog/epilog files**: You must manually modify your scripts to add Carme-scripts.
+
+**Case 2: Your SLURM supports multiple prolog/epilog files**: Add Carme-scripts to your already existing directories. Note that if multiple prolog and/or epilog scripts are specified, they will run in reverse alphabetical order (z-a -> Z-A -> 9-0). As an example, let's consider the following:
+
+In your `slurm.conf`, you have `PrologSlurmctld=/<your-path>/prolog.sh`. 
+
+Then: 
+
+
+1. In the head-node, copy the corresponding Carme script to your current directory. If needed, change the name, e.g., 
+
+   `cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh`  
+2. In the head-node, modify `slurm.conf` to accept multiple slurmctld prologs, i.e, your variable should read:
+   ```
+   PrologSlurmctld=/<your-path>/*
+   ```
+3. Copy `slurm.conf` to all your compute nodes.
+4. `systemctl restart slurmctld` and `scontrol reconfig` in the head-node.
+5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
+5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
 
 ## 10. What to do if the install fails
 
