@@ -12,6 +12,7 @@ This documentation is divided in the following sections:
 1. [What is Carme-demo](#1-what-is-carme-demo)
 2. [System requirements](#2-system-requirements)
 3. [Features and next release](#3-features--next-release)
+
 #### Basic options
 
 4. [How to install Carme-demo](#4-how-to-install-carme-demo)
@@ -19,12 +20,13 @@ This documentation is divided in the following sections:
 6. [How to remove Carme-demo](#6-how-to-remove-carme-demo)
 
 #### Advanced options
+
 7. [How to configure the config file](#7-how-to-configure-the-config-file) 
 8. [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb)
 9. [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm) 
 10. [What to do if the install fails](#10-what-to-do-if-the-install-fails) 
 11. [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails) 
-12. [How to install Carme-demo in Windows - Subsystem for Linux](#11-what-to-do-if-the-uninstall-fails) 
+
 ##  1. What is Carme-demo
 Carme-demo is a simplified version of Carme. It excludes advanced features that are relevant in production mode. 
 
