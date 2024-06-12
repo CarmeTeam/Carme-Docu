@@ -132,6 +132,7 @@ Carme-demo is easy to remove.
 You can customize the config file, `CarmeConfig.start`.
 
 **USER/ADMIN**
+
 |Variable|Definition|
 |--|--|
 |`CARME_UID="1000"`|Linux user uid, i.e., `id -u ubuntu`.|
@@ -141,7 +142,6 @@ You can customize the config file, `CarmeConfig.start`.
 |`CARME_USERS="single"`|Single-user software stack. Do not modify this variable.|
 |`CARME_SYSTEM="multi"`|The system is a cluster. For single devices consider `CARME_SYSTEM="single"`.|
 |`CARME_TIMEZONE="Europe/Berlin"`|Choose your timezone, i.e., `timedatectl list-timezones`.|
-
 
 
 **PASSWORDS** 
@@ -160,13 +160,11 @@ You can customize the config file, `CarmeConfig.start`.
 |--|--|
 |`CARME_DB="yes"`|Installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.|
 |`CARME_DB_SERVER="mysql"`|Uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.|
-|`CARME_DB_DEFAULT_ENGINE=django.db.backends.mysql`|Do not modify this variable. It is used by Carme-frontend.|
 |`CARME_DB_DEFAULT_NAME="webfrontend"`| Carme-frontend database name. If you are using an already existing MySQL/MariaDB, then check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. |
 |`CARME_DB_DEFAULT_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
 |`CARME_DB_DEFAULT_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
 |`CARME_DB_DEFAULT_USER="django"`|User name to handle `webfrontend` database.|
 |`CARME_DB_DEFAULT_PORT=3306`|MySQL/MariaDB port where `webfrontend` exits. If you use a different port, then change it accordingly. |
-|`CARME_DB_SLURM_ENGINE=django.db.backends.mysql`|Do not modify this variable. It is used by Carme-frontend.|
 |`CARME_DB_SLURM_NAME="slurm_acct_db"`|SLURM accounting database name. If you are using an already existing SLURM, then Carme will use your already existing `slurm_acct_db` database. Carme does **NOT** overwrite/modify your already existing database, this is managed by SLURM only.|
 |`CARME_DB_SLURM_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
 |`CARME_DB_SLURM_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
