@@ -142,10 +142,10 @@ Below we show all the variables:
 
 |Variable|Definition|
 |--|--|
-|`CARME_UID="1000"`|Linux user uid, i.e., `id -u ubuntu`.|
+|`CARME_UID="1000"`|Linux user uid, e.g., `id -u ubuntu`.|
 |`CARME_USER="ubuntu"` |Linux user.|
 |`CARME_HOME="/home/ubuntu"`|Linux user home folder.|
-|`CARME_GROUP="ubuntu"`|Linux user group, i.e., `id -gn ubuntu`.|
+|`CARME_GROUP="ubuntu"`|Linux user group, e.g., `id -gn ubuntu`.|
 |`CARME_USERS="single"`|Single-user software stack. Do not modify this variable.|
 |`CARME_SYSTEM="multi"`|The system is a cluster. For single devices consider `CARME_SYSTEM="single"`.|
 |`CARME_TIMEZONE="Europe/Berlin"`|Choose your timezone, i.e., `timedatectl list-timezones`.|
@@ -168,13 +168,13 @@ Below we show all the variables:
 |`CARME_DB="yes"`|Installs MySQL/MariaDB. `CARME_DB="no"` uses an already existing MySQL/MariaDB. If you choose to install MySQL/MariaDB, but you already have MySQL/MariaDB installed, then Carme will ask you if you want to reinstall the database management tool.|
 |`CARME_DB_SERVER="mysql"`|Uses MySQL. amd64 architectures use MySQL. arm64 architectures use MariaDB. If you prefer MariaDB in amd64, then consider `CARME_DB_SERVER="mariadb"`.|
 |`CARME_DB_DEFAULT_NAME="webfrontend"`| Carme-frontend database name. If you are using an already existing MySQL/MariaDB, then check that the database name `webfrontend` is not used in a different project. If it is, then change the name. Note that Carme does **NOT** overwrite an existing `webfrontend` database. It will only add Carme tables to it. |
-|`CARME_DB_DEFAULT_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
-|`CARME_DB_DEFAULT_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
+|`CARME_DB_DEFAULT_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_NODE="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
+|`CARME_DB_DEFAULT_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_DEFAULT_HOST="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the webfrontend database is installed.|
 |`CARME_DB_DEFAULT_USER="django"`|User name to handle `webfrontend` database.|
-|`CARME_DB_DEFAULT_PORT=3306`|MySQL/MariaDB port where `webfrontend` exits. If you use a different port, then change it accordingly. |
+|`CARME_DB_DEFAULT_PORT=3306`|MySQL/MariaDB port where `webfrontend` exits. If you use a different port, then change it accordingly.|
 |`CARME_DB_SLURM_NAME="slurm_acct_db"`|SLURM accounting database name. If you are using an already existing SLURM, then Carme will use your already existing `slurm_acct_db` database. Carme does **NOT** overwrite/modify your already existing database, this is managed by SLURM only.|
-|`CARME_DB_SLURM_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
-|`CARME_DB_SLURM_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices it is `localhost`.|
+|`CARME_DB_SLURM_NODE="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_NODE="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
+|`CARME_DB_SLURM_HOST="head-node"`|Head-node name, i.e., `hostname -s`. In single-devices `CARME_DB_SLURM_HOST="localhost"`. If your are using an already existing MySQL/MariaDB, consider the hostname where your database server containing the slurm_acct_db database is installed.|
 |`CARME_DB_SLURM_USER="slurm"`|SLURM user name to handle `slurm_acct_db` database. If you are using an already existing SLURM, then this user is set in your SLURM configuration.|
 |`CARME_DB_SLURM_PORT=3306`|MySQL/MariaDB port where `slurm_acct_db` exists. If you use a different port, then change it accordingly. |
 
