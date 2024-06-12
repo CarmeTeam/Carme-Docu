@@ -9,25 +9,26 @@ If you have a suggestion or a question that is not resolved in this documentatio
 This documentation is divided in the following sections:
 
 #### Introduction 
-1. [What is Carme-demo](#1-what-is-carme-demo)
-2. [System requirements](#2-system-requirements)
-3. [Features and next release](#3-features--next-release)
+- [What is Carme-demo](#what-is-carme-demo)
+- [System requirements](#system-requirements)
+- [Features and next release](#features--next-release)
 
 #### Basic options
 
-4. [How to install Carme-demo](#4-how-to-install-carme-demo)
-5. [How to use Carme-demo](#5-how-to-use-carme-demo)
-6. [How to remove Carme-demo](#6-how-to-remove-carme-demo)
+- [How to install Carme-demo](#how-to-install-carme-demo)
+- [How to use Carme-demo](#how-to-use-carme-demo)
+- [How to remove Carme-demo](#how-to-remove-carme-demo)
 
 #### Advanced options
 
-7. [How to configure the config file](#7-how-to-configure-the-config-file) 
-8. [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb)
-9. [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm) 
-10. [What to do if the install fails](#10-what-to-do-if-the-install-fails) 
-11. [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails) 
+- [How to configure the config file](#how-to-configure-the-config-file) 
+- [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb)
+- [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm) 
+- [What to do if the install fails](#what-to-do-if-the-install-fails) 
+- [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails) 
 
-##  1. What is Carme-demo
+## What is Carme-demo
+
 Carme-demo is a simplified version of Carme. It excludes advanced features that are relevant in production mode. 
 
 In detail:
@@ -42,7 +43,7 @@ In detail:
 |IDEs/Tools | JupyterLab and Code-Server  | JupyterLab, Code-Server, GPI, and more |
 | Cluster | supports 1 head-node and >1 compute-nodes | supports a login-node, a head-node, backup-nodes, and compute-nodes
 
-## 2. System Requirements
+## System Requirements
 
 For an optimal installation, your system must fulfill the following requirements:
 
@@ -60,13 +61,13 @@ For an optimal installation, your system must fulfill the following requirements
   - Root user SSH access between the compute-nodes must be set, i.e., neither passwords nor passphrases are allowed, use SSH keys.
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
   
-## 3. Features & Next Release
+## Features & Next Release
 
 **Carme-demo CURRENT VERSION: v0.99**
 
 - Is installed in single devices and clusters.
 - Is a single-user software stack (LDAP is not required).
-- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to [How to use Carme-demo](#5-how-to-use-carme-demo).
+- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to use Carme-demo](#how-to-use-carme-demo).
 - Is set to work with CPUs (GPU implementation is not included).
 - Works without a login-node (in clusters, only 1 head-node is required).
 
@@ -75,15 +76,15 @@ For an optimal installation, your system must fulfill the following requirements
 - Is set to work with GPUs (CPUs and GPUs are implemented).
 
 
-## 4. How to install Carme-demo
+## How to install Carme-demo
 
-Carme-demo is easy to install. Once your cluster is set with the [system requirements](#2-system-requirements), you are ready to go.
+Carme-demo is easy to install. Once your cluster is set with the [system requirements](#system-requirements), you are ready to go.
 
 #### Step 1: Clone the repo
 
 The repo must be in the `/opt/Carme` directory.
 - `cd /opt` (root user is required).
-- `git clone -b demo-0.99 --single-branch https://github.com/CarmeTeam/Carme.git Carme` 
+- `git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git Carme` 
 
   **Note:** You are cloning the demo branch.
 
@@ -93,9 +94,9 @@ The repo must be in the `/opt/Carme` directory.
 - `bash config.sh` 
 
    **Note:** You don't need to modify the config file unless you are using an already existing MySQL/MariaDB or SLURM. If you do, refer to:
-     - [How to configure the config file](#7-how-to-configure-the-config-file).
-     - [How to configure an already existing MySQL/MariaDB](#8-how-to-configure-an-already-existing-mysqlmariadb).
-     - [How to configure an already existing SLURM](#9-how-to-configure-an-already-existing-slurm).
+     - [How to configure the config file](#how-to-configure-the-config-file).
+     - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb).
+     - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm).
 
 
 #### Step 3: Run the installation script 
@@ -103,10 +104,10 @@ The repo must be in the `/opt/Carme` directory.
 - `cd /opt/Carme`
 - `bash start.sh` 
 
-  **Note:** If the install fails, refer to [What to do if the install fails](#10-what-to-do-if-the-install-fails).
+  **Note:** If the install fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
 
 
-## 5. How to use Carme-demo
+## How to use Carme-demo
 
 - In single-devices or in the head-node, open a web browser and type `localhost:10443`.
 - To remotely access Carme, use SSH tunnel. 
@@ -114,19 +115,19 @@ The repo must be in the `/opt/Carme` directory.
    - In your local machine, open a web browser and type: `localhost:9999`. 
    
 
-## 6. How to remove Carme-demo
+## How to remove Carme-demo
 
 Carme-demo is easy to remove. 
 
 - `cd /opt/Carme`
 - `bash end.sh`
 
-  **Note:** If the uninstall fails, refer to [What to do if the uninstall fails](#11-what-to-do-if-the-uninstall-fails).
+  **Note:** If the uninstall fails, refer to: [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails).
     - Carme-demo does **NOT** unistall an already existing MySQL/MariaDB. It only removes the frontend database.
     - Carme-demo does **NOT** unistall an already existing SLURM. It only removes Carme scripts.
 
 
-## 7. How to configure the config file
+## How to configure the config file
 
 You can customize the config file, `CarmeConfig.start`, if needed.
 
@@ -203,11 +204,11 @@ NODES
 - `CARME_NODE_SSD_PATH="/scratch"`. Do not modify this variable.
 - `CARME_NODE_TMP_PATH="/tmp"`. Do not modify this variable.
 
-## 8. How to configure an already existing MySQL/MariaDB
+## How to configure an already existing MySQL/MariaDB
 
 If you already have MySQL/MariaDB installed in your system, then in your config file you should have `CARME_DB=no`, meaning that you don't need to install the database management tool. 
 
-1. Modify `CarmeConfig.start` variables. Refer to DATABASE variables in [How to configure the config file](#7-how-to-configure-the-config-file).
+1. Modify `CarmeConfig.start` variables. Refer to DATABASE variables in [How to configure the config file](#how-to-configure-the-config-file).
 2. Add the following to `/etc/mysql/my.cnf`:
    ```
    [mysqld]
@@ -219,7 +220,7 @@ If you already have MySQL/MariaDB installed in your system, then in your config 
    ```
     **Note:** The install script will stop if you need to manually add these parameters. If it doesn't stop, then this was added automatically by the installation script. 
 
-## 9. How to configure an already existing SLURM
+## How to configure an already existing SLURM
 
 Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are:
 ```
@@ -254,7 +255,7 @@ Then:
 5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
 5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
 
-## 10. What to do if the install fails
+## What to do if the install fails
 
 The install is made of 10 sub-scripts that are run in order. You must not alter this order:
 
@@ -277,7 +278,7 @@ The install is made of 10 sub-scripts that are run in order. You must not alter 
 - If you don't know how to solve the error, please contact us at carme@itwm.fraunhofer.de.
 
 
-## 11. What to do if the uninstall fails
+## What to do if the uninstall fails
 
 The uninstall is made of 8 sub-scripts that are run in order. You must not alter this order:
 
