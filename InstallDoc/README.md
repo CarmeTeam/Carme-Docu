@@ -26,6 +26,8 @@ This documentation is divided in the following sections:
 - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm) 
 - [What to do if the install fails](#what-to-do-if-the-install-fails) 
 - [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails) 
+- [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device) 
+- [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
 
 ## What is Carme-demo
 
@@ -49,13 +51,15 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Linux Base Distribution
   - Ubuntu 20.04-focal, 22.04-jammy, and 24.04-noble.
-  - Debian 10-buster, 11-bullseye, 12-bookworm.
+  - Debian 11-bullseye, 12-bookworm.
 
-- Single Devices
-  - Laptops, Desktops, RPis, VMs using Linux or WSL (Windows Subsystem for Linux). 
+- Devices
+  - Laptops, PCs, RPis, VMs using Linux or WSL. Windows users, refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
 
 - Clusters
-  - Must include 1 head-node and >1 compute-nodes.
+  - All nodes must have the same timezone.
+  - In all nodes, the user must have the same user ID and group ID.
+  - The cluster must include 1 head-node and >1 compute-nodes.
   - SSH access from the head-node to itself must be set for the root user, i.e., `ssh localhost`. Neither password nor passphrase is allowed, use SSH keys. 
   - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. 
   - SSH access between the compute-nodes must be set for the root user. Neither passwords nor passphrases are allowed, use SSH keys.
@@ -78,7 +82,11 @@ For an optimal installation, your system must fulfill the following requirements
 
 ## How to install Carme-demo
 
-Carme-demo is easy to install. Once your cluster is set with the [system requirements](#system-requirements), you are ready to go.
+Carme-demo is easy to install. Once your cluster  or your single device is set with the [system requirements](#system-requirements), you are ready to go. 
+
+**Windows users** require WSL, refer to:  [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device). Once installed, you can proceed with the steps given here.
+
+If you already have WSL, but you don't want to use it to test Carme-demo, then you can create a test environment that can be easily removed. Refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
 
 #### Step 1: Clone the repo
 
@@ -111,14 +119,15 @@ The repo must be in the `/opt/Carme` directory.
 ## How to use Carme-demo
 
 - In single-devices or in the head-node, open a web browser and type `localhost:10443`.
-- To remotely access Carme, use SSH tunnel. 
+- To remotely access Carme-demo, use SSH tunnel. 
    - In your remote machine type: 
    
      `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
-   - In your remot machine, open a web browser and type: 
+   - In your remote machine, open a web browser and type: 
    
      `localhost:9999`. 
-   
+
+  **Note:** If you would like to stop using Carme-demo, then you can remove it, refer to: [How to remove Carme-demo](#how-to-remove-carme-demo).
 
 ## How to remove Carme-demo
 
@@ -367,3 +376,181 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
   **Note:** Carme-demo uninstall scripts can be run multiple times.
 
 - If you don't know how to solve the error, please contact us at [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de).
+
+## How to install WSL in a Windows device
+
+Open the Windows PowerShell and type:
+
+```
+wsl --install
+```
+**Note:** By default, **Ubuntu** Linux will be installed. 
+
+In the process you will be asked to:
+
+```
+Enter new UNIX username:
+password:
+```
+
+Once the installation completes, you have access to Ubuntu terminal. If you open a new PowerShell, type `wsl.exe` to access Ubuntu terminal. 
+
+To install Carme-demo, you must be a root user. In the terminal type:
+
+```
+sudo su 
+```
+
+Carme is installed in the `/opt` directory, then:
+
+```
+cd /opt
+```
+Now, you are ready to clone the repo and install Carme-demo. Follow the steps given in [How to install Carme-demo](#how-to-install-carme-demo).
+
+If you don't want to install Carme-demo in your active WSL, you can create a test environment considering a separate WSL distribution. Refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
+
+## How to install Carme-demo in a Windows device considering a WSL test environment
+
+Choose one of the following versions:
+
+- [Ubuntu 20.04 test environment](#ubuntu-2004-test-environment)
+- [Ubuntu 22.04 test environment](#ubuntu-2204-test-environment)
+
+### Ubuntu 20.04 test environment
+
+Open the Windows PowerShell. 
+
+To download the WSL tar file for Ubuntu 20.04, type:
+
+```
+Invoke-WebRequest https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-20.04-server-cloudimg-amd64-wsl.rootfs.tar.gz
+```
+
+Import the tar file as a new Ubuntu distribution:
+
+```
+wsl --import carme-ubuntu20.04 carme-ubuntu20.04 ubuntu-20.04-server-cloudimg-amd64-wsl.rootfs.tar.gz
+```
+Access the terminal of the new Ubuntu distribution:
+
+```
+wsl -d carme-ubuntu20.04
+```
+
+Now you are in the Ubuntu terminal, enable systemd and then exit back to the PowerShell:
+
+```
+cat << 'EOF' >> /etc/wsl.conf
+[boot]
+systemd=true
+EOF
+exit
+```
+
+In the PowerShell, restart the new distribution:
+
+```
+wsl --terminate carme-ubuntu20.04
+wsl -d carme-ubuntu20.04
+```
+
+Now you are back in the Ubuntu terminal. Add a new user (in this example the user is `ubuntu`):
+
+```
+adduser --gecos "" --disabled-password ubuntu
+echo "ubuntu:password" | chpasswd
+```
+
+Clone the repository to the `/opt/Carme` directory:
+
+```
+git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+```
+
+Change into the `/opt/Carme` directory and then start the installation:
+
+```
+cd /opt/Carme/
+bash start.sh
+```
+
+Once the installation is finished, you can use Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). 
+
+If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
+ 
+Once you finish testing Carme-demo, you can discard the distribution:
+
+```
+wsl --terminate carme-ubuntu20.04
+wsl --unregister carme-ubuntu20.04
+Remove-Item -Recurse carme-ubuntu20.04
+```
+
+### Ubuntu 22.04 test environment
+
+Open the Windows PowerShell. 
+
+To download the WSL tar file for Ubuntu 22.04, type:
+  
+   ```
+   Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/releases/22.04/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
+   ```
+Import the tar file as a new Ubuntu distribution:
+
+```
+wsl --import carme-ubuntu22.04 carme-ubuntu22.04 ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
+```
+Access the terminal of the new Ubuntu distribution:
+
+```
+wsl -d carme-ubuntu22.04
+```
+
+Now you are in the Ubuntu terminal, enable systemd and then exit back to the PowerShell:
+
+```
+cat << 'EOF' >> /etc/wsl.conf
+[boot]
+systemd=true
+EOF
+exit
+```
+In the PowerShell, restart the new distribution:
+
+```
+wsl --terminate carme-ubuntu22.04
+wsl -d carme-ubuntu22.04
+```
+
+Now you are back in the Ubuntu terminal. Add a new user (in this example the user is `ubuntu`):
+
+```
+adduser --gecos "" --disabled-password ubuntu
+echo "ubuntu:password" | chpasswd
+```
+
+Clone the repository to the `/opt/Carme` directory:
+
+```
+git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+```
+
+Change into the `/opt/Carme` directory and then start the installation:
+
+```
+cd /opt/Carme/
+bash start.sh
+```
+
+Once the installation is finished, you can use Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). 
+
+If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
+ 
+Once you finish testing Carme-demo, you can discard the distribution:
+
+```
+wsl --terminate carme-ubuntu22.04
+wsl --unregister carme-ubuntu22.04
+Remove-Item -Recurse carme-ubuntu22.04
+```
