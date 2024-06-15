@@ -16,6 +16,7 @@ This documentation is divided in the following sections:
 #### Basic options
 
 - [How to install Carme-demo](#how-to-install-carme-demo)
+- [How to access Carme-demo](#how-to-access-carme-demo)
 - [How to use Carme-demo](#how-to-use-carme-demo)
 - [How to remove Carme-demo](#how-to-remove-carme-demo)
 
@@ -71,7 +72,7 @@ For an optimal installation, your system must fulfill the following requirements
 
 - Is installed in single devices and clusters.
 - Is a single-user software stack (LDAP is not required).
-- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to use Carme-demo](#how-to-use-carme-demo).
+- Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to access Carme-demo](#how-to-access-carme-demo).
 - Is set to work with CPUs (GPU implementation is not included).
 - Works without a login-node (in clusters, only 1 head-node is required).
 
@@ -90,55 +91,81 @@ If you already have WSL, but you don't want to use it to test Carme-demo, then y
 
 #### Step 1: Clone the repo
 
-The repo must be in the `/opt/Carme` directory.
-- `cd /opt` (root user is required).
-- `git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git Carme` 
+The repo must be in the `/opt/Carme` directory (root user is required):
 
-  **Note:** You are cloning the demo branch.
+```
+git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+```
+
+
+**Note:** You are cloning the demo branch.
 
 #### Step 2: Create the config file 
 
-- `cd /opt/Carme`
-- `bash config.sh` 
+```
+cd /opt/Carme && bash config.sh
+```
 
-   **Note:** You don't need to modify the config file unless you are using an already existing MySQL/MariaDB or SLURM. If you do, refer to:
-     - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb).
-     - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm).
+**Note:** You don't need to modify the config file unless you want to customize it or unless you are using an already existing MySQL/MariaDB or SLURM. For more details, refer to:
 
-   **Note:** To customize the config file, refer to:
-    - [How to customize the config file](#how-to-customize-the-config-file).
+  - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb).
+  - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm).
+  - [How to customize the config file](#how-to-customize-the-config-file).
 
 #### Step 3: Run the installation script 
 
-- `cd /opt/Carme`
-- `bash start.sh` 
+```
+bash start.sh
+```
 
   **Note:** If the install fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
 
 
-## How to use Carme-demo
+## How to access Carme-demo
 
-- In single-devices or in the head-node, open a web browser and type `localhost:10443`.
+- In single-devices or in the head-node, open a web browser and type:
+
+  ```
+  localhost:10443
+  ```
+
 - To remotely access Carme-demo, use SSH tunnel. 
-   - In your remote machine type: 
+   - In your remote machine, open a terminal and type: 
    
-     `ssh <username>@<head-node IP> -NL 9999:localhost:10443`. 
-   - In your remote machine, open a web browser and type: 
+     ```
+     ssh <username>@<head-node IP> -NL 9999:localhost:10443
+     ```
+     
+   - In the same remote machine, open the web browser and type: 
    
-     `localhost:9999`. 
+     ```
+     localhost:9999
+     ```
+ 
 
   **Note:** If you would like to stop using Carme-demo, then you can remove it, refer to: [How to remove Carme-demo](#how-to-remove-carme-demo).
 
+## How to use Carme-demo
+
+Refer to the following links to know how to use Carme-demo:
+
+- [User documentation](https://docs.open-carme.org/UserDoc/)
+- [Admin documentation](https://docs.open-carme.org/AdminDoc/)
+
+
 ## How to remove Carme-demo
 
-Carme-demo is easy to remove. 
+Carme-demo is easy to remove. In the terminal type (in clusters use the head-node):
 
-- `cd /opt/Carme`
-- `bash end.sh`
+```
+cd /opt/Carme && bash end.sh
+```
 
   **Note:** If the uninstall fails, refer to: [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails).
-    - Carme-demo does **NOT** uninstall an already existing MySQL/MariaDB. It only removes the frontend database.
-    - Carme-demo does **NOT** uninstall an already existing SLURM. It only removes Carme scripts.
+
+  - Carme-demo does **NOT** uninstall an already existing MySQL/MariaDB. It only removes the frontend database.
+
+  - Carme-demo does **NOT** uninstall an already existing SLURM. It only removes Carme scripts.
 
 
 ## How to customize the config file
@@ -384,7 +411,7 @@ Open the Windows PowerShell and type:
 ```
 wsl --install
 ```
-**Note:** By default, **Ubuntu** Linux will be installed. 
+**Note:** By default, **Ubuntu** Linux is installed. 
 
 In the process you will be asked to:
 
@@ -393,7 +420,7 @@ Enter new UNIX username:
 password:
 ```
 
-Once the installation completes, you have access to Ubuntu terminal. If you open a new PowerShell, type `wsl.exe` to access Ubuntu terminal. 
+Once the installation completes, you have access to the Ubuntu terminal. If you open a new PowerShell, type `wsl.exe` to access the Ubuntu terminal. 
 
 To install Carme-demo, you must be a root user. In the terminal type:
 
@@ -481,14 +508,14 @@ cd /opt/Carme/
 bash start.sh
 ```
 
-Once the installation is finished, you can use Carme-demo. Open a browser and type in the URL box:
+Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
 ```
 localhost:10443
 ```
 
 If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
  
-Once you finish testing Carme-demo, you can discard the distribution:
+To test Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). Once you finish testing Carme-demo, you can discard the distribution:
 
 ```
 wsl --terminate carme-ubuntu20.04
@@ -559,11 +586,15 @@ cd /opt/Carme/
 bash start.sh
 ```
 
-Once the installation is finished, you can use Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). 
+Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
+
+```
+localhost:10443
+```
 
 If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
  
-Once you finish testing Carme-demo, you can discard the distribution:
+To test Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). Once you finish testing Carme-demo, you can discard the distribution:
 
 ```
 wsl --terminate carme-ubuntu22.04
