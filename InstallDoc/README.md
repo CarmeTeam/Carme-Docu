@@ -85,20 +85,19 @@ For an optimal installation, your system must fulfill the following requirements
 
 Carme-demo is easy to install. Once your cluster  or your single device is set with the [system requirements](#system-requirements), you are ready to go. 
 
-**Windows users** require WSL, refer to:  [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device). Once installed, you can proceed with the steps given here.
+**Windows users:** 
+- Require WSL, refer to:  [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device). Once installed, you can proceed with the steps given here. 
+- if you already have WSL, but you don't want to use it to test Carme-demo, then you can create a test environment that can be easily removed. Refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
 
-If you already have WSL, but you don't want to use it to test Carme-demo, then you can create a test environment that can be easily removed. Refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
+#### Step 1: Clone the repo 
 
-#### Step 1: Clone the repo
-
-The repo must be in the `/opt/Carme` directory (root user is required):
+As root user, in the terminal type (in clusters use the head-node):
 
 ```
 git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
 ```
 
-
-**Note:** You are cloning the demo branch.
+**Note:** The repo must be cloned to the `/opt/Carme` directory.
 
 #### Step 2: Create the config file 
 
@@ -129,25 +128,23 @@ bash start.sh
   localhost:10443
   ```
 
-- To remotely access Carme-demo, use SSH tunnel. 
-   - In your remote machine, open a terminal and type: 
+- To remotely access Carme-demo, use SSH tunnel.In your remote device proceed as follows: 
+   - Open the terminal and type: 
    
      ```
-     ssh <username>@<head-node IP> -NL 9999:localhost:10443
+     ssh <username>@<IP> -NL 9999:localhost:10443
      ```
      
-   - In the same remote machine, open the web browser and type: 
+      **Note:** IP refers to the head-node or the single device IP.
+   - Then, open the web browser and type: 
    
      ```
      localhost:9999
      ```
- 
-
-  **Note:** If you would like to stop using Carme-demo, then you can remove it, refer to: [How to remove Carme-demo](#how-to-remove-carme-demo).
 
 ## How to use Carme-demo
 
-Refer to the following links to know how to use Carme-demo:
+Refer to the following links:
 
 - [User documentation](https://docs.open-carme.org/UserDoc/)
 - [Admin documentation](https://docs.open-carme.org/AdminDoc/)
@@ -374,8 +371,11 @@ The install is made of 10 sub-scripts that are run in order. You must not alter 
 
 - These 10 sub-scripts are stored in `/opt/Carme/Carme-Install`.
 - When your installation fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `start.sh` or you can continue with the installation running the sub-script and following the order, e.g., if the install stopped at `install_certs.sh`, then:
-  - `cd /opt/Carme/Carme-Install`
-  - `bash install_certs.sh`
+
+  ```
+  cd /opt/Carme/Carme-Install && bash install_certs.sh
+  ```
+  
 
   **Note:** Carme-demo install scripts can be run multiple times.
 
@@ -397,8 +397,10 @@ The uninstall is made of 8 sub-scripts that are run in order. You must not alter
 
 - These 8 sub-scripts are stored in `/opt/Carme/Carme-Install`.
 - When your uninstall fails, the script exits with an error. You can identify to which sub-script the error is related. Once fixed, you can rerun `end.sh` or you can continue with the uninstall running the sub-script and following the order, e.g., if the uninstall stopped at `remove_certs.sh`, then:
-  - `cd /opt/Carme/Carme-Install`
-  - `bash remove_certs.sh`
+
+  ```
+  cd /opt/Carme/Carme-Install && bash remove_certs.sh
+  ```
 
   **Note:** Carme-demo uninstall scripts can be run multiple times.
 
