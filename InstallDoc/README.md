@@ -412,7 +412,7 @@ If you don't want to install Carme-demo in your active WSL, you can create a tes
 
 ## How to install Carme-demo in a Windows device considering a WSL test environment
 
-Choose one of the following versions:
+e.g., choose one of the following versions:
 
 - [Ubuntu 20.04 test environment](#ubuntu-2004-test-environment)
 - [Ubuntu 22.04 test environment](#ubuntu-2204-test-environment)
@@ -432,6 +432,12 @@ Import the tar file as a new Ubuntu distribution:
 ```
 wsl --import carme-ubuntu20.04 carme-ubuntu20.04 ubuntu-20.04-server-cloudimg-amd64-wsl.rootfs.tar.gz
 ```
+Delete the tar file:
+
+```
+Remove-Item -Recurse ubuntu-20.04-server-cloudimg-amd64-wsl.rootfs.tar.gz
+```
+
 Access the terminal of the new Ubuntu distribution:
 
 ```
@@ -455,7 +461,7 @@ wsl --terminate carme-ubuntu20.04
 wsl -d carme-ubuntu20.04
 ```
 
-Now you are back in the Ubuntu terminal. Add a new user (in this example the user is `ubuntu`):
+Now you are back in the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
 
 ```
 adduser --gecos "" --disabled-password ubuntu
@@ -475,7 +481,10 @@ cd /opt/Carme/
 bash start.sh
 ```
 
-Once the installation is finished, you can use Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). 
+Once the installation is finished, you can use Carme-demo. Open a browser and type in the URL box:
+```
+localhost:10443
+```
 
 If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
  
@@ -486,6 +495,7 @@ wsl --terminate carme-ubuntu20.04
 wsl --unregister carme-ubuntu20.04
 Remove-Item -Recurse carme-ubuntu20.04
 ```
+If you like Carme-demo, you can install it in your main WSL distribution. In the PoweShell type `wsl.exe` and follow the steps given in: [How to install Carme-demo](#how-to-install-carme-demo). 
 
 ### Ubuntu 22.04 test environment
 
@@ -501,6 +511,12 @@ Import the tar file as a new Ubuntu distribution:
 ```
 wsl --import carme-ubuntu22.04 carme-ubuntu22.04 ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
 ```
+Delete the tar file:
+
+```
+Remove-Item -Recurse ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
+```
+
 Access the terminal of the new Ubuntu distribution:
 
 ```
@@ -523,7 +539,7 @@ wsl --terminate carme-ubuntu22.04
 wsl -d carme-ubuntu22.04
 ```
 
-Now you are back in the Ubuntu terminal. Add a new user (in this example the user is `ubuntu`):
+Now you are back in the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
 
 ```
 adduser --gecos "" --disabled-password ubuntu
@@ -554,3 +570,5 @@ wsl --terminate carme-ubuntu22.04
 wsl --unregister carme-ubuntu22.04
 Remove-Item -Recurse carme-ubuntu22.04
 ```
+
+If you like Carme-demo, you can install it in your main WSL distribution. In the PoweShell type `wsl.exe` and follow the steps given in: [How to install Carme-demo](#how-to-install-carme-demo). 
