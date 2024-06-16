@@ -28,7 +28,7 @@ This documentation is divided in the following sections:
 - [What to do if the install fails](#what-to-do-if-the-install-fails) 
 - [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails) 
 - [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device) 
-- [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
+- [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment)
 
 ## What is Carme-demo
 
@@ -128,7 +128,7 @@ bash start.sh
   localhost:10443
   ```
 
-- To remotely access Carme-demo, use SSH tunnel.In your remote device proceed as follows: 
+- To remotely access Carme-demo, use SSH tunnel. In your remote device proceed as follows: 
    - Open the terminal and type: 
    
      ```
@@ -490,7 +490,7 @@ wsl --terminate carme-ubuntu20.04
 wsl -d carme-ubuntu20.04
 ```
 
-Now you are back in the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
+Now you are back to the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
 
 ```
 adduser --gecos "" --disabled-password ubuntu
@@ -506,8 +506,7 @@ git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /
 Change into the `/opt/Carme` directory and then start the installation:
 
 ```
-cd /opt/Carme/
-bash start.sh
+cd /opt/Carme/ && bash start.sh
 ```
 
 Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
@@ -568,7 +567,7 @@ wsl --terminate carme-ubuntu22.04
 wsl -d carme-ubuntu22.04
 ```
 
-Now you are back in the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
+Now you are back to the Ubuntu terminal. Add a new user (in this example the new user is `ubuntu`):
 
 ```
 adduser --gecos "" --disabled-password ubuntu
@@ -584,8 +583,7 @@ git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /
 Change into the `/opt/Carme` directory and then start the installation:
 
 ```
-cd /opt/Carme/
-bash start.sh
+cd /opt/Carme/ && bash start.sh
 ```
 
 Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
