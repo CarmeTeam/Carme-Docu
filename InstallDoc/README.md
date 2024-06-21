@@ -42,6 +42,8 @@ In detail:
 |Authentication| Not set | Login + 2FA|
 |TLS| Not set (localhost)| Set |
 |Multi-users| Not set (single-user)| Set |
+|Projects App | Not Set  | Set |
+|Management Scripts | Not Set  | Set |
 |GPUs| Not set (CPUs only)| Set|
 |IDEs/Tools | JupyterLab and Code-Server  | JupyterLab, Code-Server, GPI, and more |
 | Cluster | supports 1 head-node and >1 compute-nodes | supports a login-node, a head-node, backup-nodes, and compute-nodes
