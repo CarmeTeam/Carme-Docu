@@ -31,6 +31,10 @@ Here we focus on running Jupyter notebooks in Code-Server. If you choose Jupyter
 * Step 6: [ Customize the conda environment](./Basic/conda-env-customize/conda-env-customize.md)
 * Step 7: [ Run your code](./Basic/code-server-run/code-server-run.md)
 
+### Usage: First time - parallel computing
+
+* Step 1: [ Run a Python code with mpirun](./Basic/mpi-python/mpi-python.md)
+* Step 2: [ Run a C++ code with mpirun ](./Basic/mpi-c/mpi-c.md)
 
 ### Usage: Basic Options
 * Carme Dashboard 

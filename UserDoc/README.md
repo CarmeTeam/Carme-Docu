@@ -1,10 +1,8 @@
-# User documentation
+# Carme user documentation
 
 If you have a suggestion or a question that is not resolved in this documentation, please contact the Carme Team: 
 
 [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de)
-
-The documentation here focuses on `Carme r0.9.9`.
 
 **Note:** 
 
