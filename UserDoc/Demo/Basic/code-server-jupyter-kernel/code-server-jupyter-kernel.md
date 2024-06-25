@@ -12,7 +12,8 @@ To run Jupyter notebooks, you need to add a Jupyter kernel in every conda enviro
     conda install ipykernel -y && ipython kernel install --user --name "<name>"
     ```
 3. You can list your installed Jupyter kernels considering:
-     ```
+
+    ```
     ls /home/<username>/.local/share/jupyter/kernels
     ```
 

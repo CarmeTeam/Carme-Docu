@@ -148,10 +148,9 @@ bash start.sh
 
 ## How to use Carme-demo
 
-Refer to the following links:
+Refer to the following link:
 
-- [User documentation](https://docs.open-carme.org/UserDoc/)
-- [Admin documentation](https://docs.open-carme.org/AdminDoc/)
+- [Carme-demo user documentation](https://docs.open-carme.org/UserDoc/Demo)
 
 
 ## How to remove Carme-demo
