@@ -21,7 +21,7 @@ First-time users should follow the steps given in **Access: First Time** and **U
 
 ### Usage: First Time
 
-Here we focus on running Jupyter notebooks in Code-Server. If you choose JupyterLab, then you can jump from step 1 to step 4.
+Here we focus on running Jupyter notebooks in Code-Server. If you choose JupyterLab, then you can skip steps 2 and 3.
 
 * Step 1: [ Start a job ](./Basic/job-start/job-start.md)
 * Step 2: [ Set up Code-Server](./Basic/code-server-set-up/code-server-set-up.md)

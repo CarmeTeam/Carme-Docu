@@ -1,6 +1,6 @@
 # How to set up Code-Server
 
-1. When you access to `Code-Server`, the screen looks like Fig. 1.
+1. When you access `Code-Server`, the screen looks like Fig. 1.
 
     ![code-server-set-up-1.png](images/code-server-set-up-1.png)
 
