@@ -8,13 +8,13 @@ The documentation here focuses on `Carme r0.9.9`.
 
 **Note:** 
 
-- If you are currently a Carme user, refer to: 
+- If you are a Carme user in an already existing cluster, refer to: 
 
-  [Local User Documentation](./Docu/docu-access/docu-access.md).
+  [Local user documentation](./Docu/docu-access/docu-access.md).
 
-- If you are currently a Carme-demo user, refer to: 
+- If you are testing Carme-demo, refer to: 
 
-  [Carme-demo User Documentation](./Docu/docu-access/docu-access.md).
+  [Carme-demo user documentation](./Demo/README.md).
 
 ## Topics
 

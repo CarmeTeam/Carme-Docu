@@ -1,4 +1,4 @@
-# Carme-demo User documentation
+# Carme-demo user documentation
 
 If you have a suggestion or a question that is not resolved in this documentation, please contact the Carme Team: 
 
