@@ -1,6 +1,8 @@
 # Installation documentation
 
+
 If you have a suggestion or a question that is not resolved in this documentation, please contact the Carme Team: 
+
 
 [carme@itwm.fraunhofer.de](carme@itwm.fraunhofer.de)
 
@@ -29,6 +31,7 @@ This documentation is divided in the following sections:
 - [What to do if the uninstall fails](#what-to-do-if-the-uninstall-fails) 
 - [How to install WSL in a Windows device](#how-to-install-wsl-in-a-windows-device) 
 - [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment)
+- [How to set SSH keys in a cluster](#how-to-set-ssh-keys-in-a-cluster)
 
 ## What is Carme-demo
 
@@ -63,9 +66,8 @@ For an optimal installation, your system must fulfill the following requirements
   - All nodes must have the same timezone.
   - In all nodes, the user must have the same user ID and group ID.
   - The cluster must include 1 head-node and >1 compute-nodes.
-  - SSH access from the head-node to itself must be set for the root user, i.e., `ssh localhost`. Neither password nor passphrase is allowed, use SSH keys. 
-  - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. 
-  - SSH access between the compute-nodes must be set for the root user. Neither passwords nor passphrases are allowed, use SSH keys.
+  - SSH access from the head-node to itself must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. Refer to: [How to set SSH keys in a cluster](#how-to-set-ssh-keys-in-a-cluster).
+  - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. [How to set SSH keys in a cluster](#how-to-set-ssh-keys-in-a-cluster).  
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
   
 ## Features & next release
@@ -342,8 +344,10 @@ If you already have SLURM installed in your system, then:
 
 
    1. In the head-node, copy the corresponding Carme script to your current directory. If needed, change the name, e.g., 
-
-      `cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh`  
+      ```
+      cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh
+      ```
+        
    
    2. In the head-node, modify `slurm.conf` to accept multiple slurmctld prologs, i.e, your variable should read:
    
@@ -352,8 +356,8 @@ If you already have SLURM installed in your system, then:
       ```
 
    3. Copy `slurm.conf` to all your compute nodes.
-   4. `systemctl restart slurmctld` and `scontrol reconfig` in the head-node.
-   5. `systemctl restart slurmd` and `scontrol reconfig` in the compute-nodes.
+   4. `systemctl restart slurmctld && scontrol reconfig` in the head-node.
+   5. `systemctl restart slurmd && scontrol reconfig` in the compute-nodes.
    5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
 
 ## What to do if the install fails
@@ -605,3 +609,67 @@ Remove-Item -Recurse carme-ubuntu22.04
 ```
 
 If you like Carme-demo, you can install it in your main WSL distribution. In the PoweShell type `wsl.exe` and follow the steps given in: [How to install Carme-demo](#how-to-install-carme-demo). 
+
+
+## How to set SSH keys in a cluster
+
+Let's consider that your cluster is made of 1 head-node a 2 compute-nodes.
+In each node, `hostname -s` and `hostname -I` gives, e.g.,
+
+|node|`hostname -s`| `hostname -I`|
+|--|--|--|
+|head node| carmec0| 10.0.0.1|
+|compute node 1| carmec1| 10.0.0.10|
+|compute node 2| carmec2| 10.0.0.11|
+
+#### Step 1: Modify `/etc/hosts` 
+In the head node, `/etc/hosts` should have:
+
+```
+127.0.0.1       localhost
+127.0.1.1       carmec0
+
+10.0.0.1        carmec0
+10.0.0.10       carmec1
+10.0.0.11       carmec2
+```
+
+In the compute node 1, `/etc/hosts` should have:
+
+```
+127.0.0.1       localhost
+127.0.1.10      carmec1
+
+10.0.0.1        carmec0
+10.0.0.10       carmec1
+10.0.0.11       carmec2
+```
+
+And in the compute node 2, `/etc/hosts` should have:
+
+```
+127.0.0.1       localhost
+127.0.1.1       carmec2
+
+10.0.0.1        carmec0
+10.0.0.10       carmec1
+10.0.0.11       carmec2
+```
+
+#### Step 2: Create the SSH keys
+
+In the head node, type:
+```
+ssh-keygen -t ed25519 -N="" -C "root@carmec0"
+```
+
+This creates your passphraseless ssh key in  `/root/.ssh/`. Open the `.pub` key, i.e.,
+```
+cat id_ed25519.pub
+```
+
+Copy the output to `/root/.ssh/authorized_keys` in the head-node.
+
+Copy the output to `/root/.ssh/authorized_keys` in the compute-nodes.
+
+**Congratulations!** Now you can ssh from the head-node to itself considering `ssh carmec0` and `ssh localhost`, and from the head-node to the compute-nodes considering `ssh carmec1` and `ssh carmec2`.
