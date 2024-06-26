@@ -42,7 +42,7 @@ To test this example start a job with 2 nodes, see Fig. 1
 4. Run your executable file:
 
     ```
-    carme_mpirun -np 2 ./hello_world.cpp
+    carme_mpirun -np 2 ./hello_world.exe
     ```
 
 4. The output shows that two processors were used:
