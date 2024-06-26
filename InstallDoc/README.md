@@ -82,7 +82,7 @@ For an optimal installation, your system must fulfill the following requirements
 
 **Carme-demo v1.0 (next release)**
 
-- Is set to work with GPUs (CPUs and GPUs are implemented).
+- Is set to work with GPUs (CPUs and GPUs are implemented). For more information, refer to our [Roadmap](https://github.com/CarmeTeam/Carme?tab=readme-ov-file#roadmap).
 
 
 ## How to install Carme-demo
