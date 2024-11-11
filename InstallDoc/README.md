@@ -450,6 +450,7 @@ e.g., choose one of the following versions:
 
 - [Ubuntu 20.04 test environment](#ubuntu-2004-test-environment)
 - [Ubuntu 22.04 test environment](#ubuntu-2204-test-environment)
+- [Rocky 9 test environment](#rocky-9-test-environment)
 
 ### Ubuntu 20.04 test environment
 
@@ -505,13 +506,13 @@ echo "ubuntu:password" | chpasswd
 Clone the repository to the `/opt/Carme` directory:
 
 ```
-git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+git clone -b demo-1.0 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
 ```
 
 Change into the `/opt/Carme` directory and then start the installation:
 
 ```
-cd /opt/Carme/ && bash start.sh
+cd /opt/Carme/ && bash config.sh && bash start.sh
 ```
 
 Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
@@ -582,13 +583,13 @@ echo "ubuntu:password" | chpasswd
 Clone the repository to the `/opt/Carme` directory:
 
 ```
-git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+git clone -b demo-1.0 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
 ```
 
 Change into the `/opt/Carme` directory and then start the installation:
 
 ```
-cd /opt/Carme/ && bash start.sh
+cd /opt/Carme/ && bash config.sh && bash start.sh
 ```
 
 Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
@@ -605,6 +606,90 @@ To test Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). O
 wsl --terminate carme-ubuntu22.04
 wsl --unregister carme-ubuntu22.04
 Remove-Item -Recurse carme-ubuntu22.04
+```
+
+If you like Carme-demo, you can install it in your main WSL distribution. In the PoweShell type `wsl.exe` and follow the steps given in: [How to install Carme-demo](#how-to-install-carme-demo). 
+
+### Rocky 9 test environment
+
+Open the Windows PowerShell. 
+
+To download the WSL tar file for Ubuntu 22.04, type:
+  
+   ```
+   Invoke-WebRequest https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-Container-Base.latest.x86_64.tar.xz -OutFile Rocky-9-Container-Base.latest.x86_64.tar.xz
+   ```
+Import the tar file as a new Ubuntu distribution:
+
+```
+wsl --import carme-rocky9 carme-rocky9 Rocky-9-Container-Base.latest.x86_64.tar.xz
+```
+Delete the tar file:
+
+```
+Remove-Item -Recurse Rocky-9-Container-Base.latest.x86_64.tar.xz
+```
+
+Access the terminal of the new Ubuntu distribution:
+
+```
+wsl -d carme-rocky9
+```
+
+Now you are in the Rocky terminal, enable systemd and then exit back to the PowerShell:
+
+```
+dnf install systemd -y
+cat << 'EOF' >> /etc/wsl.conf
+[boot]
+systemd=true
+EOF
+exit
+```
+In the PowerShell, restart the new distribution:
+
+```
+wsl --terminate carme-rocky9
+wsl -d carme-rocky9
+```
+
+Now you are back to the Rocky terminal. Add a new user (in this example the new user is `rocky`):
+
+```
+dnf install -y 'dnf-command(config-manager)'
+dnf config-manager --set-enabled crb
+dnf install -y epel-release
+dnf clean all
+adduser rocky
+echo "rocky:password" | chpasswd
+```
+
+Clone the repository to the `/opt/Carme` directory:
+
+```
+git clone -b demo-1.0 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+```
+
+Change into the `/opt/Carme` directory and then start the installation:
+
+```
+cd /opt/Carme/ && bash config.sh && bash start.sh
+```
+
+Once the installation is finished, you can access Carme-demo. Open a browser and type in the URL box:
+
+```
+localhost:10443
+```
+
+If the installation fails, refer to: [What to do if the install fails](#what-to-do-if-the-install-fails).
+ 
+To test Carme-demo, refer to: [How to use Carme-demo](#how-to-use-carme-demo). Once you finish testing Carme-demo, you can discard the distribution:
+
+```
+wsl --terminate carme-rocky9
+wsl --unregister carme-rocky9
+Remove-Item -Recurse carme-rocky9
 ```
 
 If you like Carme-demo, you can install it in your main WSL distribution. In the PoweShell type `wsl.exe` and follow the steps given in: [How to install Carme-demo](#how-to-install-carme-demo). 
