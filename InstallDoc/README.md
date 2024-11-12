@@ -41,13 +41,13 @@ In detail:
 
 |Features| Carme-demo | Carme |
 |--|--|--|
-|LDAP| Not set | Required |
-|Authentication| Not set | Login + 2FA|
+|LDAP| Set in Debian / Not set in RedHat | Required |
+|Authentication| Set | Login + 2FA|
 |TLS| Not set (localhost)| Set |
-|Multi-users| Not set (single-user)| Set |
+|Multi-users| Set | Set |
 |Projects App | Not Set  | Set |
 |Management Scripts | Not Set  | Set |
-|GPUs| Not set (CPUs only)| Set|
+|GPUs| Set | Set|
 |IDEs/Tools | JupyterLab and Code-Server  | JupyterLab, Code-Server, GPI, and more |
 | Cluster | supports 1 head-node and >1 compute-nodes | supports a login-node, a head-node, backup-nodes, and compute-nodes
 
@@ -58,6 +58,7 @@ For an optimal installation, your system must fulfill the following requirements
 - Linux Base Distribution
   - Ubuntu 20.04-focal, 22.04-jammy, and 24.04-noble.
   - Debian 11-bullseye, 12-bookworm.
+  - Rocky 9
 
 - Devices
   - Laptops, PCs, RPis, VMs using Linux or WSL. Windows users, refer to: [How to install Carme-demo in a Windows device considering a WSL test environment](#how-to-install-carme-demo-in-a-windows-device-considering-a-wsl-test-environment).
@@ -69,20 +70,21 @@ For an optimal installation, your system must fulfill the following requirements
   - SSH access from the head-node to itself must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. Refer to: [How to set SSH keys in a cluster](#how-to-set-ssh-keys-in-a-cluster).
   - SSH access from the head-node to the compute-nodes must be set for the root user. Neither password nor passphrase is allowed, use SSH keys. [How to set SSH keys in a cluster](#how-to-set-ssh-keys-in-a-cluster).  
   - The head-node and the compute-nodes must share the `/home` and `/opt` directories, e.g., use NFS.
+  - For GPUs. `nvidia-smi` must be installed in the compute nodes.
   
 ## Features & next release
 
-**Carme-demo v0.99 (current version)**
+**Carme-demo v1.0 (current version)**
 
 - Is installed in single devices and clusters.
-- Is a single-user software stack (LDAP is not required).
+- Is a multi-user software stack in Debian  / single-user software stack in RedHat
 - Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to access Carme-demo](#how-to-access-carme-demo).
-- Is set to work with CPUs (GPU implementation is not included).
+- Is set to work with CPUs and GPUs.
 - Works without a login-node (in clusters, only 1 head-node is required).
 
-**Carme-demo v1.0 (next release)**
+**Carme-demo v1.1 (next release)**
 
-- Is set to work with GPUs (CPUs and GPUs are implemented). For more information, refer to our [Roadmap](https://github.com/CarmeTeam/Carme?tab=readme-ov-file#roadmap).
+- Is a multi-user software stack in RedHat. For more information, refer to our [Roadmap](https://github.com/CarmeTeam/Carme?tab=readme-ov-file#roadmap).
 
 
 ## How to install Carme-demo
@@ -98,7 +100,7 @@ Carme-demo is easy to install. Once your cluster  or your single device is set w
 As root user, in the terminal type (in clusters use the head-node):
 
 ```
-git clone -b demo-0.9.9 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
+git clone -b demo-1.0 --single-branch https://github.com/CarmeTeam/Carme.git /opt/Carme
 ```
 
 **Note:** The repo must be cloned to the `/opt/Carme` directory.
