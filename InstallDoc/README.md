@@ -37,17 +37,19 @@ This documentation is divided in the following sections:
 
 Carme-demo is a simplified version of Carme. It excludes advanced features that are relevant in production mode. 
 
+Carme-demo is easy to install. You can test it in Debian and RedHat based systems (including WSL). Give it a try and enjoy.
+
 In detail:
 
 |Features| Carme-demo | Carme |
 |--|--|--|
 |LDAP| Set in Debian / Not set in RedHat | Required |
-|Authentication| Set | Login + 2FA|
-|TLS| Not set (localhost)| Set |
+|Authentication| Login + 2FA | Login + 2FA|
 |Multi-users| Set | Set |
+|GPUs/CPUs | Set | Set|
+|TLS| Not set | Set | 
 |Projects App | Not Set  | Set |
 |Management Scripts | Not Set  | Set |
-|GPUs| Set | Set|
 |IDEs/Tools | JupyterLab and Code-Server  | JupyterLab, Code-Server, GPI, and more |
 | Cluster | supports 1 head-node and >1 compute-nodes | supports a login-node, a head-node, backup-nodes, and compute-nodes
 
@@ -77,7 +79,7 @@ For an optimal installation, your system must fulfill the following requirements
 **Carme-demo v1.0 (current version)**
 
 - Is installed in single devices and clusters.
-- Is a multi-user software stack in Debian  / single-user software stack in RedHat
+- Is a multi-user software stack in Debian  / single-user software stack in RedHat.
 - Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to access Carme-demo](#how-to-access-carme-demo).
 - Is set to work with CPUs and GPUs.
 - Works without a login-node (in clusters, only 1 head-node is required).
@@ -111,7 +113,7 @@ git clone -b demo-1.0 --single-branch https://github.com/CarmeTeam/Carme.git /op
 cd /opt/Carme && bash config.sh
 ```
 
-**Note:** You don't need to modify the config file unless you want to customize it or unless you are using an already existing MySQL/MariaDB or SLURM. For more details, refer to:
+**Note:** You don't need to modify the config file unless you want to customize it:
 
   - [How to configure an already existing MySQL/MariaDB](#how-to-configure-an-already-existing-mysqlmariadb).
   - [How to configure an already existing SLURM](#how-to-configure-an-already-existing-slurm).
@@ -621,7 +623,7 @@ To download the WSL tar file for Ubuntu 22.04, type:
    ```
    Invoke-WebRequest https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-Container-Base.latest.x86_64.tar.xz -OutFile Rocky-9-Container-Base.latest.x86_64.tar.xz
    ```
-Import the tar file as a new Ubuntu distribution:
+Import the tar file as a new Rocky distribution:
 
 ```
 wsl --import carme-rocky9 carme-rocky9 Rocky-9-Container-Base.latest.x86_64.tar.xz
