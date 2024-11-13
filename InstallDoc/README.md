@@ -79,14 +79,15 @@ For an optimal installation, your system must fulfill the following requirements
 **Carme-demo v1.0 (current version)**
 
 - Is installed in single devices and clusters.
-- Is a multi-user software stack in Debian  / single-user software stack in RedHat.
+- Is a multi-user software stack in Debian based systems  / single-user software stack in RedHat based systems.
 - Does not include a TLS configuration. It is a localhost install. Access is granted via SSH tunnel. Refer to: [How to access Carme-demo](#how-to-access-carme-demo).
 - Is set to work with CPUs and GPUs.
+- Adapts to already existing SLURM and MySQL management tools in the system.
 - Works without a login-node (in clusters, only 1 head-node is required).
 
 **Carme-demo v1.1 (next release)**
 
-- Is a multi-user software stack in RedHat. For more information, refer to our [Roadmap](https://github.com/CarmeTeam/Carme?tab=readme-ov-file#roadmap).
+- Adapts to an already existing LDAP user management tool in both, Debian and RedHat based systems. For more information, refer to our [Roadmap](https://github.com/CarmeTeam/Carme?tab=readme-ov-file#roadmap).
 
 
 ## How to install Carme-demo
@@ -174,9 +175,9 @@ cd /opt/Carme && bash end.sh
 
 ## How to customize the config file
 
-You can customize the config file, `/opt/Carme/CarmeConfig.start`, if needed. 
+`bash config.sh` creates and customizes the config file `/opt/Carme/CarmeConfig.start`. If advanced customization is needed, you can manually do so.
 
-Below we show all the variables:
+Below we show all the config file variables:
 
 **USER/ADMIN**
 
@@ -274,94 +275,12 @@ Below we show all the variables:
 
 ## How to configure an already existing MySQL/MariaDB
 
-If you already have MySQL/MariaDB installed in your system, then:
-
-1. Modify/Check the following `CarmeConfig.start` variables:
-
-   - `CARME_PASSWORD_MYSQL="mysqlpwd"`
-   - `CARME_DB="no"`
-   - `CARME_DB_SERVER="mysql"`
-   - `CARME_DB_DEFAULT_NAME="webfrontend"`
-   - `CARME_DB_DEFAULT_NODE="head-node"`
-   - `CARME_DB_DEFAULT_HOST="head-node"`
-   - `CARME_DB_DEFAULT_PORT=3306`
-
-   **Note:** To know how to modify these variables, refer to [How to customize the config file](#how-to-customize-the-config-file). 
-
-2. Add the following to `/etc/mysql/my.cnf`:
-
-   ```
-   [mysqld]
-   innodb_buffer_pool_size=4096M
-   innodb_log_file_size=64M
-   innodb_lock_wait_timeout=900
-   max_allowed_packet=16M
-   port=3306 # use your port
-   ```
-3. Run the installation script, i.e., `bash start.sh`.
+If you already have MySQL/MariaDB installed in your system, then when you run `bash config.sh`, choose `no` when requested if you want to install a database management tool. The rest is handled by Carme. 
 
 ## How to configure an already existing SLURM
 
-If you already have SLURM installed in your system, then:
+If you already have SLURM installed in your system, then when you run `bash config.sh`, choose `no` when requested if you want to install SLURM. The rest is handled by Carme.
 
-1. Modify/Check the following `CarmeConfig.start` variables:
-
-   - `CARME_PASSWORD_SLURM="slurmpwd"`
-   - `CARME_DB_SLURM_NAME="slurm_acct_db"`
-   - `CARME_DB_SLURM_NODE="head-node"`
-   - `CARME_DB_SLURM_HOST="head-node"` 
-   - `CARME_DB_SLURM_USER="slurm"`
-   - `CARME_DB_SLURM_PORT=3306`
-   - `CARME_SLURM="no"`
-   - `CARME_SLURM_CLUSTER_NAME="mycluster"`
-   - `CARME_SLURM_PARTITION_NAME="carme"`
-   - `CARME_SLURM_ACCELERATOR_TYPE="cpu"`
-   - `CARME_SLURM_SLURMCTLD_PORT=6817`
-   - `CARME_SLURM_SLURMD_PORT=6818`
-
-   **Note:** To know how to modify these variables, refer to [How to customize the config file](#how-to-customize-the-config-file).
-
-2. If you use prolog and epilog files in your `slurm.conf`, then you must add Carme-prologs and epilogs to your already existing directories:
-
-   Carme uses its own `PrologSlurmctld`, `Prolog`, `EpilogSlurmctld`, and `Epilog` files. These files are stored in `/opt/Carme/Carme-Scripts/slurm/job-scripts/*`:
-
-   ```
-   PrologSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh
-
-   Prolog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-prolog-scripts/carme-node-prolog.sh
-
-   EpilogSlurmctld=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-epilog-scripts/epilog.sh
-
-   Epilog=/opt/Carme/Carme-Scripts/slurm/job-scripts/slurm-epilog-scripts/carme-node-epilog.sh
-   ```
-
-   To add them, proceed as follows:
-
-   **Case 1: Your SLURM version does not support multiple prolog/epilog files**: You must manually modify your scripts to add Carme-scripts.
-
-   **Case 2: Your SLURM version supports multiple prolog/epilog files**: Add Carme-scripts to your already existing directories. Note that if multiple prolog and/or epilog scripts are specified, they will run in reverse alphabetical order (z-a -> Z-A -> 9-0). As an example, let's consider the following:
-
-   In your `slurm.conf`, you have `PrologSlurmctld=/<your-path>/prolog.sh`. 
-
-   Then: 
-
-
-   1. In the head-node, copy the corresponding Carme script to your current directory. If needed, change the name, e.g., 
-      ```
-      cp /opt/Carme/Carme-Scripts/slurm/job-scripts/slurmctld-prolog-scripts/prolog.sh /<your-path>/carme-prolog.sh
-      ```
-        
-   
-   2. In the head-node, modify `slurm.conf` to accept multiple slurmctld prologs, i.e, your variable should read:
-   
-      ```
-      PrologSlurmctld=/<your-path>/*
-      ```
-
-   3. Copy `slurm.conf` to all your compute nodes.
-   4. `systemctl restart slurmctld && scontrol reconfig` in the head-node.
-   5. `systemctl restart slurmd && scontrol reconfig` in the compute-nodes.
-   5. Repeat the process for all Carme-scripts. You **must** include all 4 Carme-scripts.
 
 ## What to do if the install fails
 
