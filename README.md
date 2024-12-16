@@ -25,7 +25,7 @@ This is the documentation of the [Carme](https://www.open-carme.org) project:
 
 ## Contact
 
-<img src="Images/email-icon.png" width="20"> [christian.ortiz@itwm.fraunhofer.de](mailto:christian.ortiz@itwm.fraunhofer.de)
+<img src="Images/email-icon.png" width="20"> [carme@itwm.fraunhofer.de](mailto:carme@itwm.fraunhofer.de)
 
 ## Sponsors
 **The development of Carme is financed by research grants from:**
